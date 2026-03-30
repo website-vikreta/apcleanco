@@ -1,0 +1,712 @@
+---
+description: "ApcleanCo Design System. Reference and conventions for all components, pages, and frontend design using Tailwind CSS and SCSS. Use when: building components, pages, or UI elements. Enforces consistent color, spacing, motion, and responsive design across the site."
+applyTo: "app/**,components/**,styles/**"
+---
+
+# ApcleanCo Design System
+
+Site-wide design conventions for building consistent, accessible, distinctive interfaces using **Tailwind CSS** and **SCSS**.
+
+**Important**: This is a strong recommendation guide. Special cases may require exceptions, but default to these conventions.
+
+## Design Philosophy
+
+- **Distinctive first**: Every design should have a bold, intentional aesthetic direction (see Production-Grade Design Rule in `copilot.instructions.md`)
+- **Accessible always**: 100% AI accessibility is non-negotiable (see AI Accessibility Rule in `copilot.instructions.md`)
+- **Cohesive second**: Use design system to maintain consistency across features
+- **Never generic**: Avoid cookie-cutter patterns, overly timid palettes, or predictable layouts
+
+## Tailwind CSS & SCSS Setup
+
+All styles are built using:
+- **Tailwind CSS v4**: Utility-first classes via `@import "tailwindcss"` in `app/globals.css`
+- **SCSS**: Custom mixins and component styles in `styles/` — use `@use 'mixins'` to import
+
+**Key Files**:
+- `app/globals.css` — Tailwind import, `@theme` color tokens, `@layer base` styles, keyframes
+- `styles/_mixins.scss` — Reusable `@apply`-based mixins (button-primary, form-input, etc.)
+- `styles/index.scss` — Barrel file: `@use 'mixins'`
+
+**Font**: Geist (`--font-sans`) is applied site-wide via `app/globals.css`. Do NOT add new fonts without explicit approval.
+
+---
+
+## 1. Color System
+
+### Palette Structure (Tailwind CSS)
+- **Primary color**: Main brand color (extends Tailwind `primary` palette)
+- **Accent color**: Bold secondary color for highlights
+- **Neutral colors**: Backgrounds, subtle accents (gray palette)
+- **Dark color**: Text, contrast (Tailwind `gray` shades)
+
+### Tailwind v4 Theme Configuration
+Colors are defined in `app/globals.css` using the `@theme` directive (Tailwind v4 syntax):
+
+```css
+/* app/globals.css */
+@theme {
+  --color-primary-50: #f0f7f2;
+  --color-primary-100: #d4e8db;
+  --color-primary-500: #0f3d1f;
+  --color-primary-700: #062a13;
+  --color-primary-900: #031a08;
+
+  --color-accent-400: #e8c547;
+  --color-accent-500: #d4a200;
+  --color-accent-600: #c49a00;
+
+  --color-neutral-50: #f8f6f1;
+  --color-neutral-100: #efefeb;
+  --color-neutral-200: #e0dfd9;
+  --color-neutral-300: #c4c3bc;
+  --color-neutral-900: #1a1a1a;
+}
+```
+
+These tokens are automatically available as Tailwind utilities: `bg-primary-500`, `text-accent-400`, `border-neutral-200`, etc.
+
+### SCSS Variables
+Define corresponding SCSS variables in `styles/variables.scss`:
+
+```scss
+// Brand colors
+$primary: #0f3d1f;
+$primary-light: #d4e8db;
+$primary-dark: #062a13;
+
+$accent: #e8c547;
+$accent-dark: #d4a200;
+
+// Neutral palette
+$bg-light: #f8f6f1;
+$bg-muted: #efefeb;
+$text-dark: #1a1a1a;
+$text-base: #2d2d2d;
+$text-muted: rgba(45, 45, 45, 0.7);
+$border-color: rgba(45, 45, 45, 0.1);
+
+// Semantic colors
+$error: #c41e3a;
+$success: #2d7a3e;
+$warning: #d97706;
+```
+
+### Rules
+- **Contrast**: All text must meet WCAG AA minimum (4.5:1 text, 3:1 graphics)
+  - Test bold color combos with [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+  - Never assume low contrast is acceptable for "design effect"
+- **Dominant + Accent**: Use 1–2 dominant colors + 1 bold accent, NOT evenly-distributed weak palettes
+- **Avoid**: Purple on white, pastel-only schemes, murky/muddy combinations
+- **Use Tailwind utilities**: Always apply color via Tailwind classes (`text-primary-900`, `bg-neutral-50`, `border-neutral-200`)
+
+### Tailwind Color Usage Examples
+```html
+<!-- Text colors -->
+<p className="text-text-base">Body text</p>
+<p className="text-text-muted">Secondary text</p>
+
+<!-- Background colors -->
+<div className="bg-neutral-50">Light background</div>
+<section className="bg-white">White section</section>
+
+<!-- Buttons with Tailwind -->
+<button className="bg-primary-500 text-white hover:bg-primary-700 transition-colors">
+  Primary Button
+</button>
+
+<button className="border border-primary-500 text-primary-500 hover:bg-primary-50">
+  Secondary Button
+</button>
+
+<!-- Accents -->
+<span className="text-accent-500">Highlighted text</span>
+```
+
+### SCSS for Complex Color Logic
+Use SCSS mixins for reusable color patterns:
+
+```scss
+// _mixins.scss
+@mixin button-primary {
+  @apply bg-primary-500 text-white transition-colors;
+  
+  &:hover {
+    @apply bg-primary-700;
+  }
+  
+  &:focus-visible {
+    @apply outline-2 outline-accent-500 outline-offset-2;
+  }
+  
+  &:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+}
+
+@mixin text-contrast-check {
+  @apply text-text-base bg-neutral-50; // 4.5:1 minimum ratio
+}
+
+// Usage in component
+.button {
+  @include button-primary;
+}
+```
+
+---
+
+## 2. Spacing & Layout System
+
+### Base Unit & Scale (Tailwind)
+Tailwind uses a base unit of 4px (1 = 4px). Use Tailwind spacing utilities throughout:
+
+```
+Tailwind spacing scale:
+- p-1, m-1 = 4px (0.25rem)
+- p-2, m-2 = 8px (0.5rem) — small gaps
+- p-3, m-3 = 12px (0.75rem)
+- p-4, m-4 = 16px (1rem) — standard
+- p-6, m-6 = 24px (1.5rem) — section spacing
+- p-8, m-8 = 32px (2rem) — large sections
+- p-12, m-12 = 48px (3rem) — hero sections
+- p-16, m-16 = 64px (4rem) — page padding
+```
+
+### Tailwind Grid System
+Tailwind CSS provides a 12-column grid by default:
+
+```html
+<!-- Desktop: max-width 1200px, padding sides -->
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Content -->
+  </div>
+</div>
+
+<!-- Responsive padding -->
+<section className="px-4 py-8 sm:px-6 md:px-8 md:py-12 lg:px-16 lg:py-16">
+  Content with responsive padding
+</section>
+```
+
+### SCSS for Custom Spacing Mixins
+```scss
+// _spacing.scss
+@mixin section-padding {
+  @apply px-4 py-8 sm:px-6 md:px-8 md:py-12 lg:px-16 lg:py-16;
+}
+
+@mixin component-spacing {
+  @apply p-4 md:p-6 lg:p-8;
+}
+
+@mixin tight-spacing {
+  @apply gap-2 md:gap-4;
+}
+
+@mixin loose-spacing {
+  @apply gap-6 md:gap-8 lg:gap-12;
+}
+
+// Usage
+section {
+  @include section-padding;
+}
+
+.card {
+  @include component-spacing;
+}
+
+.grid {
+  @include loose-spacing;
+}
+```
+
+### Rules
+- Use Tailwind `gap` utilities (flexbox/grid) instead of margin hacks
+- Consistent padding around sections (esp. header, footer, hero)
+- Asymmetric layouts encouraged (don't evenly space everything)
+- Generous negative space OR controlled density (not both)
+- Responsive modifiers: `sm:`, `md:`, `lg:`, `xl:` for breakpoint-specific spacing
+
+### Tailwind Spacing Examples
+```html
+<!-- Consistent section spacing -->
+<section className="py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+  <h2 className="text-3xl font-bold mb-8">Section Title</h2>
+</section>
+
+<!-- Component with responsive gap -->
+<div className="flex flex-col gap-4 md:gap-6 lg:gap-8">
+  <div>Item 1</div>
+  <div>Item 2</div>
+</div>
+
+<!-- Grid with responsive columns -->
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div className="p-4 bg-neutral-50">Card</div>
+  <div className="p-4 bg-neutral-50">Card</div>
+  <div className="p-4 bg-neutral-50">Card</div>
+</div>
+```
+
+---
+
+## 3. Component Patterns (Tailwind CSS)
+
+### Buttons
+**Tailwind Classes**:
+- **Primary**: `bg-primary-500 text-white hover:bg-primary-700 focus-visible:outline-2 focus-visible:outline-accent-500 focus-visible:outline-offset-2 disabled:opacity-50 transition-colors`
+- **Secondary**: `border border-primary-500 text-primary-500 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-accent-500 transition-colors`
+- **Disabled**: `opacity-50 cursor-not-allowed`
+- **Padding**: `px-6 py-3` (desktop), `px-4 py-2` (mobile with responsive)
+- **Min height**: `h-11` (44px)
+- **Focus**: `focus-visible:outline-2 focus-visible:outline-offset-2` (never `outline-none`)
+
+**SCSS Mixin**:
+```scss
+@mixin button-primary {
+  @apply bg-primary-500 text-white hover:bg-primary-700 transition-colors;
+  @apply focus-visible:outline-2 focus-visible:outline-accent-500 focus-visible:outline-offset-2;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply px-6 py-3 h-11 font-medium;
+}
+
+@mixin button-secondary {
+  @apply border border-primary-500 text-primary-500 hover:bg-primary-50;
+  @apply focus-visible:outline-2 focus-visible:outline-accent-500 transition-colors;
+  @apply px-6 py-3 h-11 font-medium;
+}
+```
+
+**Usage**:
+```html
+<button className="@apply button-primary">Primary Button</button>
+<button className="@apply button-secondary">Secondary Button</button>
+
+<!-- Or directly with Tailwind -->
+<button className="bg-primary-500 text-white px-6 py-3 h-11 hover:bg-primary-700 focus-visible:outline-2 focus-visible:outline-accent-500 transition-colors">
+  Click Me
+</button>
+```
+
+**Accessibility**: 
+- Must have visible text or `aria-label`
+- Visible focus indicator (not `outline-none`)
+- Clear hover/active states
+- Must be semantic `<button>` or `<a>` with appropriate role
+
+### Forms
+**Tailwind Classes**:
+- **Input fields**: `px-4 py-3 border border-neutral-300 focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 rounded-md transition-colors`
+- **Labels**: `block text-sm font-medium text-text-base mb-2` (linked via `htmlFor`)
+- **Placeholder**: Built-in placeholder styling, use `placeholder:text-text-muted`
+- **Error state**: `border-error focus:ring-error/20` + helper text in error color
+- **Spacing**: `mb-4` between fields, `mb-2` between label and input
+- **Min height**: `h-11` (44px)
+
+**SCSS Mixin**:
+```scss
+@mixin form-input {
+  @apply px-4 py-3 w-full border border-neutral-300 rounded-md;
+  @apply focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20;
+  @apply transition-colors placeholder:text-text-muted;
+}
+
+@mixin form-label {
+  @apply block text-sm font-medium text-text-base mb-2;
+}
+
+@mixin form-error {
+  @apply border-error focus:ring-error/20;
+}
+
+.form-group {
+  @apply mb-4;
+}
+
+input {
+  @include form-input;
+  
+  &.error {
+    @include form-error;
+  }
+}
+
+label {
+  @include form-label;
+}
+```
+
+**Usage**:
+```html
+<div className="form-group">
+  <label for="email" className="form-label">Email Address</label>
+  <input 
+    id="email" 
+    type="email" 
+    className="form-input" 
+    placeholder="your@email.com"
+    aria-required="true"
+    aria-describedby="email-hint"
+  />
+  <span id="email-hint" className="text-xs text-text-muted mt-1 block">
+    We'll never share your email.
+  </span>
+</div>
+```
+
+**Accessibility**:
+- All inputs must have associated `<label htmlFor>`
+- Error messages linked via `aria-describedby`
+- Required fields marked with `aria-required="true"`
+- Visible focus on inputs
+
+### Cards & Containers
+- **Border**: `border border-neutral-200` or no border
+- **Background**: `bg-white` or `bg-neutral-50`
+- **Padding**: `p-6` standard, `p-4` compact
+- **Shadows**: `shadow-sm` subtle, `shadow-md` elevated, or remove
+- **Radius**: `rounded-md` default
+
+**Tailwind Usage**:
+```html
+<div className="bg-white border border-neutral-200 rounded-md shadow-sm p-6">
+  <!-- Card content -->
+</div>
+
+<div className="bg-neutral-50 p-6 rounded-lg">
+  <!-- Muted container -->
+</div>
+```
+
+### Navigation
+- **List**: Semantic `<nav>`, `<ul>`, `<li>`
+- **Links**: `text-primary-500 hover:text-accent-500 border-b-2 border-b-transparent hover:border-b-accent-500`
+- **Focus**: `focus-visible:outline-2 focus-visible:outline-accent-500`
+- **Active state**: `text-accent-500 border-b-accent-500` or use Tailwind's `group-active` utilities
+- **Spacing**: `gap-6` or `gap-8` between nav items
+
+**SCSS Mixin**:
+```scss
+@mixin nav-links {
+  @apply flex gap-6 md:gap-8;
+  
+  li a {
+    @apply text-text-base hover:text-accent-500 border-b-2 border-b-transparent;
+    @apply transition-colors focus-visible:outline-2 focus-visible:outline-accent-500;
+    
+    &.active {
+      @apply text-accent-500 border-b-accent-500;
+    }
+  }
+}
+
+nav {
+  @include nav-links;
+}
+```
+
+---
+
+## 4. Motion & Animation (Tailwind CSS + SCSS)
+
+**Principles**:
+- Smooth, purposeful animations (never random or jarring)
+- Duration: `duration-200` (200ms) for micro-interactions, `duration-500` (500ms) for page transitions
+- Easing: `ease-in-out` for UI elements, `ease-in` for exits, `ease-out` for entrances
+- Respect `prefers-reduced-motion` (remove all animations if user prefers)
+
+**Tailwind Animation Utilities**:
+- **Fade in/out**: `opacity-0 animate-fadeIn` or `opacity-100 animate-fadeOut`
+- **Scale**: `scale-95 hover:scale-100 transition` 
+- **Slide**: `translate-y-4 animate-slideUp` 
+- **Spin**: `animate-spin` (loading spinner)
+- **Pulse**: `animate-pulse` (subtle attention)
+- **Bounce**: `animate-bounce` (rarely used, reserved)
+- **Duration**: `duration-200 md:duration-300 lg:duration-500`
+- **Easing**: `ease-in`, `ease-out`, `ease-in-out`, `ease-linear`
+
+**SCSS for Custom Animations**:
+```scss
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(1rem); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-fadeIn { animation: fadeIn 0.3s ease-out; }
+.animate-slideUp { animation: slideUp 0.4s ease-out; }
+.animate-scaleIn { animation: scaleIn 0.2s ease-out; }
+
+// Staggered animations (via CSS variables or nth-child)
+@for $i from 1 through 5 {
+  .stagger-item:nth-child(#{$i}) {
+    animation-delay: calc(#{$i} * 100ms);
+  }
+}
+
+// Complex hover interaction
+@mixin interactive-hover {
+  @apply transition-all duration-200 ease-in-out;
+  
+  &:hover {
+    @apply scale-105 shadow-md;
+  }
+  
+  &:active {
+    @apply scale-95;
+  }
+}
+```
+
+**Usage Examples**:
+```html
+<!-- Fade in on load -->
+<div className="opacity-0 animate-fadeIn duration-500">Content fades in</div>
+
+<!-- Hover scale -->
+<button className="hover:scale-105 transition-transform duration-200">Hover me</button>
+
+<!-- Loading spinner -->
+<svg className="animate-spin h-6 w-6 text-accent-500">
+  <!-- spinner SVG -->
+</svg>
+
+<!-- Staggered list animation -->
+<ul>
+  <li className="animate-slideUp stagger-item duration-500">Item 1</li>
+  <li className="animate-slideUp stagger-item duration-500">Item 2</li>
+  <li className="animate-slideUp stagger-item duration-500">Item 3</li>
+</ul>
+```
+
+**Respect prefers-reduced-motion**:
+```scss
+@media (prefers-reduced-motion: reduce) {
+  * {
+    @apply motion-safe:animate-none !important;
+    @apply transition-none !important;
+  }
+}
+```
+
+In `app/globals.css` via `@theme` (Tailwind v4):
+```css
+@theme {
+  --animate-fade-in: fadeIn 0.3s ease-out;
+  --animate-slide-up: slideUp 0.4s ease-out;
+  --animate-scale-in: scaleIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(1rem); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+```
+
+**Accessibility**:
+- No auto-playing animations that distract
+- Provide alternative to animated content
+- Respect `prefers-reduced-motion: reduce` media query
+- Use `aria-live` regions for dynamic updates
+
+---
+
+## 5. Responsive Design (Tailwind CSS)
+
+### Breakpoints
+Tailwind uses mobile-first breakpoints:
+```
+- (default) = mobile (< 640px)
+- sm: = small (640px+)
+- md: = medium (768px+)
+- lg: = large (1024px+)
+- xl: = extra large (1280px+)
+- 2xl: = 2x extra large (1536px+)
+```
+
+**Mobile-First Approach**:
+- Design mobile first (default styles)
+- Enhance for larger screens (add breakpoint prefixes)
+- Never use `max-width` queries; use `min-width` (mobile-first)
+
+### Responsive Examples
+
+**Typography**:
+```html
+<!-- Mobile: 16px, Tablet: 18px, Desktop: 20px -->
+<h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+  Heading
+</h1>
+
+<!-- Body text responsive -->
+<p className="text-base md:text-lg leading-relaxed">
+  Paragraph adapts across devices
+</p>
+```
+
+**Padding/Spacing**:
+```html
+<!-- Mobile: p-4, Tablet: p-6, Desktop: p-8 -->
+<section className="px-4 py-8 md:px-6 md:py-12 lg:px-8 lg:py-16">
+  Section with responsive padding
+</section>
+
+<!-- Container with responsive max-width -->
+<div className="max-w-full md:max-w-2xl lg:max-w-4xl mx-auto px-4">
+  Content with responsive max-width
+</div>
+```
+
+**Grid/Flexbox**:
+```html
+<!-- Mobile: 1 column, Tablet: 2 columns, Desktop: 3 columns -->
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+  <div className="p-4 bg-neutral-50">Card 1</div>
+  <div className="p-4 bg-neutral-50">Card 2</div>
+  <div className="p-4 bg-neutral-50">Card 3</div>
+</div>
+
+<!-- Flex direction responsive -->
+<div className="flex flex-col md:flex-row gap-4 md:gap-6">
+  <div className="md:flex-1">Sidebar</div>
+  <div className="md:flex-2">Main content</div>
+</div>
+```
+
+**Display (show/hide)**:
+```html
+<!-- Hide on mobile, show on tablet+ -->
+<nav className="hidden md:block">
+  Desktop navigation
+</nav>
+
+<!-- Show mobile menu, hide on desktop -->
+<button className="md:hidden">Mobile menu</button>
+```
+
+**Images & Media**:
+```html
+<!-- Responsive image sizing -->
+<img 
+  src="image.jpg" 
+  alt="Description"
+  className="w-full h-auto md:w-1/2 lg:w-1/3"
+/>
+
+<!-- Picture element for art direction -->
+<picture>
+  <source media="(min-width: 1024px)" srcset="desktop.jpg" />
+  <source media="(min-width: 768px)" srcset="tablet.jpg" />
+  <img src="mobile.jpg" alt="Responsive image" className="w-full h-auto" />
+</picture>
+```
+
+### Rules & Best Practices
+
+**Touch Targets**:
+- Minimum 44px × 44px for buttons/links
+- Minimum 8px gap between touch targets
+- Test on real devices (not just browser emulation)
+
+**Text Sizing**:
+- Never smaller than 16px on mobile (unless deliberately small text)
+- Tablet: 16px–18px body, larger for headings
+- Desktop: 18px–20px body, scale headings proportionally
+- Use Tailwind `text-*` utilities: `text-sm`, `text-base`, `text-lg`, `text-xl`, `text-2xl`, etc.
+
+**Container Queries** (Optional, Advanced):
+```html
+<!-- Adapt component based on its container width, not viewport -->
+<div className="@container">
+  <div className="@md:grid @md:grid-cols-2">
+    Adapts based on container width
+  </div>
+</div>
+```
+
+**SCSS Responsive Mixin**:
+```scss
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (min-width: 640px) { @content; }
+  } @else if $breakpoint == 'md' {
+    @media (min-width: 768px) { @content; }
+  } @else if $breakpoint == 'lg' {
+    @media (min-width: 1024px) { @content; }
+  } @else if $breakpoint == 'xl' {
+    @media (min-width: 1280px) { @content; }
+  }
+}
+
+// Usage
+.component {
+  padding: 1rem;
+
+  @include respond-to('md') {
+    padding: 2rem;
+  }
+
+  @include respond-to('lg') {
+    padding: 3rem;
+  }
+}
+```
+
+### Accessibility in Responsive Design
+- Test keyboard navigation on all screen sizes
+- Ensure focus indicators visible on all devices
+- Don't hide interactive elements without accessible alternative
+- Use `aria-hidden="true"` only on decorative elements hidden by `display: none`
+- Use `<picture>` element for art-directed images on different screen sizes
+
+---
+
+## Deviations & Exceptions
+
+This design system is a **strong recommendation**, not a hard blocker. Exceptions are allowed when:
+- A specific feature requires a unique interaction pattern
+- Brand guidelines override convention (e.g., client logo placement)
+- A particular page has a distinctive design direction
+
+**Always document exceptions** in component comments or README.
+
+---
+
+## Related Rules & References
+
+- **AI Accessibility Rule**: `.github/instructions/copilot.instructions.md` (100% non-negotiable)
+- **Production-Grade Design**: `.github/instructions/copilot.instructions.md` (distinctive, bold aesthetics)
+- **Frontend Dev Skill**: `.github/skills/frontend-dev/SKILL.md` (build procedures)
+- **Frontend Dev Agent**: `.github/agents/frontend-dev.agent.md` (orchestration)
+
+---
+
+## Enforcement
+
+This design system is reviewed during:
+1. **Code review**: Consistency check (unless documented exception)
+2. **Design approval**: Visual verification of contrast, alignment, motion
+3. **Frontend Dev workflow**: Step 3–4 (aesthetic direction) and Step 6 (testing)
+
+**Question**: Should we create a design system audit tool (e.g., Lighthouse plugin) to detect violations?
