@@ -1,0 +1,80 @@
+// _mixins.scss — Reusable SCSS mixins for ApcleanCo
+// Use @apply to compose Tailwind utilities inside SCSS
+
+// Layout
+@mixin section-padding {
+  @apply px-4 py-8 sm:px-6 md:px-8 md:py-12 lg:px-16 lg:py-16;
+}
+
+@mixin component-spacing {
+  @apply p-4 md:p-6 lg:p-8;
+}
+
+@mixin loose-spacing {
+  @apply gap-6 md:gap-8 lg:gap-12;
+}
+
+// Buttons
+@mixin button-primary {
+  @apply bg-primary-500 text-white transition-colors font-medium;
+  @apply hover:bg-primary-700;
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply px-6 py-3 min-h-11;
+}
+
+@mixin button-secondary {
+  @apply border border-primary-500 text-primary-500 transition-colors font-medium;
+  @apply hover:bg-primary-50;
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2;
+  @apply px-6 py-3 min-h-11;
+}
+
+// Forms
+@mixin form-input {
+  @apply px-4 py-3 w-full border border-neutral-300 rounded-md transition-colors;
+  @apply focus:border-accent-500 focus:ring-2 focus:outline-none;
+}
+
+@mixin form-label {
+  @apply block text-sm font-medium mb-2;
+}
+
+// Navigation
+@mixin nav-links {
+  @apply flex gap-6 md:gap-8;
+
+  li a {
+    @apply transition-colors border-b-2 border-b-transparent hover:border-b-accent-500;
+
+    &.active {
+      @apply text-accent-500 border-b-accent-500;
+    }
+  }
+}
+
+// Hover interactions
+@mixin interactive-hover {
+  @apply transition-all duration-200 ease-in-out;
+
+  &:hover {
+    @apply scale-105 shadow-md;
+  }
+
+  &:active {
+    @apply scale-95;
+  }
+}
+
+// Responsive helper (for complex SCSS logic alongside Tailwind)
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "sm" {
+    @media (min-width: 640px) { @content; }
+  } @else if $breakpoint == "md" {
+    @media (min-width: 768px) { @content; }
+  } @else if $breakpoint == "lg" {
+    @media (min-width: 1024px) { @content; }
+  } @else if $breakpoint == "xl" {
+    @media (min-width: 1280px) { @content; }
+  }
+}

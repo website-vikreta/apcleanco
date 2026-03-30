@@ -2,6 +2,9 @@
    "chat.tools.terminal.autoApprove": {
       "npm install": true,
       "pkill": true,
-      "true": true
+      "true": true,
+      "git pull": true,
+      "git checkout": true,
+      "lsof": true
    }
 }
