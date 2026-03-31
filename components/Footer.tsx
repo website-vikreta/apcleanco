@@ -173,10 +173,21 @@ export default function Footer() {
           <div className="border-t border-neutral-800" />
 
           {/* Copyright Bar */}
-          <div className="pt-8 text-center text-neutral-400 text-sm">
-            <p>
+          <div className="pt-8 flex flex-col md:flex-row md:justify-between md:items-center gap-6 text-neutral-400 text-sm">
+            <p className="text-center md:text-left">
               &copy; 2026 ApcleanCo | All Rights Reserved
             </p>
+            <nav className="flex flex-col sm:flex-row justify-center md:justify-end gap-4 md:gap-8" aria-label="Footer legal links">
+              <Link href="/disclaimer" className="hover:text-accent-500 transition-colors duration-200 text-center md:text-right">
+                Disclaimer
+              </Link>
+              <Link href="/terms" className="hover:text-accent-500 transition-colors duration-200 text-center md:text-right">
+                Terms of Use
+              </Link>
+              <Link href="/privacy" className="hover:text-accent-500 transition-colors duration-200 text-center md:text-right">
+                Privacy Policy
+              </Link>
+            </nav>
           </div>
         </div>
       </section>
