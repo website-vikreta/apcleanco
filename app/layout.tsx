@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'ApcleanCo',
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   )
