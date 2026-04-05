@@ -8,29 +8,50 @@
   /* Font */
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
 
-  /* Color Palette — matches design-system.instructions.md */
-  --color-primary-50: #f0f7f2;
-  --color-primary-100: #d4e8db;
-  --color-primary-500: #0f3d1f;
-  --color-primary-700: #062a13;
-  --color-primary-900: #031a08;
+  /* Primary (Deep Eco Green) — matches design-system.instructions.md */
+  --color-primary-50:  #eef5f1;
+  --color-primary-100: #d6e6de;
+  --color-primary-200: #b7d2c5;
+  --color-primary-300: #8fb8a7;
+  --color-primary-400: #5f9a86;
+  --color-primary-500: #1f5a44;
+  --color-primary-600: #174836;
+  --color-primary-700: #12392b;
+  --color-primary-800: #0f2f23;
+  --color-primary-900: #0b1f17;
 
-  --color-accent-400: #e8c547;
-  --color-accent-500: #d4a200;
-  --color-accent-600: #c49a00;
+  /* Accent (Warm Gold) */
+  --color-accent-50:  #faf6e8;
+  --color-accent-100: #f3e8c7;
+  --color-accent-200: #e8d999;
+  --color-accent-300: #dcc56b;
+  --color-accent-400: #d4b24a;
+  --color-accent-500: #caa33a;
+  --color-accent-600: #a8842f;
 
-  --color-neutral-50: #f8f6f1;
-  --color-neutral-100: #efefeb;
-  --color-neutral-200: #e0dfd9;
-  --color-neutral-300: #c4c3bc;
-  --color-neutral-900: #1a1a1a;
+  /* Neutral (Warm, not dull gray) */
+  --color-neutral-50:  #f7f9f8;
+  --color-neutral-100: #eef2f0;
+  --color-neutral-200: #dde5e1;
+  --color-neutral-300: #c2cec8;
+  --color-neutral-400: #94a8a0;
+  --color-neutral-500: #6b7f77;
+  --color-neutral-700: #3e4f49;
+  --color-neutral-900: #0b1f17;
 
-  --color-text-base: var(--color-neutral-900);
-  --color-text-muted: #6b7280;
-  --color-error: #dc2626;
+  /* Semantic */
+  --color-success-500: #2f855a;
+  --color-error-500:   #c53030;
+  --color-warning-500: #d69e2e;
+
+  /* Aliases */
+  --color-white:      #fff;
+  --color-text-base:  var(--color-neutral-900);
+  --color-text-muted: #6b7f77;
+  --color-error:      #c53030;
 
   /* Custom Animations */
-  --animate-fade-in: fadeIn 0.3s ease-out;
+  --animate-fade-in:  fadeIn 0.3s ease-out;
   --animate-slide-up: slideUp 0.4s ease-out;
   --animate-scale-in: scaleIn 0.2s ease-out;
 }

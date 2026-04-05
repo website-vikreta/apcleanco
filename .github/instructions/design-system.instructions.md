@@ -45,21 +45,41 @@ Colors are defined in `app/globals.css` using the `@theme` directive (Tailwind v
 ```css
 /* app/globals.css */
 @theme {
-  --color-primary-50: #f0f7f2;
-  --color-primary-100: #d4e8db;
-  --color-primary-500: #0f3d1f;
-  --color-primary-700: #062a13;
-  --color-primary-900: #031a08;
+  /* Primary (Deep Eco Green) */
+  --color-primary-50: #eef5f1;
+  --color-primary-100: #d6e6de;
+  --color-primary-200: #b7d2c5;
+  --color-primary-300: #8fb8a7;
+  --color-primary-400: #5f9a86;
+  --color-primary-500: #1f5a44;   /* MAIN BRAND */
+  --color-primary-600: #174836;
+  --color-primary-700: #12392b;
+  --color-primary-800: #0f2f23;
+  --color-primary-900: #0b1f17;
 
-  --color-accent-400: #e8c547;
-  --color-accent-500: #d4a200;
-  --color-accent-600: #c49a00;
+  /* Accent (Soft Premium Highlight - Warm Neutral Gold) */
+  --color-accent-50: #faf6e8;
+  --color-accent-100: #f3e8c7;
+  --color-accent-200: #e8d999;
+  --color-accent-300: #dcc56b;
+  --color-accent-400: #d4b24a;
+  --color-accent-500: #caa33a;
+  --color-accent-600: #a8842f;
 
-  --color-neutral-50: #f8f6f1;
-  --color-neutral-100: #efefeb;
-  --color-neutral-200: #e0dfd9;
-  --color-neutral-300: #c4c3bc;
-  --color-neutral-900: #1a1a1a;
+  /* Neutral (Warm, not dull gray) */
+  --color-neutral-50: #f7f9f8;   /* MAIN BACKGROUND */
+  --color-neutral-100: #eef2f0;
+  --color-neutral-200: #dde5e1;
+  --color-neutral-300: #c2cec8;
+  --color-neutral-400: #94a8a0;
+  --color-neutral-500: #6b7f77;
+  --color-neutral-700: #3e4f49;
+  --color-neutral-900: #0b1f17;
+
+  /* Semantic */
+  --color-success-500: #2f855a;
+  --color-error-500: #c53030;
+  --color-warning-500: #d69e2e;
 }
 ```
 
@@ -70,25 +90,30 @@ Define corresponding SCSS variables in `styles/variables.scss`:
 
 ```scss
 // Brand colors
-$primary: #0f3d1f;
-$primary-light: #d4e8db;
-$primary-dark: #062a13;
+$primary: #1f5a44;
+$primary-light: #d6e6de;
+$primary-dark: #0f2f23;
 
-$accent: #e8c547;
-$accent-dark: #d4a200;
+// Accent (premium highlight)
+$accent: #caa33a;
+$accent-light: #f3e8c7;
+$accent-dark: #a8842f;
 
-// Neutral palette
-$bg-light: #f8f6f1;
-$bg-muted: #efefeb;
-$text-dark: #1a1a1a;
-$text-base: #2d2d2d;
-$text-muted: rgba(45, 45, 45, 0.7);
-$border-color: rgba(45, 45, 45, 0.1);
+// Neutral palette (warm, clean)
+$bg-light: #f7f9f8;
+$bg-muted: #eef2f0;
+$bg-card: #ffffff;
 
-// Semantic colors
-$error: #c41e3a;
-$success: #2d7a3e;
-$warning: #d97706;
+$text-dark: #0b1f17;
+$text-base: #1f2d28;
+$text-muted: rgba(31, 45, 40, 0.7);
+
+$border-color: rgba(11, 31, 23, 0.08);
+
+// Semantic
+$error: #c53030;
+$success: #2f855a;
+$warning: #d69e2e;
 ```
 
 ### Rules
@@ -98,59 +123,36 @@ $warning: #d97706;
 - **Dominant + Accent**: Use 1–2 dominant colors + 1 bold accent, NOT evenly-distributed weak palettes
 - **Avoid**: Purple on white, pastel-only schemes, murky/muddy combinations
 - **Use Tailwind utilities**: Always apply color via Tailwind classes (`text-primary-900`, `bg-neutral-50`, `border-neutral-200`)
+- **No overuse of accent color** — max 5% of UI surface. Accent is for single highlights, badges, or underlines only — never backgrounds, large blocks, or repeated elements
+- **No pure gray backgrounds** — use warm neutrals from the palette (`neutral-50`, `neutral-100`); never `bg-gray-*` or `bg-slate-*`
+- **No random green shades outside the system** — only use `primary-*` tokens defined in `@theme`; no arbitrary hex greens or Tailwind `green-*` / `emerald-*` utilities
+- **No box shadows** — shadows add visual noise; use spacing and contrast to create depth instead
+- **Use spacing + contrast instead of shadows** — increase padding, use border or background contrast (`bg-white` on `bg-neutral-50`) to separate elements
+- **Keep UI breathable** — padding is preferred over visual effects; generous whitespace > decorative flourishes
+- **CTA must always use `primary-500`** — all primary call-to-action buttons use `bg-primary-500`; never substitute with accent, neutral, or custom colors for the main CTA
 
 ### Tailwind Color Usage Examples
 ```html
-<!-- Text colors -->
-<p className="text-text-base">Body text</p>
-<p className="text-text-muted">Secondary text</p>
+<!-- Background -->
+<section className="bg-neutral-50">
+<div className="bg-white border border-neutral-200">
 
-<!-- Background colors -->
-<div className="bg-neutral-50">Light background</div>
-<section className="bg-white">White section</section>
+<!-- Text -->
+<h1 className="text-primary-900">Redefining Clean</h1>
+<p className="text-neutral-700">Premium cleaning solutions...</p>
 
-<!-- Buttons with Tailwind -->
-<button className="bg-primary-500 text-white hover:bg-primary-700 transition-colors">
-  Primary Button
+<!-- CTA Primary -->
+<button className="bg-primary-500 text-white hover:bg-primary-600 transition-all">
+  Schedule a Call
 </button>
 
+<!-- CTA Secondary -->
 <button className="border border-primary-500 text-primary-500 hover:bg-primary-50">
-  Secondary Button
+  Learn More
 </button>
 
-<!-- Accents -->
-<span className="text-accent-500">Highlighted text</span>
-```
-
-### SCSS for Complex Color Logic
-Use SCSS mixins for reusable color patterns:
-
-```scss
-// _mixins.scss
-@mixin button-primary {
-  @apply bg-primary-500 text-white transition-colors;
-  
-  &:hover {
-    @apply bg-primary-700;
-  }
-  
-  &:focus-visible {
-    @apply outline-2 outline-accent-500 outline-offset-2;
-  }
-  
-  &:disabled {
-    @apply opacity-50 cursor-not-allowed;
-  }
-}
-
-@mixin text-contrast-check {
-  @apply text-text-base bg-neutral-50; // 4.5:1 minimum ratio
-}
-
-// Usage in component
-.button {
-  @include button-primary;
-}
+<!-- Accent Usage (VERY LIMITED) -->
+<span className="text-accent-500">Coming Soon</span>
 ```
 
 ---
