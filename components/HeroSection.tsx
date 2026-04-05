@@ -74,7 +74,7 @@ export default function HeroSection() {
       ScrollTrigger.create({
         trigger: section,
         start: 'top top',
-        end: '+=200',
+        end: '+=500',
         scrub: 0.4,
         onUpdate: (self) => {
           const p   = self.progress
@@ -170,8 +170,11 @@ export default function HeroSection() {
         >
           {/* Primary CTA — Calendly */}
           <Button
-            variant="primary"
+            variant="white"
             size="lg"
+            magnetic
+            icon={<i className="bi bi-calendar2-check text-xl leading-none" aria-hidden="true" />}
+            iconPosition="left"
             onClick={() =>
               window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer')
             }

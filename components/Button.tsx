@@ -8,7 +8,7 @@ gsap.registerPlugin(useGSAP)
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
-export type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'ghost' | 'outlined' | 'danger'
+export type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'ghost' | 'outlined' | 'danger' | 'white'
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -29,6 +29,7 @@ const variantBase: Record<ButtonVariant, string> = {
   ghost:    'bg-transparent text-current border-2 border-transparent',
   outlined: 'bg-transparent text-neutral-700 border-2 border-neutral-300',
   danger:   'bg-red-600 text-white border-2 border-red-600',
+  white:    'bg-white text-primary-700 border-2 border-white',
 }
 
 const shimmerFill: Record<ButtonVariant, string> = {
@@ -38,6 +39,7 @@ const shimmerFill: Record<ButtonVariant, string> = {
   ghost:    'bg-neutral-900/[0.06]',
   outlined: 'bg-neutral-900/[0.06]',
   danger:   'bg-white/25',
+  white:    'bg-primary-500/15',
 }
 
 const focusCls: Record<ButtonVariant, string> = {
@@ -47,6 +49,7 @@ const focusCls: Record<ButtonVariant, string> = {
   ghost:    'focus-visible:outline-primary-500',
   outlined: 'focus-visible:outline-neutral-500',
   danger:   'focus-visible:outline-red-400',
+  white:    'focus-visible:outline-white',
 }
 
 const sizeCls: Record<ButtonSize, string> = {
