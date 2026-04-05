@@ -5,8 +5,14 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'ApcleanCo',
-  description: 'Welcome to ApcleanCo',
+  title: {
+    default: 'Apcleanco',
+    template: '%s | Apcleanco',
+  },
+  description: 'Professional garage clean-out and junk removal services.',
+  icons: {
+    icon: '/favicon.png',
+  },
 }
 
 export default function RootLayout({
