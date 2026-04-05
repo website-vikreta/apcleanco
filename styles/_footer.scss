@@ -1,93 +1,19 @@
-// Footer component styles with animations
+// Footer component styles
 @use 'mixins';
 
-.footer-newsletter-input {
-  @apply w-full px-4 py-3 rounded-lg bg-white text-neutral-900 placeholder-neutral-500;
-  
-  &:focus {
-    @apply outline-none ring-2 ring-accent-500 ring-offset-2 ring-offset-primary-600;
-    animation: focus-glow 0.3s ease-out;
-  }
-
-  &::placeholder {
-    @apply text-neutral-400;
+// Unequal 3-column grid — only on lg+
+@media (min-width: 1024px) {
+  .footer-content-grid {
+    grid-template-columns: 1fr auto auto;
   }
 }
 
-.footer-newsletter-btn {
-  @include mixins.button-primary;
-  @apply bg-accent-500 text-neutral-900 hover:bg-accent-600;
-  
-  &:active {
-    animation: button-press 0.15s ease-out;
-  }
+// Arrow icon slide animation on nav link hover
+.footer-nav-link:hover .footer-nav-arrow {
+  transform: translateX(3px);
 }
 
-.footer-link {
-  @apply text-neutral-300 hover:text-accent-500 transition-all duration-200;
-  
-  &:hover {
-    @apply translate-x-1;
-  }
-}
-
-.portfolio-item {
-  @apply relative overflow-hidden rounded-lg transition-all duration-300;
-  
-  &:hover {
-    @apply scale-110 shadow-lg;
-  }
-}
-
-.social-icon {
-  @apply w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300;
-  
-  &:hover {
-    @apply scale-110;
-  }
-  
-  &:active {
-    @apply scale-95;
-  }
-}
-
-// Keyframe animations
-@keyframes focus-glow {
-  0% {
-    box-shadow: 0 0 0 0 rgba(212, 162, 0, 0.4);
-  }
-  100% {
-    box-shadow: 0 0 0 8px rgba(212, 162, 0, 0);
-  }
-}
-
-@keyframes button-press {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-// Newsletter banner gradient animation
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.newsletter-banner {
-  background: linear-gradient(-45deg, #1f5a44, #12392b, #1f5a44, #12392b);
-  background-size: 400% 400%;
-  animation: gradient-shift 15s ease infinite;
+// Social icon transition handled by Tailwind; SCSS used for group coordination
+.footer-social-icon {
+  @apply transition-colors duration-150;
 }
