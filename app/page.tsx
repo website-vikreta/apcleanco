@@ -2,6 +2,7 @@ import React from 'react'
 import HeroSection from '@/components/Home/HeroSection'
 import ServicesSection from '@/components/Home/ServicesSection'
 import AboutSection from '@/components/Home/AboutSection'
+import WhyApcleancoSection from '@/components/Home/WhyApcleancoSection'
 
 export default function HomePage() {
   return (
@@ -9,6 +10,7 @@ export default function HomePage() {
       <HeroSection />
       <ServicesSection />
       <AboutSection />
+      <WhyApcleancoSection />
     </main>
   )
 }
