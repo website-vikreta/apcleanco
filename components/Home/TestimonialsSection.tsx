@@ -14,39 +14,43 @@ const TESTIMONIALS = [
     id: 1,
     name: 'Shubham Gujarathi',
     designation: 'Homeowner',
-    testimonial: 'Amazing service! My garage has never looked this clean and organized.',
+    testimonial: 'My garage was completely overrun with years of clutter, and AP Cleanco cleared it out in a single day. The team was thorough, respectful of my space, and left everything spotless. Honestly one of the best home services I have ever hired.',
   },
   {
     id: 2,
     name: 'Rohit Sharma',
     designation: 'Property Owner',
-    testimonial: 'Quick, professional, and eco-friendly. Highly recommend!',
+    testimonial: 'AP Cleanco handled the junk removal at my rental property quickly and without any hassle on my end. What impressed me most was how they sorted recyclables on the spot rather than dumping everything. I will definitely be calling them again for my next turnover.',
   },
   {
     id: 3,
     name: 'Ankit Patel',
     designation: 'Business Owner',
-    testimonial: 'They handled everything from start to finish. Super easy process.',
+    testimonial: 'We needed our old office equipment and furniture cleared before a renovation — AP Cleanco showed up on time and managed the whole process professionally. They even provided a disposal certificate for our records. Made a stressful project completely stress-free.',
   },
   {
     id: 4,
     name: 'Priya Mehta',
     designation: 'Homeowner',
-    testimonial: 'Loved the attention to detail and friendly team.',
+    testimonial: 'The crew paid attention to every detail, carefully separating items for donation versus disposal rather than just hauling everything away. My living space felt transformed after just one visit. I appreciated the care they showed for both my home and the environment.',
   },
   {
     id: 5,
     name: 'Karan Shah',
     designation: 'Landlord',
-    testimonial: 'Cleared out my property quickly and responsibly.',
+    testimonial: 'After a tenant move-out, my property needed a full cleanout on a very tight timeline — AP Cleanco came through without a hitch. They were communicative, fast, and left the unit ready for viewing the very next day. Exceptional turnaround.',
   },
   {
     id: 6,
     name: 'Neha Verma',
     designation: 'Interior Designer',
-    testimonial: 'Perfect for clients who need clean, organized spaces.',
+    testimonial: 'I regularly recommend AP Cleanco to my clients before we begin any redesign project because a clean, clutter-free space makes all the difference. Their team is reliable, tidy, and always easy to coordinate with. My clients have never been disappointed.',
   },
 ] as const
+
+const total = TESTIMONIALS.length
+// Triple-clone for seamless infinite loop
+const CLONED = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS]
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -86,56 +90,53 @@ function TestimonialCard({
     <article
       className="
         testimonial-card
-        flex flex-col justify-between
+        flex flex-col
         bg-white border border-neutral-200
-        px-6 py-6
+        px-5 py-5
         min-w-0
         transition-transform duration-200 ease-out
         hover:-translate-y-1
       "
       aria-label={`Testimonial from ${name}`}
     >
-      {/* Quote icon */}
-      <div className="mb-4">
-        <i
-          className="bi bi-quote text-4xl text-primary-200 leading-none"
-          aria-hidden="true"
-        />
-      </div>
-
-      {/* Testimonial text */}
-      <p className="text-neutral-700 text-sm md:text-base leading-relaxed flex-1 mb-6">
-        {testimonial}
-      </p>
-
-      {/* Footer: avatar + name + stars */}
-      <div className="flex items-center gap-3">
-        {/* Avatar (initials fallback) */}
+      {/* Top row: stars + quote icon */}
+      <div className="flex items-center justify-between mb-3">
         <div
-          className={`shrink-0 w-10 h-10 flex items-center justify-center text-white font-bold text-sm ${colorClass}`}
-          aria-hidden="true"
-        >
-          {getInitials(name)}
-        </div>
-
-        <div className="flex-1 min-w-0">
-          <p className="font-semibold text-primary-900 text-sm truncate">{name}</p>
-          <p className="text-neutral-500 text-xs truncate">{designation}</p>
-        </div>
-
-        {/* 5 stars */}
-        <div
-          className="flex gap-0.5 shrink-0"
+          className="flex items-center gap-1"
           aria-label="5 out of 5 stars"
           role="img"
         >
           {Array.from({ length: 5 }).map((_, i) => (
             <i
               key={i}
-              className="bi bi-star-fill text-accent-500 text-xs leading-none"
+              className="bi bi-star-fill text-accent-400 text-base leading-none"
               aria-hidden="true"
             />
           ))}
+          <span className="ml-1.5 text-xs font-semibold text-accent-600 leading-none">5.0</span>
+        </div>
+        <i
+          className="bi bi-quote text-3xl text-primary-100 leading-none"
+          aria-hidden="true"
+        />
+      </div>
+
+      {/* Testimonial text */}
+      <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed flex-1 mb-4">
+        {testimonial}
+      </p>
+
+      {/* Footer: avatar + name + designation inline */}
+      <div className="flex items-center gap-3 pt-3 border-t border-neutral-100">
+        <div
+          className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-xs ${colorClass}`}
+          aria-hidden="true"
+        >
+          {getInitials(name)}
+        </div>
+        <div className="min-w-0">
+          <p className="font-semibold text-primary-900 text-sm leading-tight truncate">{name}</p>
+          <p className="text-neutral-400 text-xs leading-tight truncate">{designation}</p>
         </div>
       </div>
     </article>
@@ -145,41 +146,56 @@ function TestimonialCard({
 // ── Section ───────────────────────────────────────────────────────────────────
 
 export default function TestimonialsSection() {
-  const sectionRef  = useRef<HTMLElement>(null)
-  const trackRef    = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+  const trackRef   = useRef<HTMLDivElement>(null)
 
-  const [activeIdx, setActiveIdx] = useState(0)
+  // extIdxRef tracks position within CLONED; starts at middle copy (index = total)
+  const extIdxRef  = useRef<number>(total)
+  const [activeIdx, setActiveIdx] = useState(0)  // 0..total-1 for dots
   const [isPlaying, setIsPlaying] = useState(true)
   const isPausedRef = useRef(false)
   const timerRef    = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const total = TESTIMONIALS.length
-
-  // Number of visible cards per breakpoint (used for display only — CSS handles the widths)
-  // We use a simple step-by-step slide: one step = one card
-  const slideToIdx = useCallback((idx: number) => {
-    const track = trackRef.current
-    if (!track) return
-    const cards = track.querySelectorAll<HTMLElement>('.t-card-wrap')
-    if (!cards.length) return
-    const cardW = cards[0].getBoundingClientRect().width
-    gsap.to(track, {
-      x: -idx * cardW,
-      duration: 0.5,
-      ease: 'power2.inOut',
-    })
-    setActiveIdx(idx)
+  const getCardWidth = useCallback((): number => {
+    const card = trackRef.current?.querySelector<HTMLElement>('.t-card-wrap')
+    return card ? card.getBoundingClientRect().width : 0
   }, [])
 
+  const slideToIdx = useCallback((idx: number, animate = true) => {
+    const track = trackRef.current
+    if (!track) return
+    const cardW = getCardWidth()
+    if (cardW === 0) return
+
+    extIdxRef.current = idx
+    setActiveIdx(idx % total)
+
+    gsap.to(track, {
+      x: -idx * cardW,
+      duration: animate ? 0.5 : 0,
+      ease: 'power2.inOut',
+      onComplete: () => {
+        // Seamless loop: silently jump to equivalent position in middle copy
+        if (idx >= total * 2) {
+          const reset = idx - total
+          extIdxRef.current = reset
+          gsap.set(track, { x: -reset * cardW })
+        } else if (idx < total) {
+          const reset = idx + total
+          extIdxRef.current = reset
+          gsap.set(track, { x: -reset * cardW })
+        }
+      },
+    })
+  }, [getCardWidth])
+
   const next = useCallback(() => {
-    const nextIdx = (activeIdx + 1) % total
-    slideToIdx(nextIdx)
-  }, [activeIdx, total, slideToIdx])
+    slideToIdx(extIdxRef.current + 1)
+  }, [slideToIdx])
 
   const prev = useCallback(() => {
-    const prevIdx = (activeIdx - 1 + total) % total
-    slideToIdx(prevIdx)
-  }, [activeIdx, total, slideToIdx])
+    slideToIdx(extIdxRef.current - 1)
+  }, [slideToIdx])
 
   // Autoplay
   useEffect(() => {
@@ -195,16 +211,24 @@ export default function TestimonialsSection() {
     }
   }, [isPlaying, activeIdx, next])
 
-  // Recalculate on resize
+  // Recalculate position on resize
   useEffect(() => {
-    const handleResize = () => slideToIdx(activeIdx)
+    const handleResize = () => {
+      const cardW = getCardWidth()
+      if (cardW > 0 && trackRef.current)
+        gsap.set(trackRef.current, { x: -extIdxRef.current * cardW })
+    }
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [activeIdx, slideToIdx])
+  }, [getCardWidth])
 
-  // Scroll entry animations
+  // Initial track position + scroll entry animations
   useGSAP(
     () => {
+      // Position track at the middle copy on mount
+      const cardW = getCardWidth()
+      if (cardW > 0) gsap.set(trackRef.current, { x: -total * cardW })
+
       gsap.from('.testimonials-heading', {
         y: 24, opacity: 0, duration: 0.65, ease: 'power3.out',
         scrollTrigger: {
@@ -222,7 +246,7 @@ export default function TestimonialsSection() {
         },
       })
     },
-    { scope: sectionRef },
+    { scope: sectionRef, dependencies: [getCardWidth] },
   )
 
   return (
@@ -253,34 +277,33 @@ export default function TestimonialsSection() {
           onMouseEnter={() => { isPausedRef.current = true }}
           onMouseLeave={() => { isPausedRef.current = false }}
         >
-          {/* Track — overflow visible so next card peeks */}
+          {/* Track — infinite loop via triple-cloned slides */}
           <div className="overflow-hidden">
             <div
               ref={trackRef}
               className="flex"
               style={{ willChange: 'transform' }}
             >
-              {TESTIMONIALS.map((t, i) => (
+              {CLONED.map((t, i) => (
                 <div
-                  key={t.id}
+                  key={`${t.id}-${i}`}
                   role="group"
                   aria-roledescription="slide"
-                  aria-label={`Slide ${i + 1} of ${total}`}
-                  aria-hidden={i !== activeIdx}
+                  aria-label={`Slide ${(i % total) + 1} of ${total}`}
+                  aria-hidden={(i % total) !== activeIdx}
                   className="
                     t-card-wrap
                     shrink-0 px-3
                     w-full
-                    sm:w-1/2
-                    md:w-1/3
-                    lg:w-1/4
+                    md:w-1/2
+                    lg:w-1/3
                   "
                 >
                   <TestimonialCard
                     name={t.name}
                     designation={t.designation}
                     testimonial={t.testimonial}
-                    colorClass={AVATAR_COLORS[i % AVATAR_COLORS.length]}
+                    colorClass={AVATAR_COLORS[(t.id - 1) % AVATAR_COLORS.length]}
                   />
                 </div>
               ))}
@@ -319,7 +342,7 @@ export default function TestimonialsSection() {
                   role="tab"
                   aria-selected={i === activeIdx}
                   aria-label={`Go to slide ${i + 1}`}
-                  onClick={() => slideToIdx(i)}
+                  onClick={() => slideToIdx(total + i)}
                   className={`
                     transition-all duration-200
                     ${i === activeIdx

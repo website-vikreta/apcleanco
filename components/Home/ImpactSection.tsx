@@ -97,7 +97,7 @@ export default function ImpactSection() {
 
         {/* Stats grid: 1 col xs → 2 col md → 4 col lg */}
         <dl
-          className="impact-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-primary-700"
+          className="impact-grid grid grid-cols-2 lg:grid-cols-4 divide-x divide-primary-700"
           aria-label="AP Cleanco impact statistics"
         >
           {STATS.map((stat, i) => (
@@ -113,7 +113,7 @@ export default function ImpactSection() {
               </span>
               <dt className="sr-only">{stat.label}</dt>
               <dd
-                className="text-5xl md:text-6xl font-black text-white tracking-tight tabular-nums"
+                className="text-4xl md:text-5xl font-black text-white tracking-tight tabular-nums"
                 data-stat-id={stat.id}
                 aria-label={`${stat.value}${stat.suffix} ${stat.label}`}
               >
