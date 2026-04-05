@@ -8,6 +8,7 @@
       "lsof": true,
       "git add": true,
       "git commit": true,
-      "git merge": true
+      "git merge": true,
+      "git push": true
    }
 }
