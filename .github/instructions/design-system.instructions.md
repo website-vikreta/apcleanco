@@ -45,21 +45,41 @@ Colors are defined in `app/globals.css` using the `@theme` directive (Tailwind v
 ```css
 /* app/globals.css */
 @theme {
-  --color-primary-50: #f0f7f2;
-  --color-primary-100: #d4e8db;
-  --color-primary-500: #0f3d1f;
-  --color-primary-700: #062a13;
-  --color-primary-900: #031a08;
+  /* Primary (Deep Eco Green) */
+  --color-primary-50: #eef5f1;
+  --color-primary-100: #d6e6de;
+  --color-primary-200: #b7d2c5;
+  --color-primary-300: #8fb8a7;
+  --color-primary-400: #5f9a86;
+  --color-primary-500: #1f5a44;   /* MAIN BRAND */
+  --color-primary-600: #174836;
+  --color-primary-700: #12392b;
+  --color-primary-800: #0f2f23;
+  --color-primary-900: #0b1f17;
 
-  --color-accent-400: #e8c547;
-  --color-accent-500: #d4a200;
-  --color-accent-600: #c49a00;
+  /* Accent (Soft Premium Highlight - Warm Neutral Gold) */
+  --color-accent-50: #faf6e8;
+  --color-accent-100: #f3e8c7;
+  --color-accent-200: #e8d999;
+  --color-accent-300: #dcc56b;
+  --color-accent-400: #d4b24a;
+  --color-accent-500: #caa33a;
+  --color-accent-600: #a8842f;
 
-  --color-neutral-50: #f8f6f1;
-  --color-neutral-100: #efefeb;
-  --color-neutral-200: #e0dfd9;
-  --color-neutral-300: #c4c3bc;
-  --color-neutral-900: #1a1a1a;
+  /* Neutral (Warm, not dull gray) */
+  --color-neutral-50: #f7f9f8;   /* MAIN BACKGROUND */
+  --color-neutral-100: #eef2f0;
+  --color-neutral-200: #dde5e1;
+  --color-neutral-300: #c2cec8;
+  --color-neutral-400: #94a8a0;
+  --color-neutral-500: #6b7f77;
+  --color-neutral-700: #3e4f49;
+  --color-neutral-900: #0b1f17;
+
+  /* Semantic */
+  --color-success-500: #2f855a;
+  --color-error-500: #c53030;
+  --color-warning-500: #d69e2e;
 }
 ```
 
@@ -70,25 +90,30 @@ Define corresponding SCSS variables in `styles/variables.scss`:
 
 ```scss
 // Brand colors
-$primary: #0f3d1f;
-$primary-light: #d4e8db;
-$primary-dark: #062a13;
+$primary: #1f5a44;
+$primary-light: #d6e6de;
+$primary-dark: #0f2f23;
 
-$accent: #e8c547;
-$accent-dark: #d4a200;
+// Accent (premium highlight)
+$accent: #caa33a;
+$accent-light: #f3e8c7;
+$accent-dark: #a8842f;
 
-// Neutral palette
-$bg-light: #f8f6f1;
-$bg-muted: #efefeb;
-$text-dark: #1a1a1a;
-$text-base: #2d2d2d;
-$text-muted: rgba(45, 45, 45, 0.7);
-$border-color: rgba(45, 45, 45, 0.1);
+// Neutral palette (warm, clean)
+$bg-light: #f7f9f8;
+$bg-muted: #eef2f0;
+$bg-card: #ffffff;
 
-// Semantic colors
-$error: #c41e3a;
-$success: #2d7a3e;
-$warning: #d97706;
+$text-dark: #0b1f17;
+$text-base: #1f2d28;
+$text-muted: rgba(31, 45, 40, 0.7);
+
+$border-color: rgba(11, 31, 23, 0.08);
+
+// Semantic
+$error: #c53030;
+$success: #2f855a;
+$warning: #d69e2e;
 ```
 
 ### Rules
@@ -98,59 +123,36 @@ $warning: #d97706;
 - **Dominant + Accent**: Use 1–2 dominant colors + 1 bold accent, NOT evenly-distributed weak palettes
 - **Avoid**: Purple on white, pastel-only schemes, murky/muddy combinations
 - **Use Tailwind utilities**: Always apply color via Tailwind classes (`text-primary-900`, `bg-neutral-50`, `border-neutral-200`)
+- **No overuse of accent color** — max 5% of UI surface. Accent is for single highlights, badges, or underlines only — never backgrounds, large blocks, or repeated elements
+- **No pure gray backgrounds** — use warm neutrals from the palette (`neutral-50`, `neutral-100`); never `bg-gray-*` or `bg-slate-*`
+- **No random green shades outside the system** — only use `primary-*` tokens defined in `@theme`; no arbitrary hex greens or Tailwind `green-*` / `emerald-*` utilities
+- **No box shadows** — shadows add visual noise; use spacing and contrast to create depth instead
+- **Use spacing + contrast instead of shadows** — increase padding, use border or background contrast (`bg-white` on `bg-neutral-50`) to separate elements
+- **Keep UI breathable** — padding is preferred over visual effects; generous whitespace > decorative flourishes
+- **CTA must always use `primary-500`** — all primary call-to-action buttons use `bg-primary-500`; never substitute with accent, neutral, or custom colors for the main CTA
 
 ### Tailwind Color Usage Examples
 ```html
-<!-- Text colors -->
-<p className="text-text-base">Body text</p>
-<p className="text-text-muted">Secondary text</p>
+<!-- Background -->
+<section className="bg-neutral-50">
+<div className="bg-white border border-neutral-200">
 
-<!-- Background colors -->
-<div className="bg-neutral-50">Light background</div>
-<section className="bg-white">White section</section>
+<!-- Text -->
+<h1 className="text-primary-900">Redefining Clean</h1>
+<p className="text-neutral-700">Premium cleaning solutions...</p>
 
-<!-- Buttons with Tailwind -->
-<button className="bg-primary-500 text-white hover:bg-primary-700 transition-colors">
-  Primary Button
+<!-- CTA Primary -->
+<button className="bg-primary-500 text-white hover:bg-primary-600 transition-all">
+  Schedule a Call
 </button>
 
+<!-- CTA Secondary -->
 <button className="border border-primary-500 text-primary-500 hover:bg-primary-50">
-  Secondary Button
+  Learn More
 </button>
 
-<!-- Accents -->
-<span className="text-accent-500">Highlighted text</span>
-```
-
-### SCSS for Complex Color Logic
-Use SCSS mixins for reusable color patterns:
-
-```scss
-// _mixins.scss
-@mixin button-primary {
-  @apply bg-primary-500 text-white transition-colors;
-  
-  &:hover {
-    @apply bg-primary-700;
-  }
-  
-  &:focus-visible {
-    @apply outline-2 outline-accent-500 outline-offset-2;
-  }
-  
-  &:disabled {
-    @apply opacity-50 cursor-not-allowed;
-  }
-}
-
-@mixin text-contrast-check {
-  @apply text-text-base bg-neutral-50; // 4.5:1 minimum ratio
-}
-
-// Usage in component
-.button {
-  @include button-primary;
-}
+<!-- Accent Usage (VERY LIMITED) -->
+<span className="text-accent-500">Coming Soon</span>
 ```
 
 ---
@@ -255,46 +257,157 @@ section {
 ## 3. Component Patterns (Tailwind CSS)
 
 ### Buttons
-**Tailwind Classes**:
-- **Primary**: `bg-primary-500 text-white hover:bg-primary-700 focus-visible:outline-2 focus-visible:outline-accent-500 focus-visible:outline-offset-2 disabled:opacity-50 transition-colors`
-- **Secondary**: `border border-primary-500 text-primary-500 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-accent-500 transition-colors`
-- **Disabled**: `opacity-50 cursor-not-allowed`
-- **Padding**: `px-6 py-3` (desktop), `px-4 py-2` (mobile with responsive)
-- **Min height**: `h-11` (44px)
-- **Focus**: `focus-visible:outline-2 focus-visible:outline-offset-2` (never `outline-none`)
 
-**SCSS Mixin**:
-```scss
-@mixin button-primary {
-  @apply bg-primary-500 text-white hover:bg-primary-700 transition-colors;
-  @apply focus-visible:outline-2 focus-visible:outline-accent-500 focus-visible:outline-offset-2;
-  @apply disabled:opacity-50 disabled:cursor-not-allowed;
-  @apply px-6 py-3 h-11 font-medium;
-}
+> **ALWAYS use `<Button>` from `components/Button.tsx`** — never hand-roll button styles.
+> The component handles all GSAP interactions (shimmer, spring, press, magnetic) automatically.
+> Only use raw `<button>` for one-off cases that cannot use the component (e.g. form submit inside a complex RSC).
 
-@mixin button-secondary {
-  @apply border border-primary-500 text-primary-500 hover:bg-primary-50;
-  @apply focus-visible:outline-2 focus-visible:outline-accent-500 transition-colors;
-  @apply px-6 py-3 h-11 font-medium;
-}
+#### Component API
+
+```tsx
+import Button from '@/components/Button'
+
+// Full prop signature (all optional except children/aria-label for icon-only)
+<Button
+  variant="primary"         // 'primary' | 'secondary' | 'accent' | 'ghost' | 'outlined' | 'danger'
+  size="md"                 // 'sm' | 'md' | 'lg'  — default: 'md'
+  icon={<IconNode />}       // ReactNode — any inline SVG or icon component
+  iconPosition="left"       // 'left' | 'right' | 'only'  — default: 'left'
+  loading={false}           // shows centred spinner, disables interaction
+  magnetic={false}          // enables cursor-tracking magnetic pull (hero/CTA only)
+  disabled={false}          // standard HTML disabled; opacity-40 + cursor-not-allowed
+  type="button"             // 'button' | 'submit' | 'reset'
+  onClick={handler}
+  className=""              // append extra Tailwind classes (colour overrides on dark bg)
+  aria-label="..."          // REQUIRED for icon-only buttons
+>
+  Label text
+</Button>
 ```
 
-**Usage**:
-```html
-<button className="@apply button-primary">Primary Button</button>
-<button className="@apply button-secondary">Secondary Button</button>
+#### Variants — when to use each
 
-<!-- Or directly with Tailwind -->
-<button className="bg-primary-500 text-white px-6 py-3 h-11 hover:bg-primary-700 focus-visible:outline-2 focus-visible:outline-accent-500 transition-colors">
-  Click Me
-</button>
+| Variant | Use case | Background | Text |
+|---------|----------|------------|------|
+| `primary` | Main CTA — one per section max | `bg-primary-500` | `text-white` |
+| `secondary` | Secondary action alongside primary | transparent | `text-primary-500` (light bg) or `text-primary-100!` (dark bg) |
+| `accent` | Highlight / promotional CTA | `bg-accent-500` | `text-neutral-900` |
+| `ghost` | Tertiary / nav / low-emphasis | transparent | inherits (`text-current`) |
+| `outlined` | Neutral secondary, light or dark surfaces | transparent | `text-neutral-700` (light) or `text-neutral-300!` (dark bg) |
+| `danger` | Destructive actions (delete, cancel booking) | `bg-red-600` | `text-white` |
+
+#### Sizes
+
+| Size | Height | Padding | Text | Use case |
+|------|--------|---------|------|----------|
+| `sm` | `h-9` (36px) | `px-4 py-2` | `text-sm` | Compact UI, tables, inline form actions |
+| `md` | `h-11` (44px) | `px-6 py-3` | `text-base` | Default — body sections, cards, forms |
+| `lg` | `h-14` (56px) | `px-8 py-4` | `text-lg` | Hero CTAs, magnetic feature buttons |
+
+#### States — how they render
+
+| State | What happens | How to trigger |
+|-------|--------------|----------------|
+| Default | Full opacity, interactive | (no props) |
+| Hover | Lifts `y:-4px`, scale `1.04`, shimmer sweep | mouse enter |
+| Press | Compresses `scale:0.94`, `y:1px` | mouse down |
+| Release | Springs back to hover state | mouse up |
+| Leave | Elastic spring to rest `scale:1, y:0` | mouse leave |
+| Disabled | `opacity-40`, `cursor-not-allowed`, no GSAP events | `disabled` prop |
+| Loading | Centred spinner replaces label, interaction blocked | `loading` prop |
+| Focus | `outline-2 outline-offset-2` in variant colour | keyboard tab |
+| Magnetic | Cursor-tracks within button bounds (hero only) | `magnetic` prop |
+
+#### Icon buttons
+
+```tsx
+// Icon on the left (default)
+<Button variant="primary" icon={<IconCalendar />} iconPosition="left">
+  Book Appointment
+</Button>
+
+// Icon on the right
+<Button variant="accent" icon={<IconArrowRight />} iconPosition="right">
+  Get a Quote
+</Button>
+
+// Icon-only — MUST have aria-label
+<Button variant="primary" size="md" icon={<IconCheck />} iconPosition="only" aria-label="Confirm action" />
+<Button variant="danger"  size="sm" icon={<IconClose />} iconPosition="only" aria-label="Remove item" />
 ```
 
-**Accessibility**: 
-- Must have visible text or `aria-label`
-- Visible focus indicator (not `outline-none`)
-- Clear hover/active states
-- Must be semantic `<button>` or `<a>` with appropriate role
+#### Colour overrides on dark backgrounds
+
+On dark surfaces (`bg-primary-900`, `bg-primary-700`, etc.) `secondary` and `outlined` variants need explicit colour overrides via `className`. Use Tailwind v4 `!` important suffix:
+
+```tsx
+// Secondary on dark background
+<Button variant="secondary" className="text-primary-100! border-primary-100/40 hover:bg-primary-100/10">
+  Learn More
+</Button>
+
+// Outlined on dark background
+<Button variant="outlined" className="text-neutral-300! border-neutral-500 hover:border-neutral-200 hover:text-white!">
+  View Portfolio
+</Button>
+
+// Ghost on dark background (text-current inherits white from parent)
+<Button variant="ghost" className="hover:bg-white/10 border-transparent">
+  Browse Services
+</Button>
+```
+
+#### Magnetic CTA (hero sections only)
+
+Use sparingly — max 2–3 per page, on large prominent CTAs. The button physically follows the cursor and snaps back with elastic physics on leave.
+
+```tsx
+<Button variant="primary" size="lg" icon={<IconCalendar />} iconPosition="left" magnetic>
+  Book Appointment
+</Button>
+```
+
+#### Loading state
+
+Use when an async action (form submit, booking, network call) is in-flight. Replaces label with animated spinner; re-enables on completion.
+
+```tsx
+const [busy, setBusy] = useState(false)
+
+const handleSubmit = async () => {
+  setBusy(true)
+  await submitForm()
+  setBusy(false)
+}
+
+<Button variant="primary" loading={busy} aria-label={busy ? 'Submitting…' : 'Submit'} onClick={handleSubmit}>
+  Submit
+</Button>
+```
+
+#### AI agent decision guide
+
+When choosing a button, pick based on **hierarchy and surface**:
+
+```
+One dominant action on the page/section?         → variant="primary"
+Supporting action alongside a primary?           → variant="secondary"
+Promotional / limited-time offer CTA?            → variant="accent"
+Hero or section-defining CTA (large, memorable)? → size="lg" + magnetic (optionally)
+Destructive / irreversible action?               → variant="danger"
+Low-emphasis / nav / text-level action?          → variant="ghost"
+Neutral secondary on a white/light card?         → variant="outlined"
+Compact inline action (table rows, badges)?      → size="sm"
+Action with directional or symbolic meaning?     → add icon + iconPosition
+Action triggers network request / async work?    → add loading={isLoading}
+Action on a dark-background section?             → secondary/outlined + className colour override
+```
+
+**Accessibility rules (non-negotiable)**:
+- Icon-only buttons **must** have `aria-label`
+- Loading buttons **must** update `aria-label` to reflect state (e.g. `"Submitting…"`)
+- Never use `outline-none` — every button has a visible focus ring via the component
+- Minimum touch target: `sm` = 36px, `md` = 44px ✓, `lg` = 56px ✓ — prefer `md`/`lg` for primary CTAs
 
 ### Forms
 **Tailwind Classes**:

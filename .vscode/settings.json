@@ -5,6 +5,9 @@
       "true": true,
       "git pull": true,
       "git checkout": true,
-      "lsof": true
+      "lsof": true,
+      "git add": true,
+      "git commit": true,
+      "git merge": true
    }
 }

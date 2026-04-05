@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 
-export default function ComingSoon() {
+export default function HomePage() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -10,7 +10,7 @@ export default function ComingSoon() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
-    
+
     // Simulate submission delay
     setTimeout(() => {
       setSubmitted(true)
@@ -21,7 +21,12 @@ export default function ComingSoon() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-neutral-50 via-primary-50 to-neutral-50 px-4 sm:px-6 lg:px-8">
+    <main>
+      {/* Coming Soon ──────────────────────────────────────────────────── */}
+      <section
+        aria-label="Coming soon announcement"
+        className="relative min-h-screen flex items-center justify-center bg-linear-to-br from-neutral-50 via-primary-50 to-neutral-50 px-4 sm:px-6 lg:px-8"
+      >
       {/* Decorative background element */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-accent-400/5 rounded-full blur-3xl"></div>
@@ -163,15 +168,7 @@ export default function ComingSoon() {
         </div>
       </div>
 
-      {/* Add stagger animation delay utilities if not in Tailwind config */}
-      <style>{`
-        @media (prefers-reduced-motion: reduce) {
-          * {
-            animation: none !important;
-            transition: none !important;
-          }
-        }
-      `}</style>
+      </section>
     </main>
   )
 }
