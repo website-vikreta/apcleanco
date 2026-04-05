@@ -171,9 +171,10 @@ export default function HeroSection() {
           {/* Primary CTA — Calendly */}
           <Button
             variant="white"
-            size="lg"
+            size="md"
             magnetic
-            icon={<i className="bi bi-calendar2-check text-xl leading-none" aria-hidden="true" />}
+            className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl lg:gap-2.5"
+            icon={<i className="bi bi-calendar2-check text-lg lg:text-xl leading-none" aria-hidden="true" />}
             iconPosition="left"
             onClick={() =>
               window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer')
@@ -188,9 +189,10 @@ export default function HeroSection() {
             type="button"
             className="
               inline-flex items-center justify-center
-              min-w-44 px-8 py-4 h-14 rounded-xl
+              px-6 py-3 h-11 rounded-lg text-base
+              lg:px-8 lg:py-4 lg:h-14 lg:rounded-xl lg:text-lg
               border-2 border-white/60 text-white font-semibold
-              tracking-tight text-lg
+              tracking-tight
               hover:border-white hover:bg-white/10
               transition-all duration-200
               focus-visible:outline-2
