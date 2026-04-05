@@ -9,6 +9,8 @@
       "git add": true,
       "git commit": true,
       "git merge": true,
-      "git push": true
+      "git push": true,
+      "mkdir": true,
+      "mv": true
    }
 }

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Button from './Button'
+import Button from '../Button'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
@@ -28,8 +28,8 @@ function ServiceCard({ title, image }: { title: string; image: string }) {
 
   const handleMouseEnter = contextSafe(() => {
     gsap.to(imgRef.current, {
-      scale: 1.12,
-      rotation: 3,
+      scale: 1.25,
+      rotation: 10,
       duration: 0.55,
       ease: 'power2.out',
     })
@@ -53,7 +53,7 @@ function ServiceCard({ title, image }: { title: string; image: string }) {
       onMouseLeave={handleMouseLeave}
     >
       {/* Image container — overflow hidden to clip zoom + rotation */}
-      <div className="relative w-full aspect-4/3 overflow-hidden rounded-2xl">
+      <div className="relative w-full aspect-4/3 overflow-hidden">
         <div ref={imgRef} className="absolute inset-0 will-change-transform">
           <Image
             src={image}
@@ -71,7 +71,7 @@ function ServiceCard({ title, image }: { title: string; image: string }) {
       </div>
 
       {/* Title box — overlaps image bottom by ~20px */}
-      <div className="relative z-10 -mt-5 mx-4 bg-white border border-neutral-200 rounded-xl px-5 py-4">
+      <div className="relative z-10 -mt-5 mx-4 bg-white border border-neutral-200 px-5 py-4 text-center">
         <h3 className="text-primary-900 font-semibold text-base lg:text-lg leading-snug tracking-tight">
           {title}
         </h3>
@@ -168,9 +168,11 @@ export default function ServicesSection() {
             variant="primary"
             size="md"
             className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
+            icon={<i className="bi bi-arrow-right text-base lg:text-lg leading-none" aria-hidden="true" />}
+            iconPosition="right"
             aria-label="Explore all our services"
           >
-            Explore all our Services →
+            Explore all our Services
           </Button>
         </div>
 
