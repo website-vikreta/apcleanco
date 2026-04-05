@@ -13,45 +13,73 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 const COMPARISON_ROWS = [
   {
     id: 1,
-    icon: 'bi-clock-history',
-    feature: 'Same-Day Service',
-    apCleanco: 'Available 7 days a week',
-    others: 'Limited or no same-day',
+    icon: 'bi-patch-check',
+    feature: 'Cleaning Quality',
+    apCleanco: 'Detailed, checklist-based clean',
+    others: 'Inconsistent results',
   },
   {
     id: 2,
-    icon: 'bi-currency-dollar',
-    feature: 'Transparent Pricing',
-    apCleanco: 'Upfront, no hidden fees',
-    others: 'Surprise charges common',
+    icon: 'bi-flower1',
+    feature: 'Products Used',
+    apCleanco: 'Eco-friendly & family-safe',
+    others: 'Harsh chemicals',
   },
   {
     id: 3,
-    icon: 'bi-recycle',
-    feature: 'Eco-Friendly Disposal',
-    apCleanco: 'Donate, recycle & repurpose',
-    others: 'Straight to landfill',
+    icon: 'bi-tag',
+    feature: 'Pricing',
+    apCleanco: 'Flat, transparent pricing',
+    others: 'Hidden fees & upsells',
   },
   {
     id: 4,
-    icon: 'bi-shield-check',
-    feature: 'Licensed & Insured',
-    apCleanco: 'Fully licensed & insured',
-    others: 'Often unverified',
+    icon: 'bi-people',
+    feature: 'Staff',
+    apCleanco: 'Trained, vetted team',
+    others: 'Random or rotating cleaners',
   },
   {
     id: 5,
-    icon: 'bi-stars',
-    feature: 'Customer Satisfaction',
-    apCleanco: '5-star rated service',
-    others: 'Inconsistent reviews',
+    icon: 'bi-calendar-check',
+    feature: 'Reliability',
+    apCleanco: 'On-time, dependable scheduling',
+    others: 'Late arrivals or cancellations',
   },
   {
     id: 6,
-    icon: 'bi-truck',
-    feature: 'Full-Service Hauling',
-    apCleanco: 'We load, haul & clean up',
-    others: 'You do the heavy lifting',
+    icon: 'bi-sliders',
+    feature: 'Customization',
+    apCleanco: 'Fully customizable plans',
+    others: 'One-size-fits-all',
+  },
+  {
+    id: 7,
+    icon: 'bi-emoji-smile',
+    feature: 'Satisfaction',
+    apCleanco: '100% satisfaction guarantee',
+    others: 'Limited or none',
+  },
+  {
+    id: 8,
+    icon: 'bi-chat-dots',
+    feature: 'Communication',
+    apCleanco: 'Friendly, responsive support',
+    others: 'Hard to reach',
+  },
+  {
+    id: 9,
+    icon: 'bi-shield-lock',
+    feature: 'Trust & Safety',
+    apCleanco: 'Background-checked & insured',
+    others: 'Minimal screening',
+  },
+  {
+    id: 10,
+    icon: 'bi-gem',
+    feature: 'Overall Value',
+    apCleanco: 'Premium clean at fair pricing',
+    others: 'Pay more, get less',
   },
 ] as const
 
@@ -165,7 +193,7 @@ function MobileCard({
         <CheckIcon />
         <div>
           <p className="text-xs font-semibold text-primary-500 uppercase tracking-wide mb-0.5">
-            AP Cleanco
+            Apcleanco
           </p>
           <p className="text-primary-800 text-sm font-medium">{apCleanco}</p>
         </div>
