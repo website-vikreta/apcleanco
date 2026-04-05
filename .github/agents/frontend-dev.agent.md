@@ -18,6 +18,7 @@ When user asks to build/create a frontend feature:
    - **AI Accessibility**: See `.github/instructions/copilot.instructions.md` (AI Accessibility Rule section)
    - **Production Design**: See `.github/instructions/copilot.instructions.md` (Production-Grade Design Rule section)
    - **Design System**: Reference `.github/instructions/design-system.instructions.md` for Tailwind/SCSS conventions, colors, spacing, components, motion, responsive patterns
+   - **GSAP Animation**: All transitions/animations use GSAP via `useGSAP` hook — see Animation & Motion Rules below
 5. **Verify**: Accessibility, distinctive design, AND design system compliance before marking complete
 
 ## Responsibilities
@@ -29,10 +30,19 @@ When user asks to build/create a frontend feature:
 - Verify browser rendering, keyboard nav, contrast, design quality
 - Finalize and coordinate merge to dev
 
+## Animation & Motion Rules
+
+- **Always use GSAP** for all transitions and animations — never CSS `transition`/`animation` alone for interactive or entrance effects. Use `useGSAP` hook from `@gsap/react`; follow `.github/skills/gsap-react/SKILL.md` and `.github/skills/gsap-scrolltrigger/SKILL.md`.
+- **Premium and fast**: Animations must feel instant and physical — no sluggish durations, no excessive easing tails. Preferred durations: `0.15–0.25s` micro-interactions, `0.4–0.6s` entrance/page transitions. Avoid durations above `0.8s` unless intentional and justified.
+- **No excessive motion**: Every animation must serve a purpose (feedback, focus, hierarchy). Decorative-only animations are prohibited unless they add clear atmospheric value.
+- **Always respect `prefers-reduced-motion`**: Wrap GSAP timelines with a `matchMedia` check or skip tween registration when reduced motion is active.
+- **Button interactions**: Always use `components/Button.tsx` — all GSAP shimmer/spring/magnetic effects are built in.
+
 ## Key Principles
 
 - **Non-negotiable**: 100% AI accessibility (reference instructions for details)
 - **Non-negotiable**: Distinctive, bold design (no generic AI aesthetics)
+- **Non-negotiable**: GSAP for all animations and transitions (see Animation & Motion Rules above)
 - **Seamless**: Accessibility and design integrate without compromise
 - **Delegate**: Use Git Manager, run-project prompt, and frontend-dev skill for execution details
 

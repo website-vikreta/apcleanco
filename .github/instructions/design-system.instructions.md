@@ -255,46 +255,157 @@ section {
 ## 3. Component Patterns (Tailwind CSS)
 
 ### Buttons
-**Tailwind Classes**:
-- **Primary**: `bg-primary-500 text-white hover:bg-primary-700 focus-visible:outline-2 focus-visible:outline-accent-500 focus-visible:outline-offset-2 disabled:opacity-50 transition-colors`
-- **Secondary**: `border border-primary-500 text-primary-500 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-accent-500 transition-colors`
-- **Disabled**: `opacity-50 cursor-not-allowed`
-- **Padding**: `px-6 py-3` (desktop), `px-4 py-2` (mobile with responsive)
-- **Min height**: `h-11` (44px)
-- **Focus**: `focus-visible:outline-2 focus-visible:outline-offset-2` (never `outline-none`)
 
-**SCSS Mixin**:
-```scss
-@mixin button-primary {
-  @apply bg-primary-500 text-white hover:bg-primary-700 transition-colors;
-  @apply focus-visible:outline-2 focus-visible:outline-accent-500 focus-visible:outline-offset-2;
-  @apply disabled:opacity-50 disabled:cursor-not-allowed;
-  @apply px-6 py-3 h-11 font-medium;
-}
+> **ALWAYS use `<Button>` from `components/Button.tsx`** — never hand-roll button styles.
+> The component handles all GSAP interactions (shimmer, spring, press, magnetic) automatically.
+> Only use raw `<button>` for one-off cases that cannot use the component (e.g. form submit inside a complex RSC).
 
-@mixin button-secondary {
-  @apply border border-primary-500 text-primary-500 hover:bg-primary-50;
-  @apply focus-visible:outline-2 focus-visible:outline-accent-500 transition-colors;
-  @apply px-6 py-3 h-11 font-medium;
-}
+#### Component API
+
+```tsx
+import Button from '@/components/Button'
+
+// Full prop signature (all optional except children/aria-label for icon-only)
+<Button
+  variant="primary"         // 'primary' | 'secondary' | 'accent' | 'ghost' | 'outlined' | 'danger'
+  size="md"                 // 'sm' | 'md' | 'lg'  — default: 'md'
+  icon={<IconNode />}       // ReactNode — any inline SVG or icon component
+  iconPosition="left"       // 'left' | 'right' | 'only'  — default: 'left'
+  loading={false}           // shows centred spinner, disables interaction
+  magnetic={false}          // enables cursor-tracking magnetic pull (hero/CTA only)
+  disabled={false}          // standard HTML disabled; opacity-40 + cursor-not-allowed
+  type="button"             // 'button' | 'submit' | 'reset'
+  onClick={handler}
+  className=""              // append extra Tailwind classes (colour overrides on dark bg)
+  aria-label="..."          // REQUIRED for icon-only buttons
+>
+  Label text
+</Button>
 ```
 
-**Usage**:
-```html
-<button className="@apply button-primary">Primary Button</button>
-<button className="@apply button-secondary">Secondary Button</button>
+#### Variants — when to use each
 
-<!-- Or directly with Tailwind -->
-<button className="bg-primary-500 text-white px-6 py-3 h-11 hover:bg-primary-700 focus-visible:outline-2 focus-visible:outline-accent-500 transition-colors">
-  Click Me
-</button>
+| Variant | Use case | Background | Text |
+|---------|----------|------------|------|
+| `primary` | Main CTA — one per section max | `bg-primary-500` | `text-white` |
+| `secondary` | Secondary action alongside primary | transparent | `text-primary-500` (light bg) or `text-primary-100!` (dark bg) |
+| `accent` | Highlight / promotional CTA | `bg-accent-500` | `text-neutral-900` |
+| `ghost` | Tertiary / nav / low-emphasis | transparent | inherits (`text-current`) |
+| `outlined` | Neutral secondary, light or dark surfaces | transparent | `text-neutral-700` (light) or `text-neutral-300!` (dark bg) |
+| `danger` | Destructive actions (delete, cancel booking) | `bg-red-600` | `text-white` |
+
+#### Sizes
+
+| Size | Height | Padding | Text | Use case |
+|------|--------|---------|------|----------|
+| `sm` | `h-9` (36px) | `px-4 py-2` | `text-sm` | Compact UI, tables, inline form actions |
+| `md` | `h-11` (44px) | `px-6 py-3` | `text-base` | Default — body sections, cards, forms |
+| `lg` | `h-14` (56px) | `px-8 py-4` | `text-lg` | Hero CTAs, magnetic feature buttons |
+
+#### States — how they render
+
+| State | What happens | How to trigger |
+|-------|--------------|----------------|
+| Default | Full opacity, interactive | (no props) |
+| Hover | Lifts `y:-4px`, scale `1.04`, shimmer sweep | mouse enter |
+| Press | Compresses `scale:0.94`, `y:1px` | mouse down |
+| Release | Springs back to hover state | mouse up |
+| Leave | Elastic spring to rest `scale:1, y:0` | mouse leave |
+| Disabled | `opacity-40`, `cursor-not-allowed`, no GSAP events | `disabled` prop |
+| Loading | Centred spinner replaces label, interaction blocked | `loading` prop |
+| Focus | `outline-2 outline-offset-2` in variant colour | keyboard tab |
+| Magnetic | Cursor-tracks within button bounds (hero only) | `magnetic` prop |
+
+#### Icon buttons
+
+```tsx
+// Icon on the left (default)
+<Button variant="primary" icon={<IconCalendar />} iconPosition="left">
+  Book Appointment
+</Button>
+
+// Icon on the right
+<Button variant="accent" icon={<IconArrowRight />} iconPosition="right">
+  Get a Quote
+</Button>
+
+// Icon-only — MUST have aria-label
+<Button variant="primary" size="md" icon={<IconCheck />} iconPosition="only" aria-label="Confirm action" />
+<Button variant="danger"  size="sm" icon={<IconClose />} iconPosition="only" aria-label="Remove item" />
 ```
 
-**Accessibility**: 
-- Must have visible text or `aria-label`
-- Visible focus indicator (not `outline-none`)
-- Clear hover/active states
-- Must be semantic `<button>` or `<a>` with appropriate role
+#### Colour overrides on dark backgrounds
+
+On dark surfaces (`bg-primary-900`, `bg-primary-700`, etc.) `secondary` and `outlined` variants need explicit colour overrides via `className`. Use Tailwind v4 `!` important suffix:
+
+```tsx
+// Secondary on dark background
+<Button variant="secondary" className="text-primary-100! border-primary-100/40 hover:bg-primary-100/10">
+  Learn More
+</Button>
+
+// Outlined on dark background
+<Button variant="outlined" className="text-neutral-300! border-neutral-500 hover:border-neutral-200 hover:text-white!">
+  View Portfolio
+</Button>
+
+// Ghost on dark background (text-current inherits white from parent)
+<Button variant="ghost" className="hover:bg-white/10 border-transparent">
+  Browse Services
+</Button>
+```
+
+#### Magnetic CTA (hero sections only)
+
+Use sparingly — max 2–3 per page, on large prominent CTAs. The button physically follows the cursor and snaps back with elastic physics on leave.
+
+```tsx
+<Button variant="primary" size="lg" icon={<IconCalendar />} iconPosition="left" magnetic>
+  Book Appointment
+</Button>
+```
+
+#### Loading state
+
+Use when an async action (form submit, booking, network call) is in-flight. Replaces label with animated spinner; re-enables on completion.
+
+```tsx
+const [busy, setBusy] = useState(false)
+
+const handleSubmit = async () => {
+  setBusy(true)
+  await submitForm()
+  setBusy(false)
+}
+
+<Button variant="primary" loading={busy} aria-label={busy ? 'Submitting…' : 'Submit'} onClick={handleSubmit}>
+  Submit
+</Button>
+```
+
+#### AI agent decision guide
+
+When choosing a button, pick based on **hierarchy and surface**:
+
+```
+One dominant action on the page/section?         → variant="primary"
+Supporting action alongside a primary?           → variant="secondary"
+Promotional / limited-time offer CTA?            → variant="accent"
+Hero or section-defining CTA (large, memorable)? → size="lg" + magnetic (optionally)
+Destructive / irreversible action?               → variant="danger"
+Low-emphasis / nav / text-level action?          → variant="ghost"
+Neutral secondary on a white/light card?         → variant="outlined"
+Compact inline action (table rows, badges)?      → size="sm"
+Action with directional or symbolic meaning?     → add icon + iconPosition
+Action triggers network request / async work?    → add loading={isLoading}
+Action on a dark-background section?             → secondary/outlined + className colour override
+```
+
+**Accessibility rules (non-negotiable)**:
+- Icon-only buttons **must** have `aria-label`
+- Loading buttons **must** update `aria-label` to reflect state (e.g. `"Submitting…"`)
+- Never use `outline-none` — every button has a visible focus ring via the component
+- Minimum touch target: `sm` = 36px, `md` = 44px ✓, `lg` = 56px ✓ — prefer `md`/`lg` for primary CTAs
 
 ### Forms
 **Tailwind Classes**:

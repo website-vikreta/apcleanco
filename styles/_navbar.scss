@@ -1,16 +1,11 @@
-// _navbar.scss — Navbar component styles and animations
-@use 'mixins';
+// _navbar.scss — Header component
+// All layout, colour, and spacing is handled by Tailwind CSS utilities in Header.tsx.
+// No box-shadows anywhere (per design rules).
+// Only bespoke CSS that Tailwind cannot express belongs here.
 
-// Navbar container
-nav {
-  // Subtle shadow elevation
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.3s ease-out;
+// Nav-link accent underline is implemented via Tailwind group-hover:scale-x-100.
+// Mobile menu open/close is fully handled by GSAP (display, opacity, y) in Header.tsx.
 
-  &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  }
-}
 
 // Underline animation for navigation links
 .nav-underline {
