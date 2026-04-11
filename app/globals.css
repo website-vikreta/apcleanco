@@ -93,3 +93,130 @@
     }
   }
 }
+
+/* ─── Blog Prose Styles (.prose-blog) ─────────────────────────────────────── */
+/* Applied to rendered markdown content in blog detail pages */
+.prose-blog {
+  color: var(--color-neutral-900);
+  font-size: 1.0625rem;       /* 17px — slightly above base for readability */
+  line-height: 1.8;
+  max-width: 70ch;
+
+  /* Headings */
+  h1, h2, h3, h4 {
+    color: var(--color-primary-900);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-top: 2.25em;
+    margin-bottom: 0.75em;
+  }
+
+  h1 { font-size: 1.875rem; }
+  h2 { font-size: 1.5rem;   border-bottom: 1px solid var(--color-neutral-200); padding-bottom: 0.4em; }
+  h3 { font-size: 1.25rem;  }
+  h4 { font-size: 1.0625rem; }
+
+  /* Paragraphs */
+  p {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+  }
+
+  /* Lists */
+  ul, ol {
+    padding-left: 1.5em;
+    margin-bottom: 1.5em;
+  }
+
+  ul { list-style-type: disc; }
+  ol { list-style-type: decimal; }
+
+  li {
+    margin-bottom: 0.5em;
+    line-height: 1.75;
+  }
+
+  /* Links */
+  a {
+    color: var(--color-primary-500);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+  }
+
+  a:hover {
+    color: var(--color-primary-700);
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Blockquote */
+  blockquote {
+    border-left: 3px solid var(--color-primary-400);
+    padding-left: 1.25em;
+    margin-left: 0;
+    color: var(--color-neutral-700);
+    font-style: italic;
+    margin-bottom: 1.5em;
+  }
+
+  /* Inline code */
+  code {
+    background: var(--color-neutral-100);
+    border: 1px solid var(--color-neutral-200);
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+    font-size: 0.9em;
+    color: var(--color-primary-700);
+  }
+
+  /* Code blocks */
+  pre {
+    background: var(--color-neutral-100);
+    border: 1px solid var(--color-neutral-200);
+    border-radius: 6px;
+    padding: 1.25em 1.5em;
+    overflow-x: auto;
+    margin-bottom: 1.5em;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  /* Images */
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 1.5em 0;
+  }
+
+  /* Horizontal rule */
+  hr {
+    border: none;
+    border-top: 1px solid var(--color-neutral-200);
+    margin: 2.5em 0;
+  }
+
+  /* Strong / Em */
+  strong {
+    font-weight: 700;
+    color: var(--color-primary-800);
+  }
+
+  em {
+    font-style: italic;
+  }
+}
