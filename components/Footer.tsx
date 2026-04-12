@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { label: 'Services',   href: '#services' },
   { label: 'About Us',   href: '#about'    },
   { label: 'Blog',       href: '/blog'     },
-  { label: 'FAQ',        href: '#faq'      },
+  { label: 'FAQ',        href: '/faq'      },
 ]
 
 const SOCIAL_LINKS = [

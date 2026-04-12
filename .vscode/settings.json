@@ -11,6 +11,10 @@
       "git merge": true,
       "git push": true,
       "mkdir": true,
-      "mv": true
+      "mv": true,
+      "/^cd \"/Users/shubhamgujarathi/Website Vikreta/Projects/Clients/ApcleanCo/apcleanco\" && node -e \"require\\('remark'\\); require\\('remark-html'\\); require\\('remark-gfm'\\); console\\.log\\('OK'\\)\"$/": {
+         "approve": true,
+         "matchCommandLine": true
+      }
    }
 }
