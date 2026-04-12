@@ -36,18 +36,203 @@ const PROCESS_STEPS = [
   },
 ] as const
 
+// ── Desktop SVG viewBox constants ─────────────────────────────────────────────
+// viewBox: 0 0 1000 200
+// Nodes sit exactly ON the wave path at these x-positions
+const NODE_X = [100, 367, 633, 900] as const
+// Each node's y is determined by evaluating the wave at that x
+// Wave: y = 100 + A*sin(π*(x-100)/800)  where A = 60 (wavy) → 0 (straight)
+// At x=100 → 100, x=367 → ~160, x=633 → ~160, x=900 → 100
+// We store the node y-centers along the WAVY path, and animate them to y=100 (flat)
+const NODE_Y_WAVE  = [100, 160, 40, 100] as const // alternating wave crest/trough
+const NODE_Y_FLAT  = [100, 100, 100, 100] as const
+
+// The wavy SVG path connecting nodes (desktop, viewBox 1000×200)
+const WAVE_PATH =
+  'M 100 100 C 183 160, 284 160, 367 160 S 550 40, 633 40 S 817 100, 900 100'
+
+// The flat (straight) SVG path — same x, all y=100
+const FLAT_PATH =
+  'M 100 100 C 183 100, 284 100, 367 100 S 550 100, 633 100 S 817 100, 900 100'
+
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function OurProcessSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const lineRef = useRef<SVGPathElement>(null)
-  const nodesRef = useRef<(HTMLDivElement | null)[]>([])
-  const contentsRef = useRef<(HTMLDivElement | null)[]>([])
+  const sectionRef     = useRef<HTMLElement>(null)
+  const svgPathRef     = useRef<SVGPathElement>(null)     // desktop animated path
+  const nodeCirclesRef = useRef<(SVGGElement | null)[]>([]) // desktop SVG node groups
+  const contentCardsRef = useRef<(HTMLDivElement | null)[]>([]) // desktop text cards
+  const mobileLineRef  = useRef<SVGPathElement>(null)    // mobile vertical path
+  const mobileNodesRef = useRef<(HTMLDivElement | null)[]>([]) // mobile DOM nodes
+  const mobileCardsRef = useRef<(HTMLDivElement | null)[]>([]) // mobile text cards
 
   useGSAP(
     () => {
-      // ── Heading fade-up ──────────────────────────────────────────────────
+      const mm = gsap.matchMedia()
+
+      // ── DESKTOP (md+) ─────────────────────────────────────────────────────
+      mm.add('(min-width: 768px)', () => {
+        const path = svgPathRef.current
+        if (!path) return
+
+        // 1. Set initial state: path drawn fully but wavy, nodes invisible
+        const totalLength = path.getTotalLength()
+        gsap.set(path, {
+          strokeDasharray: totalLength,
+          strokeDashoffset: totalLength,
+          attr: { d: WAVE_PATH },
+        })
+        nodeCirclesRef.current.forEach((g) => {
+          if (g) gsap.set(g, { scale: 0, transformOrigin: '50% 50%', opacity: 0 })
+        })
+        contentCardsRef.current.forEach((card) => {
+          if (card) gsap.set(card, { opacity: 0, y: 20 })
+        })
+
+        // 2. Master timeline, triggered when section enters viewport
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 60%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        })
+
+        // Step A: Draw the wave line left → right
+        tl.to(path, {
+          strokeDashoffset: 0,
+          duration: 1.4,
+          ease: 'power2.inOut',
+        })
+
+        // Step B: Nodes pop onto the line one by one with stagger
+        tl.to(
+          nodeCirclesRef.current.filter(Boolean),
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.45,
+            stagger: 0.18,
+            ease: 'back.out(1.8)',
+          },
+          '-=0.3' // slight overlap with line end
+        )
+
+        // Step C: Content cards fade+slide up, staggered
+        tl.to(
+          contentCardsRef.current.filter(Boolean),
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.55,
+            stagger: 0.14,
+            ease: 'power2.out',
+          },
+          '-=0.6'
+        )
+
+        // 3. Scrub: wave → straight as user scrolls through the section
+        //    Nodes y-positions also animate from wave y → flat y
+        ScrollTrigger.create({
+          trigger: sectionRef.current,
+          start: 'top 50%',
+          end: 'bottom 60%',
+          scrub: 1.2,
+          onUpdate: (self) => {
+            const p = self.progress
+            // Interpolate path from WAVE to FLAT
+            const interpolatePath = (progress: number) => {
+              // control points interpolation: wavy → straight
+              // wave: C 183 160, 284 160, 367 160 S 550 40, 633 40 S 817 100, 900 100
+              // flat: C 183 100, 284 100, 367 100 S 550 100, 633 100 S 817 100, 900 100
+              const lerp = (a: number, b: number) => a + (b - a) * progress
+              const c1y1 = lerp(160, 100)
+              const c1y2 = lerp(160, 100)
+              const n1y  = lerp(160, 100)
+              const c2y1 = lerp(40,  100)
+              const n2y  = lerp(40,  100)
+              const n3y  = lerp(100, 100)
+              return `M 100 100 C 183 ${c1y1}, 284 ${c1y2}, 367 ${n1y} S 550 ${c2y1}, 633 ${n2y} S 817 ${n3y}, 900 100`
+            }
+
+            if (path) {
+              path.setAttribute('d', interpolatePath(p))
+            }
+
+            // Move each SVG node group to follow the interpolated y
+            nodeCirclesRef.current.forEach((g, i) => {
+              if (!g) return
+              const yw = NODE_Y_WAVE[i] ?? 100
+              const yf = NODE_Y_FLAT[i] ?? 100
+              const newY = yw + (yf - yw) * p
+              g.setAttribute('transform', `translate(${NODE_X[i]}, ${newY})`)
+            })
+          },
+        })
+      })
+
+      // ── MOBILE (<md) ──────────────────────────────────────────────────────
+      mm.add('(max-width: 767px)', () => {
+        const line = mobileLineRef.current
+        if (!line) return
+
+        const totalLength = line.getTotalLength()
+        gsap.set(line, {
+          strokeDasharray: totalLength,
+          strokeDashoffset: totalLength,
+        })
+        mobileNodesRef.current.forEach((n) => {
+          if (n) gsap.set(n, { scale: 0, opacity: 0, transformOrigin: '50% 50%' })
+        })
+        mobileCardsRef.current.forEach((c) => {
+          if (c) gsap.set(c, { opacity: 0, x: 16 })
+        })
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 65%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        })
+
+        // Draw vertical line top → bottom
+        tl.to(line, {
+          strokeDashoffset: 0,
+          duration: 1.2,
+          ease: 'power2.inOut',
+        })
+
+        // Nodes pop on one by one
+        tl.to(
+          mobileNodesRef.current.filter(Boolean),
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.4,
+            stagger: 0.2,
+            ease: 'back.out(1.8)',
+          },
+          '-=0.3'
+        )
+
+        // Cards slide in
+        tl.to(
+          mobileCardsRef.current.filter(Boolean),
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+            stagger: 0.16,
+            ease: 'power2.out',
+          },
+          '-=0.55'
+        )
+      })
+
+      // Heading fade-up
       gsap.from('.process-heading', {
         y: 24,
         opacity: 0,
@@ -57,187 +242,9 @@ export default function OurProcessSection() {
           trigger: '.process-heading',
           start: 'top 85%',
           toggleActions: 'play none none none',
+          once: true,
         },
       })
-
-      // ── Get viewport width to determine horizontal vs vertical timeline ───
-      const updateAnimations = () => {
-        // Clear any existing ScrollTriggers for this section
-        ScrollTrigger.getAll().forEach((trigger) => {
-          const triggerElement = trigger.vars.trigger
-          if (
-            triggerElement &&
-            typeof triggerElement === 'object' &&
-            'closest' in triggerElement &&
-            triggerElement.closest?.('.process-timeline')
-          ) {
-            trigger.kill()
-          }
-        })
-
-        const isHorizontal = window.innerWidth >= 768 // md breakpoint
-        const timeline = containerRef.current?.querySelector('.process-timeline')
-        if (!timeline) return
-
-        if (isHorizontal) {
-          animateHorizontalTimeline()
-        } else {
-          animateVerticalTimeline()
-        }
-      }
-
-      // ── Horizontal Timeline (Desktop) ────────────────────────────────────
-      const animateHorizontalTimeline = () => {
-        // Animate line drawing from left to right
-        if (lineRef.current) {
-          const line = lineRef.current
-          const pathLength = line.getTotalLength?.() || 0
-
-          gsap.set(line, {
-            strokeDasharray: pathLength,
-            strokeDashoffset: pathLength,
-          })
-
-          gsap.to(line, {
-            strokeDashoffset: 0,
-            duration: 1.2,
-            ease: 'power2.inOut',
-            scrollTrigger: {
-              trigger: '.process-timeline',
-              start: 'top 65%',
-              end: 'bottom 35%',
-              scrub: 1,
-              markers: false,
-            },
-          })
-        }
-
-        // Stagger node animations
-        nodesRef.current.forEach((node, idx) => {
-          if (!node) return
-          gsap.from(node, {
-            scale: 0,
-            opacity: 0,
-            duration: 0.5,
-            ease: 'back.out',
-            scrollTrigger: {
-              trigger: '.process-timeline',
-              start: 'top 70%',
-              toggleActions: 'play none none none',
-            },
-            delay: idx * 0.15,
-          })
-        })
-
-        // Stagger content animations
-        contentsRef.current.forEach((content, idx) => {
-          if (!content) return
-          gsap.from(content, {
-            y: 16,
-            opacity: 0,
-            duration: 0.6,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: '.process-timeline',
-              start: 'top 70%',
-              toggleActions: 'play none none none',
-            },
-            delay: idx * 0.12 + 0.1,
-          })
-        })
-
-        // Subtle parallax on nodes
-        nodesRef.current.forEach((node, idx) => {
-          if (!node) return
-          gsap.to(node, {
-            y: -8 * (idx % 2 === 0 ? 1 : -1),
-            scrollTrigger: {
-              trigger: '.process-timeline',
-              start: 'top 60%',
-              end: 'bottom 40%',
-              scrub: 0.5,
-              markers: false,
-            },
-          })
-        })
-      }
-
-      // ── Vertical Timeline (Mobile) ───────────────────────────────────────
-      const animateVerticalTimeline = () => {
-        // Animate line drawing from top to bottom
-        if (lineRef.current) {
-          const line = lineRef.current
-          const pathLength = line.getTotalLength?.() || 0
-
-          gsap.set(line, {
-            strokeDasharray: pathLength,
-            strokeDashoffset: pathLength,
-          })
-
-          gsap.to(line, {
-            strokeDashoffset: 0,
-            duration: 1.2,
-            ease: 'power2.inOut',
-            scrollTrigger: {
-              trigger: '.process-timeline',
-              start: 'top 50%',
-              end: 'bottom 10%',
-              scrub: 1,
-              markers: false,
-            },
-          })
-        }
-
-        // Stagger node animations for vertical
-        nodesRef.current.forEach((node, idx) => {
-          if (!node) return
-          gsap.from(node, {
-            scale: 0,
-            opacity: 0,
-            duration: 0.5,
-            ease: 'back.out',
-            scrollTrigger: {
-              trigger: `.process-step-${idx}`,
-              start: 'top 80%',
-              toggleActions: 'play none none none',
-            },
-          })
-        })
-
-        // Content fade-in for vertical
-        contentsRef.current.forEach((content, idx) => {
-          if (!content) return
-          gsap.from(content, {
-            x: 16,
-            opacity: 0,
-            duration: 0.6,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: `.process-step-${idx}`,
-              start: 'top 80%',
-              toggleActions: 'play none none none',
-            },
-          })
-        })
-      }
-
-      // Initial animation setup
-      updateAnimations()
-
-      // Refresh on window resize
-      const handleResize = () => {
-        ScrollTrigger.refresh()
-        updateAnimations()
-      }
-
-      const resizeObserver = new ResizeObserver(handleResize)
-      if (sectionRef.current) {
-        resizeObserver.observe(sectionRef.current)
-      }
-
-      return () => {
-        resizeObserver.disconnect()
-      }
     },
     { scope: sectionRef }
   )
@@ -245,138 +252,176 @@ export default function OurProcessSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-neutral-50 py-14 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8"
+      className="bg-white py-14 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8"
       aria-labelledby="process-heading"
     >
-      <div className="max-w-7xl mx-auto">
-        {/* Heading */}
-        <div className="process-heading text-center mb-12 md:mb-16 lg:mb-20">
+      <div className="max-w-6xl mx-auto">
+
+        {/* ── Heading ───────────────────────────────────────────────────── */}
+        <div className="process-heading text-center mb-10 md:mb-6">
           <h2
             id="process-heading"
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight"
           >
             Our <span className="text-accent-500">Process</span>
           </h2>
-          <p className="text-neutral-600 text-base md:text-lg mt-4 max-w-2xl mx-auto">
+          <p className="text-neutral-500 text-base md:text-lg mt-3 max-w-xl mx-auto">
             A clear, structured approach to transforming your garage into a clean, organized space.
           </p>
         </div>
 
-        {/* Desktop: Horizontal Timeline (hidden on md below) */}
-        <div className="hidden md:block">
-          <div ref={containerRef} className="process-timeline-container relative">
-            {/* SVG Path: Horizontal curved line */}
+        {/* ── DESKTOP: SVG-driven horizontal timeline ────────────────────── */}
+        <div className="hidden md:block" aria-hidden="false">
+          {/*
+            Strategy: one SVG holds BOTH the connecting path AND the numbered circles.
+            This guarantees nodes are always precisely on the line at every viewport.
+            Content cards live below in a CSS grid, centered under each node x-position.
+          */}
+          <div className="relative w-full">
             <svg
-              className="process-timeline absolute top-0 left-0 w-full h-40 pointer-events-none"
-              viewBox="0 0 1200 150"
-              preserveAspectRatio="none"
+              viewBox="0 0 1000 200"
+              preserveAspectRatio="xMidYMid meet"
+              className="w-full"
+              style={{ height: '200px' }}
               aria-hidden="true"
+              focusable="false"
             >
+              {/* Dashed track (always visible, full length) */}
               <path
-                ref={lineRef}
-                d="M 80 80 Q 300 120, 520 80 T 960 80"
-                stroke="currentColor"
+                d={WAVE_PATH}
+                stroke="var(--color-neutral-200)"
                 strokeWidth="2"
                 fill="none"
-                className="text-neutral-300"
+                strokeDasharray="6 5"
               />
+
+              {/* Animated fill path (draws left→right, morphs wavy→straight) */}
+              <path
+                ref={svgPathRef}
+                d={WAVE_PATH}
+                stroke="var(--color-primary-400)"
+                strokeWidth="2.5"
+                fill="none"
+              />
+
+              {/* Node circles — positioned at NODE_X, NODE_Y_WAVE initially */}
+              {PROCESS_STEPS.map((step, idx) => (
+                <g
+                  key={step.id}
+                  ref={(el) => { nodeCirclesRef.current[idx] = el }}
+                  transform={`translate(${NODE_X[idx]}, ${NODE_Y_WAVE[idx]})`}
+                  role="img"
+                  aria-label={`Step ${step.id}: ${step.title}`}
+                >
+                  {/* Outer ring */}
+                  <circle r="28" fill="white" stroke="var(--color-primary-200)" strokeWidth="1.5" />
+                  {/* Inner filled circle */}
+                  <circle r="22" fill="var(--color-primary-500)" />
+                  {/* Step number */}
+                  <text
+                    textAnchor="middle"
+                    dominantBaseline="central"
+                    fill="white"
+                    fontSize="18"
+                    fontWeight="700"
+                    fontFamily="var(--font-sans)"
+                  >
+                    {step.id}
+                  </text>
+                </g>
+              ))}
             </svg>
 
-            {/* Steps Grid */}
-            <div className="process-timeline grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-0 pt-32">
+            {/* Content cards — 4-col grid, each card centred under its node x% */}
+            <div className="grid grid-cols-4 gap-x-4 mt-4">
               {PROCESS_STEPS.map((step, idx) => (
                 <div
                   key={step.id}
-                  className={`process-step process-step-${idx} flex flex-col items-center md:flex-col-reverse md:pt-4`}
+                  ref={(el) => { contentCardsRef.current[idx] = el }}
+                  className="flex flex-col items-center text-center px-3"
                 >
-                  {/* Content */}
-                  <div
-                    ref={(el) => {
-                      if (el) contentsRef.current[idx] = el
-                    }}
-                    className="text-center mt-6 md:mt-0 md:mb-16 px-2"
-                  >
-                    <h3 className="text-base md:text-lg font-semibold text-primary-900 mb-3">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm md:text-base text-neutral-600 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-
-                  {/* Node (Circle) */}
-                  <div
-                    ref={(el) => {
-                      if (el) nodesRef.current[idx] = el
-                    }}
-                    className="flex items-center justify-center w-16 h-16 rounded-full bg-primary-500 text-white font-bold text-2xl shadow-lg ring-4 ring-neutral-50 shrink-0 relative"
-                    aria-label={`Step ${step.id}: ${step.title}`}
-                  >
-                    {step.id}
-                  </div>
+                  <h3 className="text-sm lg:text-base font-semibold text-primary-900 mb-2 leading-snug">
+                    {step.title}
+                  </h3>
+                  <p className="text-xs lg:text-sm text-neutral-500 leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Mobile/Tablet: Vertical Timeline (visible on md below) */}
-        <div className="md:hidden">
-          <div ref={containerRef} className="process-timeline-container relative">
-            {/* SVG Path: Vertical line on left */}
+        {/* ── MOBILE: Vertical timeline ──────────────────────────────────── */}
+        <div className="md:hidden relative" aria-label="Our process steps">
+          {/*
+            The SVG vertical line sits as an absolute overlay on the left edge.
+            Each step row has a DOM node bubble centered on that line.
+          */}
+          <div className="relative pl-14">
+            {/* Vertical SVG line — absolute, left-aligned */}
             <svg
-              className="process-timeline absolute left-6 top-0 w-1 h-full pointer-events-none"
-              viewBox="0 0 10 800"
+              className="absolute left-0 top-0 h-full"
+              style={{ width: '28px' }}
               preserveAspectRatio="none"
+              viewBox="0 0 28 800"
               aria-hidden="true"
+              focusable="false"
             >
-              <path
-                ref={lineRef}
-                d="M 5 0 L 5 800"
-                stroke="currentColor"
+              {/* Track */}
+              <line
+                x1="14" y1="0" x2="14" y2="800"
+                stroke="var(--color-neutral-200)"
                 strokeWidth="2"
+                strokeDasharray="6 5"
+              />
+              {/* Animated fill line */}
+              <path
+                ref={mobileLineRef}
+                d="M 14 0 L 14 800"
+                stroke="var(--color-primary-400)"
+                strokeWidth="2.5"
                 fill="none"
-                className="text-neutral-300"
               />
             </svg>
 
-            {/* Steps: Vertical stack */}
-            <div className="space-y-8 pl-28">
+            {/* Steps */}
+            <ol className="space-y-10" aria-label="Process steps">
               {PROCESS_STEPS.map((step, idx) => (
-                <div
+                <li
                   key={step.id}
-                  className={`process-step process-step-${idx} relative`}
+                  className="relative flex items-start gap-5"
                 >
-                  {/* Node positioned absolutely on the left */}
+                  {/* Node bubble — centred on the left SVG line (left: -14 + 14 = 0 relative to pl-14 parent => -14px from pl-14 start = on the line centre) */}
                   <div
-                    ref={(el) => {
-                      if (el) nodesRef.current[idx] = el
-                    }}
-                    className="absolute left-0 -translate-x-1/2 w-14 h-14 rounded-full bg-primary-500 text-white font-bold text-lg flex items-center justify-center shadow-lg ring-4 ring-neutral-50"
-                    style={{ top: '-4px' }}
-                    aria-label={`Step ${step.id}: ${step.title}`}
+                    ref={(el) => { mobileNodesRef.current[idx] = el }}
+                    className="absolute -left-14 top-0 flex items-center justify-center"
+                    style={{ width: '28px', height: '28px' }}
+                    aria-hidden="true"
                   >
-                    {step.id}
+                    <div className="w-9 h-9 rounded-full bg-primary-500 flex items-center justify-center ring-2 ring-white ring-offset-2 ring-offset-white">
+                      <span className="text-white text-sm font-bold leading-none">{step.id}</span>
+                    </div>
                   </div>
 
                   {/* Content */}
                   <div
-                    ref={(el) => {
-                      if (el) contentsRef.current[idx] = el
-                    }}
+                    ref={(el) => { mobileCardsRef.current[idx] = el }}
+                    className="pt-0.5"
                   >
-                    <h3 className="text-base font-semibold text-primary-900 mb-2">
+                    <h3 className="text-base font-semibold text-primary-900 mb-1.5 leading-snug">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-neutral-600 leading-relaxed">
+                    <p className="text-sm text-neutral-500 leading-relaxed">
                       {step.description}
                     </p>
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </div>
+
       </div>
     </section>
   )
