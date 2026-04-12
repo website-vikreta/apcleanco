@@ -20,11 +20,11 @@ const NAV_LINKS = [
 ]
 
 const SOCIAL_LINKS = [
-  { icon: 'bi-youtube',   href: 'https://youtube.com',   label: 'YouTube' },
-  { icon: 'bi-instagram', href: 'https://instagram.com', label: 'Instagram' },
-  { icon: 'bi-facebook',  href: 'https://facebook.com',  label: 'Facebook' },
-  { icon: 'bi-tiktok',    href: 'https://tiktok.com',    label: 'TikTok' },
-  { icon: 'bi-linkedin',  href: 'https://linkedin.com',  label: 'LinkedIn' },
+  { icon: 'bi-youtube',   href: 'https://www.youtube.com/@apcleanco',        label: 'YouTube' },
+  { icon: 'bi-instagram', href: 'https://www.instagram.com/ap_cleanco',      label: 'Instagram' },
+  { icon: 'bi-facebook',  href: 'https://www.facebook.com/apcleanco',        label: 'Facebook' },
+  // { icon: 'bi-tiktok',    href: 'https://tiktok.com',    label: 'TikTok' },
+  { icon: 'bi-linkedin',  href: 'https://www.linkedin.com/company/apcleanco/', label: 'LinkedIn' },
 ]
 
 const CALENDLY_URL = 'https://calendly.com/apcleanco'

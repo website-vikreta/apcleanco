@@ -16,11 +16,11 @@ const NAV_LINKS = [
 ]
 
 const SOCIAL_LINKS = [
-  { label: 'YouTube',   icon: 'bi-youtube',   href: '#' },
-  { label: 'Instagram', icon: 'bi-instagram', href: '#' },
-  { label: 'Facebook',  icon: 'bi-facebook',  href: '#' },
-  { label: 'TikTok',    icon: 'bi-tiktok',    href: '#' },
-  { label: 'LinkedIn',  icon: 'bi-linkedin',  href: '#' },
+  { label: 'YouTube',   icon: 'bi-youtube',   href: 'https://www.youtube.com/@apcleanco' },
+  { label: 'Instagram', icon: 'bi-instagram', href: 'https://www.instagram.com/ap_cleanco' },
+  { label: 'Facebook',  icon: 'bi-facebook',  href: 'https://www.facebook.com/apcleanco' },
+  // { label: 'TikTok',    icon: 'bi-tiktok',    href: 'https://tiktok.com' },
+  { label: 'LinkedIn',  icon: 'bi-linkedin',  href: 'https://www.linkedin.com/company/apcleanco/' },
 ]
 
 const LEGAL_LINKS = [
