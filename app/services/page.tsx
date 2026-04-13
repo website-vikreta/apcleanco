@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { ServiceCard } from '@/components/services/ServiceCard';
+import ServicesHero from '@/components/services/ServicesHero';
 
 export const metadata: Metadata = {
   title: 'Our Services | ApCleanCo',
@@ -24,20 +25,7 @@ export default function ServicesPage() {
   return (
     <main className="w-full">
       {/* Hero Section */}
-      <section className="w-full py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl lg:text-6xl font-bold text-primary-900 mb-6">
-              Our Services
-            </h1>
-            <p className="text-xl text-neutral-700 leading-relaxed">
-              At ApCleanCo, we deliver professional space transformation services.
-              Explore our comprehensive solutions designed to declutter, organize,
-              and revitalize your garage.
-            </p>
-          </div>
-        </div>
-      </section>
+      <ServicesHero />
 
       {/* Services Content */}
       <section className="w-full px-4 sm:px-6 lg:px-8 bg-white">
@@ -80,26 +68,6 @@ export default function ServicesPage() {
             imageAlt="Garage organization system"
             imagePosition="left"
           />
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="w-full py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-primary-900 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Ready to Transform Your Space?
-          </h2>
-          <p className="text-lg text-neutral-100 mb-8 max-w-2xl mx-auto">
-            Get a free quote for any of our services. Our team is ready to help you
-            create the garage of your dreams.
-          </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center justify-center bg-accent-500 text-primary-900 px-8 py-4 rounded-lg font-semibold hover:bg-accent-600 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-500 focus:ring-offset-primary-900"
-            aria-label="Contact us to get started"
-          >
-            Schedule Your Free Consultation
-          </a>
         </div>
       </section>
     </main>
