@@ -2,6 +2,7 @@
 
 import { ReactNode } from 'react';
 import Link from 'next/link';
+import Button from '../Button';
 import { BeforeAfterImage } from './BeforeAfterImage';
 
 export interface ServiceCardProps {
@@ -60,12 +61,31 @@ export const ServiceCard = ({
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center bg-primary-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-              aria-label={`Get a free quote for ${name}`}
-            >
-              Get a Free Quote
+            <Link href="/contact" className="inline-flex">
+              <Button
+                variant="primary"
+                size="md"
+                icon={
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                }
+                iconPosition="left"
+                aria-label={`Get a free quote for ${name}`}
+              >
+                Get a Free Quote
+              </Button>
             </Link>
           </div>
         </div>

@@ -35,8 +35,8 @@ export default function ServicesPage() {
             id="garage-cleanouts"
             name="Garage Cleanouts"
             description="Transform your cluttered garage into a clean, functional space. Our professional team removes unwanted items, debris, and junk, leaving your garage spotless and ready to use. We handle everything from sorting to responsible disposal."
-            beforeImage="/hero-image.png"
-            afterImage="/after-service.png"
+            beforeImage="/after-service.png"
+            afterImage="/hero-image.png"
             imageAlt="Garage cleanout transformation"
             imagePosition="left"
           />
@@ -49,8 +49,8 @@ export default function ServicesPage() {
             id="deep-cleaning"
             name="Deep Cleaning"
             description="Experience a thorough clean that goes beyond the basics. Our deep cleaning service tackles every corner of your garage, including floors, walls, shelves, and hard-to-reach areas. We use eco-friendly methods to ensure your space is pristine and healthy."
-            beforeImage="/hero-image.png"
-            afterImage="/after-service.png"
+            beforeImage="/after-service.png"
+            afterImage="/hero-image.png"
             imageAlt="Deep cleaning service results"
             imagePosition="right"
           />
@@ -63,8 +63,8 @@ export default function ServicesPage() {
             id="garage-organisation"
             name="Garage Organisation"
             description="Create an organized system that lasts. We design custom storage solutions tailored to your needs, install shelving and racks, and organize items for easy access and maintenance. A well-organized garage saves time and reduces stress."
-            beforeImage="/hero-image.png"
-            afterImage="/after-service.png"
+            beforeImage="/after-service.png"
+            afterImage="/hero-image.png"
             imageAlt="Garage organization system"
             imagePosition="left"
           />
