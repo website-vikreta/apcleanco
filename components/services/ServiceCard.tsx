@@ -33,10 +33,10 @@ export const ServiceCard = ({
       className="scroll-mt-20"
       aria-label={`${name} service`}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center py-16 lg:py-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center py-12 lg:py-16">
         {/* Image Container - Desktop Left Position */}
         {isImageLeft && (
-          <div className="order-1 lg:col-span-1 h-96 md:h-80 lg:h-[500px] w-full">
+          <div className="order-1 lg:col-span-1 h-80 md:h-72 lg:h-[420px] w-full">
             <BeforeAfterImage
               beforeImage={beforeImage}
               afterImage={afterImage}
@@ -52,11 +52,11 @@ export const ServiceCard = ({
             isImageLeft ? '' : 'lg:order-2'
           }`}
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-primary-900 mb-4 lg:mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary-900 mb-3 lg:mb-4">
             {name}
           </h2>
 
-          <p className="text-lg text-neutral-700 leading-relaxed mb-8 max-w-xl">
+          <p className="text-base lg:text-lg text-neutral-700 leading-relaxed mb-6 max-w-xl">
             {description}
           </p>
 
@@ -92,7 +92,7 @@ export const ServiceCard = ({
 
         {/* Image Container - Desktop Right Position */}
         {!isImageLeft && (
-          <div className="order-1 lg:order-2 lg:col-span-1 h-96 md:h-80 lg:h-[500px] w-full">
+          <div className="order-1 lg:order-2 lg:col-span-1 h-80 md:h-72 lg:h-[420px] w-full">
             <BeforeAfterImage
               beforeImage={beforeImage}
               afterImage={afterImage}

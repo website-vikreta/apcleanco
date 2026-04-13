@@ -42,7 +42,7 @@ export default function ServicesPage() {
           />
 
           {/* Divider */}
-          <hr className="my-8 lg:my-16 border-neutral-200" />
+          <hr className="my-6 lg:my-10 border-neutral-200" />
 
           {/* Service 2: Deep Cleaning - Image Right */}
           <ServiceCard
@@ -56,7 +56,7 @@ export default function ServicesPage() {
           />
 
           {/* Divider */}
-          <hr className="my-8 lg:my-16 border-neutral-200" />
+          <hr className="my-6 lg:my-10 border-neutral-200" />
 
           {/* Service 3: Garage Organisation - Image Left */}
           <ServiceCard
