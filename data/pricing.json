@@ -1,0 +1,132 @@
+{
+  "plans": [
+    {
+      "id": "basic",
+      "name": "Basic",
+      "description": [
+        "Mop the floor and power wash",
+        "Dust the walls and sealing",
+        "Vacuum floor and corner areas",
+        "Scrub wash the floor",
+        "Cleaning & organizing shelves",
+        "Trash removal from garage",
+        "Deep cleaning entire garage",
+        "Windows and door cleaning"
+      ],
+      "pricing": {
+        "1_car": 349,
+        "2_car": 449,
+        "3_car": 549
+      },
+      "featured": false
+    },
+    {
+      "id": "silver",
+      "name": "Silver",
+      "description": [
+        "All Basic features",
+        "Sorting items by category",
+        "Organizing items accordingly",
+        "Labeling each section"
+      ],
+      "pricing": {
+        "1_car": 425,
+        "2_car": 525,
+        "3_car": 625
+      },
+      "featured": false
+    },
+    {
+      "id": "gold",
+      "name": "Gold",
+      "description": [
+        "All Basic + Silver features",
+        "Driveway cleaning",
+        "Document shredding",
+        "Washing garbage cans",
+        "Donation drop-off service"
+      ],
+      "pricing": {
+        "1_car": 499,
+        "2_car": 599,
+        "3_car": 699
+      },
+      "featured": true
+    }
+  ],
+  "addons": [
+    {
+      "id": "document-shredding",
+      "name": "Document Shredding",
+      "price": 20,
+      "unit": "/bag"
+    },
+    {
+      "id": "driveway-cleaning",
+      "name": "Driveway Cleaning",
+      "price": 50,
+      "note": "50/75/100$ (1-car, 2-car, 3-car)"
+    },
+    {
+      "id": "garden-tool-organizer",
+      "name": "Garden Tool Organizer",
+      "price": 50,
+      "unit": ""
+    },
+    {
+      "id": "organizer-storage-rack",
+      "name": "Organizer with Storage Rack",
+      "price": 75,
+      "unit": ""
+    },
+    {
+      "id": "garbage-can-cleaning",
+      "name": "Garbage Can Cleaning",
+      "price": 15,
+      "unit": "/can"
+    },
+    {
+      "id": "storage-bins",
+      "name": "Storage Bins (27 gallon)",
+      "price": 20,
+      "unit": "/unit"
+    },
+    {
+      "id": "metal-shelves",
+      "name": "Metal Shelves",
+      "price": 100,
+      "unit": ""
+    },
+    {
+      "id": "mesh-laundry-bag",
+      "name": "Mesh Laundry Bag",
+      "price": 5,
+      "unit": ""
+    },
+    {
+      "id": "donation-dropoff",
+      "name": "Donation Drop-off",
+      "price": 50,
+      "unit": ""
+    },
+    {
+      "id": "sorting-labeling",
+      "name": "Sorting & Labeling",
+      "price": 100,
+      "unit": ""
+    },
+    {
+      "id": "window-door-polish",
+      "name": "Window & Door Polish",
+      "price": 25,
+      "unit": ""
+    },
+    {
+      "id": "wire-pipe-organization",
+      "name": "Wire/Pipe Organization",
+      "price": 0,
+      "unit": "",
+      "note": "Included"
+    }
+  ]
+}
