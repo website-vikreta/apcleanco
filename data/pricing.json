@@ -34,7 +34,7 @@
         "2_car": 525,
         "3_car": 625
       },
-      "featured": false
+      "featured": true
     },
     {
       "id": "gold",
@@ -51,7 +51,7 @@
         "2_car": 599,
         "3_car": 699
       },
-      "featured": true
+      "featured": false
     }
   ],
   "addons": [
