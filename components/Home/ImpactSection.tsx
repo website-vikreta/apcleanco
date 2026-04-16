@@ -79,7 +79,7 @@ export default function ImpactSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-primary-900 py-14 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8"
+      className="bg-primary-900 py-14 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="impact-heading"
     >
       <div className="max-w-6xl mx-auto">

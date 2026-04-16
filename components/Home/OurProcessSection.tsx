@@ -252,7 +252,7 @@ export default function OurProcessSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white py-14 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8"
+      className="bg-white py-14 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="process-heading"
     >
       <div className="max-w-6xl mx-auto">

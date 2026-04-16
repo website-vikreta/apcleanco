@@ -71,7 +71,7 @@ export default function AboutSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white py-16 md:py-20 lg:py-28 px-4 sm:px-6 lg:px-8"
+      className="bg-white py-16 md:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="about-heading"
     >
       <div className="max-w-7xl mx-auto">

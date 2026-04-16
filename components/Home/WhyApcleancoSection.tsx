@@ -280,7 +280,7 @@ export default function WhyApcleancoSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-neutral-50 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8"
+      className="bg-neutral-50 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="why-heading"
     >
       <div className="max-w-6xl mx-auto">

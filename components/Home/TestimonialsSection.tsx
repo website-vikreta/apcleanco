@@ -270,7 +270,7 @@ export default function TestimonialsSection() {
 
         {/* Slider */}
         <div
-          className="testimonials-slider"
+          className="testimonials-slider w-full"
           role="region"
           aria-label="Customer testimonials carousel"
           aria-roledescription="carousel"
@@ -278,10 +278,10 @@ export default function TestimonialsSection() {
           onMouseLeave={() => { isPausedRef.current = false }}
         >
           {/* Track — infinite loop via triple-cloned slides */}
-          <div className="overflow-hidden">
+          <div className="overflow-hidden w-full">
             <div
               ref={trackRef}
-              className="flex"
+              className="flex max-w-full"
               style={{ willChange: 'transform' }}
             >
               {CLONED.map((t, i) => (
