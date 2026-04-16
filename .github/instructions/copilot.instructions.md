@@ -68,3 +68,6 @@ On new instructions, update relevant files in:
 - `.github/agents/*.agent.md` — enforcement mechanisms
 - `.github/prompts/*.prompt.md` — task implementations
 - `.github/skills/*/SKILL.md` — procedural details
+
+## DON'T
+Don't test anything on the browser. 

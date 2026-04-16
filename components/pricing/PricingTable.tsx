@@ -14,27 +14,21 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 export type GarageSize = '1_car' | '2_car' | '3_car'
 
 const GARAGE_SIZES: { value: GarageSize; label: string }[] = [
-  { value: '1_car', label: '1-car Garage' },
-  { value: '2_car', label: '2-car Garage' },
-  { value: '3_car', label: '3-car Garage' },
+  { value: '1_car', label: '1 Car Garage' },
+  { value: '2_car', label: '2 Car Garage' },
+  { value: '3_car', label: '3 Car Garage' },
 ]
 
 const CALENDLY_URL = 'https://calendly.com/apcleanco'
 
-export interface PricingTableProps {
-  onPlanChange?: (planId: string) => void
-  onSizeChange?: (size: GarageSize) => void
-}
-
 // ── Component ─────────────────────────────────────────────────────────────────
 
-export const PricingTable: React.FC<PricingTableProps> = ({ onPlanChange, onSizeChange }) => {
+export const PricingTable: React.FC = () => {
   const [size, setSize] = useState<GarageSize>('2_car')
   const sectionRef = useRef<HTMLDivElement>(null)
 
   const handleSizeChange = (newSize: GarageSize) => {
     setSize(newSize)
-    onSizeChange?.(newSize)
   }
 
   useGSAP(
@@ -63,27 +57,26 @@ export const PricingTable: React.FC<PricingTableProps> = ({ onPlanChange, onSize
       <div className="flex justify-center mb-12 px-4 sm:px-0">
         <fieldset className="w-full sm:w-auto">
           <legend className="sr-only">Select your garage size</legend>
-          <div className="flex w-full sm:w-auto sm:inline-flex bg-white border border-neutral-200" role="group">
-            {GARAGE_SIZES.map((s, i) => (
-              <React.Fragment key={s.value}>
-                {i > 0 && <div className="w-px bg-neutral-200 shrink-0" aria-hidden="true" />}
-                <button
-                  type="button"
-                  onClick={() => handleSizeChange(s.value)}
-                  aria-pressed={size === s.value}
-                  className={`
-                    flex-1 sm:flex-none px-3 sm:px-5 py-3 text-sm font-semibold tracking-tight transition-colors duration-200
-                    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
-                    ${size === s.value
-                      ? 'bg-primary-900 text-white'
-                      : 'text-neutral-600 hover:text-primary-900 hover:bg-neutral-50'
-                    }
-                  `}
-                >
-                  <span className="hidden sm:inline">{s.label}</span>
-                  <span className="sm:hidden">{s.label.replace(' Garage', '')}</span>
-                </button>
-              </React.Fragment>
+          <div className="flex gap-3 w-full sm:w-auto sm:inline-flex flex-wrap justify-center" role="group">
+            {GARAGE_SIZES.map((s) => (
+              <button
+                key={s.value}
+                type="button"
+                onClick={() => handleSizeChange(s.value)}
+                aria-pressed={size === s.value}
+                className={`
+                  px-6 sm:px-6 py-3 rounded-full text-sm font-semibold tracking-tight
+                  transition-all duration-300 ease-out
+                  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500
+                  ${size === s.value
+                    ? 'bg-primary-600 text-white shadow-lg shadow-primary-600/30 scale-105'
+                    : 'bg-white text-neutral-700 border border-neutral-200 hover:scale-102 hover:shadow-md hover:shadow-neutral-200/50'
+                  }
+                `}
+              >
+                <span className="hidden sm:inline">{s.label}</span>
+                <span className="sm:hidden">{s.label.replace(' Garage', '')}</span>
+              </button>
             ))}
           </div>
         </fieldset>
@@ -107,7 +100,7 @@ export const PricingTable: React.FC<PricingTableProps> = ({ onPlanChange, onSize
               className={`
                 pricing-card flex flex-col
                 ${isRecommended
-                  ? 'bg-primary-900 z-10 order-first md:order-0'
+                  ? 'bg-linear-to-br from-primary-600 to-primary-700 z-10 order-first md:order-0'
                   : plan.id === 'gold'
                     ? 'bg-primary-50 border border-primary-200'
                     : 'bg-white border border-neutral-200'
@@ -115,12 +108,12 @@ export const PricingTable: React.FC<PricingTableProps> = ({ onPlanChange, onSize
               `}
               aria-label={`${plan.name} plan — $${price} for a ${currentSizeLabel}`}
             >
-              {/* ── Top bar: gold badge (recommended) or invisible spacer ───── */}
+              {/* ── Top bar: subtle badge (recommended) or invisible spacer ───── */}
               <div
                 className={`
                   py-2.5 text-xs font-extrabold tracking-[0.18em] uppercase text-center
                   ${isRecommended
-                    ? 'bg-accent-400 text-primary-900'
+                    ? 'bg-white/20 text-white'
                     : 'text-transparent select-none'
                   }
                 `}
@@ -135,7 +128,7 @@ export const PricingTable: React.FC<PricingTableProps> = ({ onPlanChange, onSize
                 {/* Plan name */}
                 <h3 className={`
                   text-xs font-extrabold tracking-[0.25em] uppercase mb-5
-                  ${isRecommended ? 'text-accent-400' : 'text-primary-500'}
+                  ${isRecommended ? 'text-white' : 'text-primary-500'}
                 `}>
                   {plan.name}
                 </h3>
@@ -174,8 +167,8 @@ export const PricingTable: React.FC<PricingTableProps> = ({ onPlanChange, onSize
                           className={`
                             shrink-0 mt-0.5 leading-none
                             ${isInherit
-                              ? `text-xs font-bold tracking-widest ${isRecommended ? 'text-accent-300' : 'text-primary-300'}`
-                              : isRecommended ? 'text-accent-400' : 'text-primary-500'
+                              ? `text-xs font-bold tracking-widest ${isRecommended ? 'text-white/60' : 'text-primary-300'}`
+                              : isRecommended ? 'text-white' : 'text-primary-500'
                             }
                           `}
                           aria-hidden="true"
@@ -189,7 +182,7 @@ export const PricingTable: React.FC<PricingTableProps> = ({ onPlanChange, onSize
                           text-sm leading-relaxed
                           ${isInherit
                             ? (isRecommended ? 'text-white/50 italic' : 'text-neutral-400 italic')
-                            : (isRecommended ? 'text-white/85' : 'text-neutral-700')
+                            : (isRecommended ? 'text-white/90' : 'text-neutral-700')
                           }
                         `}>
                           {feat}
