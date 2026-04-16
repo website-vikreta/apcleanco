@@ -79,6 +79,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    /* Smooth color transitions on theme change */
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+  }
+
+  * {
+    @apply transition-colors duration-400;
   }
 
   body {

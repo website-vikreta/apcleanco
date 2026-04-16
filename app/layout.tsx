@@ -3,6 +3,7 @@ import './globals.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { ThemeSwitcher } from '@/components/ThemeSwitcher'
 
 export const metadata: Metadata = {
   title: {
@@ -30,6 +31,7 @@ export default function RootLayout({
         <div aria-hidden="true" className="h-22 md:h-32" />
         {children}
         <Footer />
+        <ThemeSwitcher />
       </body>
     </html>
   )
