@@ -14,27 +14,21 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 export type GarageSize = '1_car' | '2_car' | '3_car'
 
 const GARAGE_SIZES: { value: GarageSize; label: string }[] = [
-  { value: '1_car', label: '1-car Garage' },
-  { value: '2_car', label: '2-car Garage' },
-  { value: '3_car', label: '3-car Garage' },
+  { value: '1_car', label: '1 Car Garage' },
+  { value: '2_car', label: '2 Car Garage' },
+  { value: '3_car', label: '3 Car Garage' },
 ]
 
 const CALENDLY_URL = 'https://calendly.com/apcleanco'
 
-export interface PricingTableProps {
-  onPlanChange?: (planId: string) => void
-  onSizeChange?: (size: GarageSize) => void
-}
-
 // ── Component ─────────────────────────────────────────────────────────────────
 
-export const PricingTable: React.FC<PricingTableProps> = ({ onPlanChange, onSizeChange }) => {
+export const PricingTable: React.FC = () => {
   const [size, setSize] = useState<GarageSize>('2_car')
   const sectionRef = useRef<HTMLDivElement>(null)
 
   const handleSizeChange = (newSize: GarageSize) => {
     setSize(newSize)
-    onSizeChange?.(newSize)
   }
 
   useGSAP(
