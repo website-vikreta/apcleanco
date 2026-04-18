@@ -12,12 +12,21 @@ export default function HeroSection() {
 
   useGSAP(
     () => {
+      // Fade in label
+      gsap.from('.hero-label', {
+        y: 16,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+      })
+
       // Fade in heading with slight upward motion
       gsap.from('.hero-heading', {
         y: 24,
         opacity: 0,
         duration: 0.8,
         ease: 'power3.out',
+        delay: 0.08,
       })
 
       // Fade in subheading
@@ -26,7 +35,7 @@ export default function HeroSection() {
         opacity: 0,
         duration: 0.7,
         ease: 'power3.out',
-        delay: 0.15,
+        delay: 0.16,
       })
 
       // Fade in CTAs
@@ -35,7 +44,7 @@ export default function HeroSection() {
         opacity: 0,
         duration: 0.6,
         ease: 'power2.out',
-        delay: 0.25,
+        delay: 0.24,
       })
     },
     { scope: sectionRef },
@@ -44,38 +53,41 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        background: 'linear-gradient(135deg, #0b1f17 0%, #1f5a44 100%)',
-      }}
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-neutral-50"
       aria-labelledby="hero-heading"
     >
-      {/* Subtle background pattern */}
+      {/* Minimal accent line — top right corner */}
       <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle at 20% 50%, #caa33a 0%, transparent 50%), radial-gradient(circle at 80% 80%, #1f5a44 0%, transparent 50%)',
-        }}
+        className="absolute top-0 right-0 w-64 h-1 bg-gradient-to-l from-accent-400 to-transparent"
         aria-hidden="true"
       />
 
       {/* Content Container */}
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-20 md:py-32 lg:py-40">
+        <div className="max-w-3xl mx-auto text-center">
+          {/* Label */}
+          <p className="hero-label text-xs md:text-sm font-semibold tracking-widest uppercase text-primary-600 mb-4">
+            About Our Company
+          </p>
+
           {/* Heading */}
           <h1
             id="hero-heading"
-            className="hero-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6 md:mb-8"
+            className="hero-heading text-4xl sm:text-5xl md:text-6xl font-bold text-primary-900 leading-tight tracking-tight mb-6"
           >
-            More Than Cleaning.{' '}
-            <span className="text-accent-400">We Create Space That Works.</span>
+            About <span className="text-accent-600">AP Cleanco</span>
           </h1>
 
+          {/* Divider */}
+          <div
+            className="mx-auto mb-6 h-0.5 w-12 bg-accent-400"
+            aria-hidden="true"
+          />
+
           {/* Subheading */}
-          <p className="hero-subheading text-lg sm:text-xl text-neutral-100 max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed">
-            Premium junk removal and garage cleanouts designed for homeowners who value clarity,
-            cleanliness, and peace of mind.
+          <p className="hero-subheading text-base sm:text-lg md:text-xl text-neutral-700 max-w-2xl mx-auto mb-10 leading-relaxed">
+            Two founders, one mission: make junk removal simple, affordable, and stress-free.
+            Discover the story behind AP Cleanco.
           </p>
 
           {/* CTAs */}
@@ -87,20 +99,20 @@ export default function HeroSection() {
             <Button
               variant="primary"
               size="lg"
-              icon={<i className="bi bi-calendar-check text-xl" aria-hidden="true" />}
+              icon={<i className="bi bi-calendar-check text-base" aria-hidden="true" />}
               iconPosition="left"
               magnetic
             >
               Book a Free Call
             </Button>
             <Button
-              variant="secondary"
+              variant="outlined"
               size="lg"
-              className="text-primary-100! border-primary-100/40 hover:bg-primary-100/10"
-              icon={<i className="bi bi-arrow-down-right text-xl" aria-hidden="true" />}
+              className="border-primary-500 text-primary-500 hover:bg-primary-50"
+              icon={<i className="bi bi-arrow-down text-base" aria-hidden="true" />}
               iconPosition="right"
             >
-              Learn Our Story
+              Scroll to Story
             </Button>
           </div>
         </div>

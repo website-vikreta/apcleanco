@@ -38,7 +38,7 @@ export default function ClosingSection() {
         <div className="closing-content">
           <p
             id="closing-title"
-            className="text-2xl md:text-3xl font-bold text-primary-900 leading-relaxed"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-900 leading-relaxed"
           >
             Built for homeowners who value{' '}
             <span className="text-accent-600">clarity, cleanliness, and peace of mind.</span>

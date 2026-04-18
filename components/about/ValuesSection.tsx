@@ -74,7 +74,7 @@ export default function ValuesSection() {
         <div className="mb-12 md:mb-16">
           <h2
             id="values-heading"
-            className="values-heading text-3xl sm:text-4xl md:text-5xl font-bold text-primary-900 mb-4 tracking-tight"
+            className="values-heading text-4xl sm:text-5xl md:text-6xl font-bold text-primary-900 mb-4 tracking-tight"
           >
             Our Core Values
           </h2>

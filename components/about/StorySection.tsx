@@ -52,7 +52,7 @@ export default function StorySection() {
         {/* Heading */}
         <h2
           id="story-heading"
-          className="story-heading text-3xl sm:text-4xl md:text-5xl font-bold text-primary-900 mb-8 md:mb-12 tracking-tight leading-tight"
+          className="story-heading text-4xl sm:text-5xl md:text-6xl font-bold text-primary-900 mb-8 md:mb-12 tracking-tight leading-tight"
         >
           Our Story
         </h2>
