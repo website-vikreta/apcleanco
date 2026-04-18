@@ -9,7 +9,7 @@ import Button from '../Button'
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 export default function CTASection() {
-  const sectionRef = useRef<HTMLSection>(null)
+  const sectionRef = useRef<HTMLElement>(null)
 
   useGSAP(
     () => {

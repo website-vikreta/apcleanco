@@ -29,7 +29,7 @@ const ValueCard = ({ title, description, icon }: ValueProps) => {
 }
 
 export default function ValuesSection() {
-  const sectionRef = useRef<HTMLSection>(null)
+  const sectionRef = useRef<HTMLElement>(null)
 
   useGSAP(
     () => {

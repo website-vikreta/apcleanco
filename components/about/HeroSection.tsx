@@ -8,7 +8,7 @@ import Button from '../Button'
 gsap.registerPlugin(useGSAP)
 
 export default function HeroSection() {
-  const sectionRef = useRef<HTMLSection>(null)
+  const sectionRef = useRef<HTMLElement>(null)
 
   useGSAP(
     () => {

@@ -63,7 +63,7 @@ const FounderCard = ({ name, quote, description, linkedIn, instagram }: FounderC
 }
 
 export default function FoundersSection() {
-  const sectionRef = useRef<HTMLSection>(null)
+  const sectionRef = useRef<HTMLElement>(null)
 
   useGSAP(
     () => {

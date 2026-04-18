@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 export default function ClosingSection() {
-  const sectionRef = useRef<HTMLSection>(null)
+  const sectionRef = useRef<HTMLElement>(null)
 
   useGSAP(
     () => {
