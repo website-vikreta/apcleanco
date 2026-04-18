@@ -117,7 +117,7 @@ export default function FoundersSection() {
         {/* Heading */}
         <h2
           id="founders-heading"
-          className="founders-heading text-4xl sm:text-5xl md:text-6xl font-bold text-primary-900 mb-4 tracking-tight"
+          className="founders-heading text-3xl sm:text-4xl md:text-5xl font-bold text-primary-900 mb-4 tracking-tight"
         >
           Meet the Founders
         </h2>

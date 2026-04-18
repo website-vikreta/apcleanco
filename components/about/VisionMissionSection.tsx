@@ -52,7 +52,7 @@ export default function VisionMissionSection() {
         {/* Heading */}
         <h2
           id="vm-heading"
-          className="vm-heading text-4xl sm:text-5xl md:text-6xl font-bold text-primary-900 mb-12 md:mb-16 tracking-tight"
+          className="vm-heading text-3xl sm:text-4xl md:text-5xl font-bold text-primary-900 mb-12 md:mb-16 tracking-tight"
         >
           Our Vision & Mission
         </h2>

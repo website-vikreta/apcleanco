@@ -67,7 +67,7 @@ export default function CTASection() {
         >
           <h2
             id="cta-heading"
-            className="cta-heading text-4xl sm:text-5xl md:text-6xl font-bold text-primary-900 tracking-tight leading-tight"
+            className="cta-heading text-3xl sm:text-4xl md:text-5xl font-bold text-primary-900 tracking-tight leading-tight"
           >
             Ready to Transform Your Space?
           </h2>
