@@ -58,7 +58,7 @@ export default function HeroSection() {
     >
       {/* Minimal accent line — top right corner */}
       <div
-        className="absolute top-0 right-0 w-64 h-1 bg-gradient-to-l from-accent-400 to-transparent"
+        className="absolute top-0 right-0 w-64 h-1 bg-linear-to-l from-accent-400 to-transparent"
         aria-hidden="true"
       />
 
