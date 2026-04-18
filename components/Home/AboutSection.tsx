@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -140,16 +141,18 @@ export default function AboutSection() {
               role="group"
               aria-label="About us call to action buttons"
             >
-              <Button
-                variant="primary"
-                size="md"
-                className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
-                icon={<i className="bi bi-arrow-right text-base lg:text-lg leading-none" aria-hidden="true" />}
-                iconPosition="right"
-                aria-label="Learn more about AP Clean Co"
-              >
-                Learn more
-              </Button>
+              <Link href="/about">
+                <Button
+                  variant="primary"
+                  size="md"
+                  className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
+                  icon={<i className="bi bi-arrow-right text-base lg:text-lg leading-none" aria-hidden="true" />}
+                  iconPosition="right"
+                  aria-label="Learn more about AP Clean Co on Our Story page"
+                >
+                  Learn more
+                </Button>
+              </Link>
               <Button
                 variant="secondary"
                 size="md"
