@@ -136,11 +136,11 @@ export default function FoundersSection() {
           />
 
           <FounderCard
-            name="Arvind Choudhary"
+            name="Arvind Dhankhad"
             quote="We're not just removing junk—we're removing burden."
             description="Creative vision and growth. Arvind leads the brand, community, and innovation. Passionate about building genuine connections and reimagining what junk removal can be."
-            linkedIn="https://linkedin.com/in/arvind-choudhary"
-            instagram="https://instagram.com/arvind_choudhary"
+            linkedIn="https://linkedin.com/in/arvind-dhankhad"
+            instagram="https://instagram.com/arvind_dhankhad"
           />
         </div>
       </div>
