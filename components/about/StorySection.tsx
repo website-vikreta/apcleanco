@@ -60,24 +60,15 @@ export default function StorySection() {
         {/* Body */}
         <div className="story-body space-y-6 md:space-y-8">
           <p className="text-lg md:text-xl text-neutral-700 leading-relaxed">
-            AP Cleanco was born from frustration. Parth and Arvind watched friends and family
-            struggle with cluttered garages, overflowing storage, and the mental weight of junk
-            they didn&apos;t know how to remove. Professional services were either absent, expensive,
-            or unreliable. So in 2023, they decided to solve the problem themselves.
+            APcleanco started from something we kept seeing everywhere. No matter the house, the garage was often the same: cluttered, unorganized, and not even usable for what it was meant for. In many cases, people could not even park their car inside. Everything just gets pushed there over time: boxes, old items, and things people plan to &quot;deal with later.&quot; Eventually, the space becomes hard to use and easy to ignore.
           </p>
 
           <p className="text-lg md:text-xl text-neutral-700 leading-relaxed">
-            Starting with just a van and a vision, they began taking on every project—small apartment
-            cleanouts, massive garage transformations, construction debris removal. Every job taught
-            them something new about what homeowners truly need: honesty, speed, fair pricing, and
-            respect for their space. No hidden fees. No excuses. Just professionals who care.
+            For us, that never felt right. We&apos;ve always been the kind of people who need things to be clean and organized. If a space is messy, it stays on our mind until it&apos;s fixed. So instead of ignoring the problem, we decided to build something around it.
           </p>
 
           <p className="text-lg md:text-xl text-neutral-700 leading-relaxed">
-            Today, AP Cleanco has become the trusted choice for junk removal across the region.
-            But the mission hasn&apos;t changed: make it simple, affordable, and stress-free to reclaim
-            your space. Because when your environment is clear, your mind is clear. And that makes all
-            the difference.
+            APcleanco focuses on garage clean-out, garage deep cleaning, and garage organization to turn cluttered garages into clean, functional, and usable spaces. We also help with donation drop-off, recycling, and responsible item handling so things do not get thrown away if they still have value. The goal is simple: to help people take back their garage space and make it cleaner, more functional, and easier to manage.
           </p>
         </div>
       </div>

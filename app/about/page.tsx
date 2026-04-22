@@ -4,9 +4,7 @@ import HeroSection from '@/components/about/HeroSection'
 import StorySection from '@/components/about/StorySection'
 import FoundersSection from '@/components/about/FoundersSection'
 import VisionMissionSection from '@/components/about/VisionMissionSection'
-import ValuesSection from '@/components/about/ValuesSection'
 import CTASection from '@/components/about/CTASection'
-import ClosingSection from '@/components/about/ClosingSection'
 
 export const metadata: Metadata = {
   title: 'About AP Cleanco - Our Story & Mission | Premium Junk Removal',
@@ -29,9 +27,7 @@ export default function AboutPage() {
       <StorySection />
       <FoundersSection />
       <VisionMissionSection />
-      <ValuesSection />
       <CTASection />
-      <ClosingSection />
     </main>
   )
 }

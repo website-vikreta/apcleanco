@@ -106,13 +106,13 @@ export default function Footer() {
                   (555) 123-4567
                 </a>
                 <a
-                  href="https://maps.google.com/?q=123+Clean+Street+Austin+TX+78701"
+                  href="https://maps.google.com/?q=New+Jersey+USA"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-sm font-medium text-neutral-600 hover:text-primary-500 transition-colors whitespace-nowrap"
-                  aria-label="ApcleanCo address at 123 Clean Street, Austin TX 78701, opens in Google Maps"
+                  aria-label="ApcleanCo address at New Jersey, USA, opens in Google Maps"
                 >
-                  123 Clean Street, Austin, TX 78701
+                  New Jersey, USA
                 </a>
               </address>
             </div>

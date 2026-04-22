@@ -75,9 +75,7 @@ export default function VisionMissionSection() {
               Our Vision
             </h3>
             <p className="text-neutral-700 text-lg leading-relaxed">
-              To be the most trusted, customer-centric junk removal company in North America—where
-              every homeowner knows they can count on us to transform their space with integrity,
-              speed, and genuine care.
+              Our vision is to become a trusted name for garage transformation by turning overlooked garage spaces into cleaner, more useful, and more organized spaces.
             </p>
           </div>
 
@@ -97,9 +95,7 @@ export default function VisionMissionSection() {
               Our Mission
             </h3>
             <p className="text-neutral-700 text-lg leading-relaxed">
-              Make junk removal simple, affordable, and stress-free. We handle the heavy lifting so
-              you can reclaim your space, your time, and your peace of mind. Honest pricing. No
-              surprises. Professional service, every time.
+              Our mission is to provide reliable garage clean-out, deep cleaning, and organization services that help people reclaim space, reduce everyday clutter, and bring order and function back to the garage.
             </p>
           </div>
         </div>

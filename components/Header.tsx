@@ -142,14 +142,14 @@ export default function Header() {
                 <span>+1 (234) 567-890</span>
               </a>
               <a
-                href="https://maps.google.com/?q=123+Clean+Street+City+State"
+                href="https://maps.google.com/?q=New+Jersey+USA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-accent-400 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2 rounded"
-                aria-label="Get directions: 123 Clean Street, City, State"
+                aria-label="Get directions: New Jersey, USA"
               >
                 <i className="bi bi-geo-alt-fill text-accent-500 text-[11px]" aria-hidden="true" />
-                <span>123 Clean Street, City, State</span>
+                <span>New Jersey, USA</span>
               </a>
             </div>
 
