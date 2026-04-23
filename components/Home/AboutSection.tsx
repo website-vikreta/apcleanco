@@ -91,8 +91,8 @@ export default function AboutSection() {
               id="about-heading"
               className="about-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight"
             >
-              Fast, Affordable Junk Removal{' '}
-              <span className="text-primary-500">in United States</span>
+              Fast, Affordable clean-out & deep cleaning services{' '}
+              <span className="text-primary-500">in New Jersey</span>
             </h2>
 
             {/* Image — shown here only on sm/md, hidden on lg+ (no parallax needed) */}
@@ -121,17 +121,13 @@ export default function AboutSection() {
             {/* Body */}
             <div className="about-body flex flex-col gap-4 order-3">
               <p className="text-neutral-700 text-base md:text-lg leading-relaxed">
-                Life can get cluttered, but your home or business shouldn&apos;t be!
-                AP Clean Co Junk Removal is here to take the stress out of hauling away
-                your unwanted items. Whether you&apos;re clearing out a garage full of old
-                furniture, removing construction debris from a renovation project, or just
-                need that broken appliance gone, our professional team handles it all.
+                Garages fill up over time and it becomes cluttered, hard to use, and easy to ignore. We help fix that properly through garage clean-out, garage deep cleaning, and garage organization services in New Jersey.
               </p>
               <p className="text-neutral-700 text-base md:text-lg leading-relaxed">
-                We make junk removal easy. <strong className="text-primary-800 font-semibold">You point, we haul!</strong>{' '}
-                Our licensed crew does all the heavy lifting, loading, and hauling, so you
-                can sit back and relax. From single items to entire property cleanouts, no
-                job is too big or small for us.
+                From removing clutter and cleaning the space to improving the overall setup, we focus on turning messy garage spaces into clean, functional, and easy-to-use environments.
+              </p>
+              <p className="text-neutral-700 text-base md:text-lg leading-relaxed">
+                We also support donation drop-off, recycling, and selective item recovery, helping give usable items a second life while reducing unnecessary waste.
               </p>
             </div>
 

@@ -34,52 +34,52 @@ const COMPARISON_ROWS = [
   },
   {
     id: 4,
-    icon: 'bi-people',
-    feature: 'Staff',
-    apCleanco: 'Trained, vetted team',
-    others: 'Random or rotating cleaners',
-  },
-  {
-    id: 5,
     icon: 'bi-calendar-check',
     feature: 'Reliability',
     apCleanco: 'On-time, dependable scheduling',
     others: 'Late arrivals or cancellations',
   },
   {
-    id: 6,
+    id: 5,
     icon: 'bi-sliders',
     feature: 'Customization',
     apCleanco: 'Fully customizable plans',
     others: 'One-size-fits-all',
   },
   {
-    id: 7,
+    id: 6,
     icon: 'bi-emoji-smile',
     feature: 'Satisfaction',
     apCleanco: '100% satisfaction guarantee',
     others: 'Limited or none',
   },
   {
-    id: 8,
+    id: 7,
     icon: 'bi-chat-dots',
     feature: 'Communication',
     apCleanco: 'Friendly, responsive support',
     others: 'Hard to reach',
   },
   {
-    id: 9,
-    icon: 'bi-shield-lock',
-    feature: 'Trust & Safety',
-    apCleanco: 'Background-checked & insured',
-    others: 'Minimal screening',
-  },
-  {
-    id: 10,
+    id: 8,
     icon: 'bi-gem',
     feature: 'Overall Value',
     apCleanco: 'Premium clean at fair pricing',
     others: 'Pay more, get less',
+  },
+  {
+    id: 9,
+    icon: 'bi-credit-card',
+    feature: 'Payment Terms',
+    apCleanco: 'Pay after the job is done',
+    others: 'Upfront payment required',
+  },
+  {
+    id: 10,
+    icon: 'bi-lightning-charge',
+    feature: 'Service Speed',
+    apCleanco: 'Same-day service available when possible',
+    others: 'Scheduling delays',
   },
 ] as const
 
@@ -294,6 +294,13 @@ export default function WhyApcleancoSection() {
             Why{' '}
             <span className="text-primary-500">APcleanco?</span>
           </h2>
+        </div>
+
+        {/* Intro Paragraph */}
+        <div className="max-w-3xl mx-auto mb-12 text-center">
+          <p className="text-lg md:text-xl text-neutral-700 leading-relaxed">
+            We believe a garage and the space inside it should not feel cluttered or wasted. At APcleanco, we focus on garage clean-out, garage deep cleaning, and garage organization so you can take back your garage space.
+          </p>
         </div>
 
         {/* ── Desktop table (lg+) ─────────────────────────────────────────── */}

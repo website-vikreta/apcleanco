@@ -134,12 +134,12 @@ export default function Header() {
             {/* Left — phone + address */}
             <div className="flex items-center gap-6">
               <a
-                href="tel:+11234567890"
+                href="tel:+17327703342"
                 className="flex items-center gap-2 hover:text-accent-400 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2 rounded"
-                aria-label="Call our office: +1 (234) 567-890"
+                aria-label="Call our office: +1 (732) 770-3342"
               >
                 <i className="bi bi-telephone-fill text-accent-500 text-[11px]" aria-hidden="true" />
-                <span>+1 (234) 567-890</span>
+                <span>+1 (732) 770-3342</span>
               </a>
               <a
                 href="https://maps.google.com/?q=New+Jersey+USA"
@@ -307,12 +307,12 @@ export default function Header() {
 
             <div className="flex items-center justify-between pt-0.5">
               <a
-                href="tel:+11234567890"
-                aria-label="Call our office: +1 (234) 567-890"
+                href="tel:+17327703342"
+                aria-label="Call our office: +1 (732) 770-3342"
                 className="flex items-center gap-1.5 text-sm text-neutral-500 hover:text-primary-500 transition-colors duration-150"
               >
                 <i className="bi bi-telephone-fill text-[11px] text-accent-500" aria-hidden="true" />
-                <span>+1 (234) 567-890</span>
+                <span>+1 (732) 770-3342</span>
               </a>
               <div className="flex items-center gap-3" role="list" aria-label="Social media">
                 {SOCIAL_LINKS.slice(0, 4).map(({ icon, href, label }) => (

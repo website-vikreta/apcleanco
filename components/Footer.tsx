@@ -64,18 +64,20 @@ export default function Footer() {
           {/* Right: CTA content — full width on mobile, flex-1 on desktop */}
           <div className="flex-1 flex flex-col justify-center px-8 py-10 sm:px-12 lg:px-16 lg:py-0">
             <div className="max-w-xl">
-              <p className="text-accent-400 text-xs font-semibold tracking-widest uppercase mb-4">
-                Hassle-Free Service
-              </p>
               <h2
                 id="footer-cta-heading"
                 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight mb-5"
               >
-                We make Junk Removal look Easy
+                Transform Your Garage
               </h2>
-              <Button variant="primary" size="md" className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl" icon={<i className="bi bi-arrow-right" aria-hidden="true" />} iconPosition="right">
-                Get a Free Quote
-              </Button>
+              <p className="text-white text-lg mb-6 leading-relaxed">
+                Get your free New Jersey estimate. We'll make your garage cleaner and more functional.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button variant="primary" size="md" className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl" icon={<i className="bi bi-arrow-right" aria-hidden="true" />} iconPosition="right">
+                  Get a Free Quote
+                </Button>
+              </div>
             </div>
           </div>
 
@@ -99,11 +101,11 @@ export default function Footer() {
               {/* Contact — right; flex-1 lets address expand and stay on one line */}
               <address className="not-italic flex-1 space-y-2 min-w-0">
                 <a
-                  href="tel:+15551234567"
+                  href="tel:+17327703342"
                   className="block text-sm font-medium text-neutral-600 hover:text-primary-500 transition-colors whitespace-nowrap"
-                  aria-label="Call ApcleanCo at (555) 123-4567"
+                  aria-label="Call ApcleanCo at (732) 770-3342"
                 >
-                  (555) 123-4567
+                  (732) 770-3342
                 </a>
                 <a
                   href="https://maps.google.com/?q=New+Jersey+USA"

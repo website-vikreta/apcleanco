@@ -133,9 +133,7 @@ export default function HeroSection() {
 
         {/* Subheading */}
         <p className="hero-sub text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-10">
-          Professional garage clean-out, deep cleaning, organization, and eco-friendly
-          donation drop-off — designed to save you time, reduce clutter, and create a
-          space you can actually use.
+          We offer garage clean-out, deep cleaning, garage organization, donation drop-off, and recycling support in New Jersey, built to help you take back your garage space.
         </p>
 
         {/* Bullet pills */}
