@@ -316,7 +316,7 @@ export default function WhyApcleancoSection() {
           >
             <div className="px-6 py-4" role="columnheader" aria-label="Feature" />
 
-            {/* AP cleanco header */}}
+            {/* AP cleanco header */}
             <div
               className="flex items-center justify-center gap-2 px-6 py-4 bg-primary-500 border-x border-primary-600"
               role="columnheader"
