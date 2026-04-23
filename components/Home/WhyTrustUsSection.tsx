@@ -73,22 +73,22 @@ export default function WhyTrustUsSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="bg-neutral-50 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="trust-heading"
     >
       <div className="max-w-7xl mx-auto">
 
         {/* ── Header: Heading + Intro ──────────────────────────────────────── */}
-        <div className="mb-12 md:mb-16 lg:mb-20">
+        <div className="mb-10 md:mb-12 text-center">
           <h2
             id="trust-heading"
             className="trust-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight mb-4 md:mb-6"
           >
-            Why Trust Us
+            Why{' '}<span className="text-primary-500">Trust Us</span>
           </h2>
 
-          <p className="trust-intro text-neutral-700 text-base md:text-lg leading-relaxed max-w-2xl">
-            We know that letting someone work in your space is a big decision. That's why we focus on keeping the process straightforward, respectful, and professional from start to finish.
+          <p className="trust-intro text-neutral-700 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+            We know that letting someone work in your space is a big decision. That&apos;s why we focus on keeping the process straightforward, respectful, and professional from start to finish.
           </p>
         </div>
 

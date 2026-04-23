@@ -252,7 +252,7 @@ export default function OurProcessSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white py-14 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="bg-neutral-50 py-14 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="process-heading"
     >
       <div className="max-w-6xl mx-auto">
@@ -399,7 +399,7 @@ export default function OurProcessSection() {
                     style={{ width: '28px', height: '28px' }}
                     aria-hidden="true"
                   >
-                    <div className="w-9 h-9 rounded-full bg-primary-500 flex items-center justify-center ring-2 ring-white ring-offset-2 ring-offset-white">
+                    <div className="w-9 h-9 rounded-full bg-primary-500 flex items-center justify-center ring-2 ring-white ring-offset-2 ring-offset-neutral-50">
                       <span className="text-white text-sm font-bold leading-none">{step.id}</span>
                     </div>
                   </div>

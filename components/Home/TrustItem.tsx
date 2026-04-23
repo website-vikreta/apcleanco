@@ -54,7 +54,7 @@ export default function TrustItem({ icon, text, index }: TrustItemProps) {
   return (
     <div
       ref={itemRef}
-      className="flex flex-col items-start gap-4 p-6 md:p-7 rounded-lg border border-neutral-200 bg-neutral-50 transition-all duration-300 cursor-pointer"
+      className="flex flex-col items-start gap-4 p-6 md:p-7 rounded-lg border border-neutral-200 bg-white transition-all duration-300 cursor-pointer"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       role="listitem"
@@ -62,10 +62,10 @@ export default function TrustItem({ icon, text, index }: TrustItemProps) {
     >
       {/* Icon */}
       <div
-        className="flex items-center justify-center w-10 h-10 rounded-md bg-primary-50"
+        className="flex items-center justify-center w-10 h-10 rounded-md bg-primary-100"
         aria-hidden="true"
       >
-        <i className={`${icon} text-primary-600 text-lg leading-none`} />
+        <i className={`${icon} text-primary-500 text-xl leading-none`} />
       </div>
 
       {/* Text */}

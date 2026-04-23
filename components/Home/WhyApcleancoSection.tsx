@@ -280,7 +280,7 @@ export default function WhyApcleancoSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-neutral-50 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="bg-white py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="why-heading"
     >
       <div className="max-w-6xl mx-auto">
@@ -311,7 +311,7 @@ export default function WhyApcleancoSection() {
         >
           {/* Table header */}
           <div
-            className="grid grid-cols-[1fr_1fr_1fr] border-b border-neutral-200 bg-white"
+            className="grid grid-cols-[1fr_1fr_1fr] border-b border-neutral-200 bg-neutral-50"
             role="row"
           >
             <div className="px-6 py-4" role="columnheader" aria-label="Feature" />
