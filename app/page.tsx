@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import React from 'react'
 import HeroSection from '@/components/Home/HeroSection'
 import ServicesSection from '@/components/Home/ServicesSection'
+import WhyTrustUsSection from '@/components/Home/WhyTrustUsSection'
 import AboutSection from '@/components/Home/AboutSection'
 import WhyApcleancoSection from '@/components/Home/WhyApcleancoSection'
 import OurProcessSection from '@/components/Home/OurProcessSection'
@@ -34,6 +35,7 @@ export default function HomePage() {
     <main>
       <HeroSection />
       <ServicesSection />
+      <WhyTrustUsSection />
       <AboutSection />
       <WhyApcleancoSection />
       <OurProcessSection />
