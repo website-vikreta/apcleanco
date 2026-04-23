@@ -7,8 +7,8 @@ import { ThemeSwitcher } from '@/components/ThemeSwitcher'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Apcleanco',
-    template: '%s | Apcleanco',
+    default: 'AP cleanco',
+    template: '%s | AP cleanco',
   },
   description: 'Professional garage clean-out and junk removal services.',
   icons: {

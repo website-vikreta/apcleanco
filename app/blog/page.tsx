@@ -7,7 +7,7 @@ import BlogSidebar from '@/components/blog/BlogSidebar'
 export const metadata: Metadata = {
   title: 'Blog | Garage Cleaning Tips & Industry Insights',
   description:
-    'Stay updated with the latest garage cleaning tips, junk removal guides, industry insights, and news from the AP Cleanco team.',
+    'Stay updated with the latest garage cleaning tips, junk removal guides, industry insights, and news from the AP cleanco team.',
   keywords: [
     'garage cleaning tips',
     'junk removal guide',

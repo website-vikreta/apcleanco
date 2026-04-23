@@ -3,11 +3,11 @@ import { ServiceCard } from '@/components/services/ServiceCard';
 import ServicesHero from '@/components/services/ServicesHero';
 
 export const metadata: Metadata = {
-  title: 'Our Services | ApCleanCo',
+  title: 'Our Services | AP cleanco',
   description:
-    'Professional garage cleanouts, deep cleaning, and organization services. Discover how ApCleanCo transforms your space.',
+    'Professional garage cleanouts, deep cleaning, and organization services. Discover how AP cleanco transforms your space.',
   openGraph: {
-    title: 'Our Services | ApCleanCo',
+    title: 'Our Services | AP cleanco',
     description:
       'Professional garage cleanouts, deep cleaning, and organization services.',
     images: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         url: '/hero-image.png',
         width: 1200,
         height: 630,
-        alt: 'ApCleanCo Services',
+        alt: 'AP cleanco Services',
       },
     ],
   },

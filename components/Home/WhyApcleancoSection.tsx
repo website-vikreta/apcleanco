@@ -193,7 +193,7 @@ function MobileCard({
         <CheckIcon />
         <div>
           <p className="text-xs font-semibold text-primary-500 uppercase tracking-wide mb-0.5">
-            Apcleanco
+            AP cleanco
           </p>
           <p className="text-primary-800 text-sm font-medium">{apCleanco}</p>
         </div>
@@ -292,14 +292,14 @@ export default function WhyApcleancoSection() {
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight"
           >
             Why{' '}
-            <span className="text-primary-500">APcleanco?</span>
+            <span className="text-primary-500">AP cleanco?</span>
           </h2>
         </div>
 
         {/* Intro Paragraph */}
         <div className="max-w-3xl mx-auto mb-12 text-center">
           <p className="text-lg md:text-xl text-neutral-700 leading-relaxed">
-            We believe a garage and the space inside it should not feel cluttered or wasted. At APcleanco, we focus on garage clean-out, garage deep cleaning, and garage organization so you can take back your garage space.
+            We believe a garage and the space inside it should not feel cluttered or wasted. At AP cleanco, we focus on garage clean-out, garage deep cleaning, and garage organization so you can take back your garage space.
           </p>
         </div>
 
@@ -307,7 +307,7 @@ export default function WhyApcleancoSection() {
         <div
           className="why-table hidden lg:block border border-neutral-200 overflow-hidden mb-12"
           role="table"
-          aria-label="AP Cleanco vs other companies comparison"
+          aria-label="AP cleanco vs other companies comparison"
         >
           {/* Table header */}
           <div
@@ -316,14 +316,14 @@ export default function WhyApcleancoSection() {
           >
             <div className="px-6 py-4" role="columnheader" aria-label="Feature" />
 
-            {/* APcleanco header */}
+            {/* AP cleanco header */}}
             <div
               className="flex items-center justify-center gap-2 px-6 py-4 bg-primary-500 border-x border-primary-600"
               role="columnheader"
             >
               <i className="bi bi-check-circle-fill text-white text-base" aria-hidden="true" />
               <span className="text-white font-bold text-sm tracking-widest uppercase">
-                AP Cleanco
+                AP cleanco
               </span>
             </div>
 
@@ -358,7 +358,7 @@ export default function WhyApcleancoSection() {
         <div
           className="why-cards lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12"
           role="list"
-          aria-label="AP Cleanco vs other companies comparison"
+          aria-label="AP cleanco vs other companies comparison"
         >
           {COMPARISON_ROWS.map((row) => (
             <div key={row.id} role="listitem">
@@ -376,7 +376,7 @@ export default function WhyApcleancoSection() {
         <div
           className="why-ctas flex flex-row flex-wrap justify-center gap-3 md:gap-4"
           role="group"
-          aria-label="Why APcleanco call to action buttons"
+          aria-label="Why AP cleanco call to action buttons"
         >
           <Button
             variant="primary"
@@ -384,7 +384,7 @@ export default function WhyApcleancoSection() {
             className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
             icon={<i className="bi bi-telephone-fill text-base lg:text-lg leading-none" aria-hidden="true" />}
             iconPosition="left"
-            aria-label="Schedule a free call with AP Cleanco"
+            aria-label="Schedule a free call with AP cleanco"
           >
             Schedule a Free Call
           </Button>
@@ -392,7 +392,7 @@ export default function WhyApcleancoSection() {
             variant="secondary"
             size="md"
             className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
-            aria-label="Learn more about AP Cleanco"
+            aria-label="Learn more about AP cleanco"
           >
             About Us
           </Button>

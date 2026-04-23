@@ -23,7 +23,7 @@ Furniture in good condition may be claimable or resellable. True junk — broken
 
 ## Schedule a Same-Day Service
 
-AP Cleanco offers landlord-priority booking for post-tenant cleanouts because turnaround speed directly impacts days of lost rent. Our teams can typically clear a standard unit same-day or within 24 hours.
+AP cleanco offers landlord-priority booking for post-tenant cleanouts because turnaround speed directly impacts days of lost rent. Our teams can typically clear a standard unit same-day or within 24 hours.
 
 ## Consider a Cleaning Follow-Up
 

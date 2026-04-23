@@ -193,7 +193,7 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
-            aria-label="Ap Cleanco — return to home page"
+            aria-label="AP cleanco — return to home page"
             className="shrink-0 focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2 rounded"
           >
             <Logo className="h-12 w-auto" />

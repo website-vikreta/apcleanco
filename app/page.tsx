@@ -10,7 +10,7 @@ import ImpactSection from '@/components/Home/ImpactSection'
 import TestimonialsSection from '@/components/Home/TestimonialsSection'
 
 export const metadata: Metadata = {
-  title: 'Garage Clean-Out & Junk Removal Services | Apcleanco',
+  title: 'Garage Clean-Out & Junk Removal Services | AP cleanco',
   description:
     'Professional garage clean-out, junk removal, deep cleaning, and eco-friendly donation drop-off services. Fast, affordable, and reliable solutions to declutter and organize your space. Get a free quote today.',
   keywords: [

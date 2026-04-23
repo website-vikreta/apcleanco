@@ -75,7 +75,7 @@ export default function HeroSection() {
             id="hero-heading"
             className="hero-heading text-4xl sm:text-5xl md:text-6xl font-bold text-primary-900 leading-tight tracking-tight mb-6"
           >
-            About <span className="text-accent-600">AP Cleanco</span>
+            About <span className="text-accent-600">AP cleanco</span>
           </h1>
 
           {/* Divider */}
@@ -87,7 +87,7 @@ export default function HeroSection() {
           {/* Subheading */}
           <p className="hero-subheading text-base sm:text-lg md:text-xl text-neutral-700 max-w-2xl mx-auto mb-10 leading-relaxed">
             Two founders, one mission: make junk removal simple, affordable, and stress-free.
-            Discover the story behind AP Cleanco.
+            Discover the story behind AP cleanco.
           </p>
 
           {/* CTAs */}

@@ -61,7 +61,7 @@ export default function ServicesHero() {
 
         <p className="services-hero-sub text-base sm:text-lg md:text-xl text-primary-100 leading-relaxed max-w-3xl mx-auto">
           Professional garage cleanouts, deep cleaning, and organization solutions designed to
-          transform your space. Discover how ApCleanCo can declutter, organize, and revitalize
+          transform your space. Discover how AP cleanco can declutter, organize, and revitalize
           your garage.
         </p>
       </div>

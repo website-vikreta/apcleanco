@@ -21,14 +21,14 @@ const REVIEWS = [
     name: 'Karan S.',
     rating: 5,
     snippet:
-      'Tight timeline after a tenant move-out. AP Cleanco came through without a hitch — unit was ready the next day.',
+      'Tight timeline after a tenant move-out. AP cleanco came through without a hitch — unit was ready the next day.',
   },
   {
     id: 3,
     name: 'Neha V.',
     rating: 5,
     snippet:
-      'I regularly recommend AP Cleanco to my clients before any redesign project. Reliable, tidy, and always easy to work with.',
+      'I regularly recommend AP cleanco to my clients before any redesign project. Reliable, tidy, and always easy to work with.',
   },
 ]
 

@@ -4,10 +4,10 @@ dateCreated: "2025-04-05"
 readTime: "6 min read"
 thumbnail: "/hero-image.png"
 slug: "eco-friendly-junk-disposal-what-happens-to-your-old-stuff"
-excerpt: "Curious about where your junk goes when AP Cleanco hauls it away? We break down our eco-conscious disposal and donation process."
+excerpt: "Curious about where your junk goes when AP cleanco hauls it away? We break down our eco-conscious disposal and donation process."
 ---
 
-At AP Cleanco, 'remove it' is never the whole story. Every item we collect follows an intentional path — and landfills are genuinely the last resort.
+At AP cleanco, 'remove it' is never the whole story. Every item we collect follows an intentional path — and landfills are genuinely the last resort.
 
 ## Donation First
 

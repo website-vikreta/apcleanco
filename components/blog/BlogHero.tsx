@@ -51,7 +51,7 @@ export default function BlogHero() {
           id="blog-hero-heading"
           className="blog-hero-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight tracking-tight mb-6"
         >
-          AP Cleanco Blogs
+          AP cleanco Blogs
         </h1>
 
         {/* Decorative divider */}
@@ -62,7 +62,7 @@ export default function BlogHero() {
 
         <p className="blog-hero-sub text-base sm:text-lg md:text-xl text-primary-100 leading-relaxed max-w-2xl mx-auto">
           Stay updated with the latest garage cleaning tips, industry insights, and news from AP
-          Cleanco
+          cleanco
         </p>
       </div>
     </section>

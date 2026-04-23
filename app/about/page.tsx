@@ -7,9 +7,9 @@ import VisionMissionSection from '@/components/about/VisionMissionSection'
 import CTASection from '@/components/about/CTASection'
 
 export const metadata: Metadata = {
-  title: 'About AP Cleanco - Our Story & Mission | Premium Junk Removal',
+  title: 'About AP cleanco - Our Story & Mission | Premium Junk Removal',
   description:
-    'Discover AP Cleanco\'s journey, founder story, and mission to transform spaces. Learn about our values, vision, and why we\'re the trusted choice for professional junk removal and garage cleanouts.',
+    'Discover AP cleanco\'s journey, founder story, and mission to transform spaces. Learn about our values, vision, and why we\'re the trusted choice for professional junk removal and garage cleanouts.',
   keywords: [
     'about ap cleanco',
     'junk removal company',

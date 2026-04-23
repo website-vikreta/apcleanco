@@ -14,19 +14,19 @@ const TESTIMONIALS = [
     id: 1,
     name: 'Shubham Gujarathi',
     designation: 'Homeowner',
-    testimonial: 'My garage was completely overrun with years of clutter, and AP Cleanco cleared it out in a single day. The team was thorough, respectful of my space, and left everything spotless. Honestly one of the best home services I have ever hired.',
+    testimonial: 'My garage was completely overrun with years of clutter, and AP cleanco cleared it out in a single day. The team was thorough, respectful of my space, and left everything spotless. Honestly one of the best home services I have ever hired.',
   },
   {
     id: 2,
     name: 'Rohit Sharma',
     designation: 'Property Owner',
-    testimonial: 'AP Cleanco handled the junk removal at my rental property quickly and without any hassle on my end. What impressed me most was how they sorted recyclables on the spot rather than dumping everything. I will definitely be calling them again for my next turnover.',
+    testimonial: 'AP cleanco handled the junk removal at my rental property quickly and without any hassle on my end. What impressed me most was how they sorted recyclables on the spot rather than dumping everything. I will definitely be calling them again for my next turnover.',
   },
   {
     id: 3,
     name: 'Ankit Patel',
     designation: 'Business Owner',
-    testimonial: 'We needed our old office equipment and furniture cleared before a renovation — AP Cleanco showed up on time and managed the whole process professionally. They even provided a disposal certificate for our records. Made a stressful project completely stress-free.',
+    testimonial: 'We needed our old office equipment and furniture cleared before a renovation — AP cleanco showed up on time and managed the whole process professionally. They even provided a disposal certificate for our records. Made a stressful project completely stress-free.',
   },
   {
     id: 4,
@@ -38,13 +38,13 @@ const TESTIMONIALS = [
     id: 5,
     name: 'Karan Shah',
     designation: 'Landlord',
-    testimonial: 'After a tenant move-out, my property needed a full cleanout on a very tight timeline — AP Cleanco came through without a hitch. They were communicative, fast, and left the unit ready for viewing the very next day. Exceptional turnaround.',
+    testimonial: 'After a tenant move-out, my property needed a full cleanout on a very tight timeline — AP cleanco came through without a hitch. They were communicative, fast, and left the unit ready for viewing the very next day. Exceptional turnaround.',
   },
   {
     id: 6,
     name: 'Neha Verma',
     designation: 'Interior Designer',
-    testimonial: 'I regularly recommend AP Cleanco to my clients before we begin any redesign project because a clean, clutter-free space makes all the difference. Their team is reliable, tidy, and always easy to coordinate with. My clients have never been disappointed.',
+    testimonial: 'I regularly recommend AP cleanco to my clients before we begin any redesign project because a clean, clutter-free space makes all the difference. Their team is reliable, tidy, and always easy to coordinate with. My clients have never been disappointed.',
   },
 ] as const
 

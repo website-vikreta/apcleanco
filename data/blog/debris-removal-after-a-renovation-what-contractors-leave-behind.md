@@ -21,6 +21,6 @@ Old cabinetry, appliances, flooring, windows, doors, and demo debris frequently 
 
 Before calling for a removal, sort the pile: salvageable materials (intact cabinetry, working appliances) can be donated. Recyclables (metal, clean wood, concrete) should be separated.
 
-## AP Cleanco's Post-Renovation Service
+## AP cleanco's Post-Renovation Service
 
 Our crews are experienced with construction debris — the weight, the volume, and the special handling requirements for materials like tile, concrete, and treated wood. We provide rapid clearance so your renovated space is actually usable.

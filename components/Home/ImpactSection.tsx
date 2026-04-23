@@ -98,7 +98,7 @@ export default function ImpactSection() {
         {/* Stats grid: 1 col xs → 2 col md → 4 col lg */}
         <dl
           className="impact-grid grid grid-cols-2 lg:grid-cols-4 divide-x divide-primary-700"
-          aria-label="AP Cleanco impact statistics"
+          aria-label="AP cleanco impact statistics"
         >
           {STATS.map((stat, i) => (
             <div

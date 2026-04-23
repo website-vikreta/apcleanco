@@ -21,4 +21,4 @@ A proper garage cleaning addresses the space itself: sweeping, degreasing floors
 
 Most clients benefit from sequencing both services: junk removal first, garage cleaning second. Removing bulk items before cleaning prevents double-work and allows for a thorough job on the actual surfaces.
 
-AP Cleanco offers both services independently and as a combined package — ask about bundled pricing when you book.
+AP cleanco offers both services independently and as a combined package — ask about bundled pricing when you book.

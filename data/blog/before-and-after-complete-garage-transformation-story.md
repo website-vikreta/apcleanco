@@ -4,10 +4,10 @@ dateCreated: "2025-04-18"
 readTime: "3 min read"
 thumbnail: "/hero-image.png"
 slug: "before-and-after-complete-garage-transformation-story"
-excerpt: "One Bay Area homeowner went from a two-ton hoarder garage to a clean, organized workspace in a single AP Cleanco service day."
+excerpt: "One Bay Area homeowner went from a two-ton hoarder garage to a clean, organized workspace in a single AP cleanco service day."
 ---
 
-When a client in San Jose called AP Cleanco, they estimated they had "maybe a dozen boxes and some old furniture." What we found on arrival was quite different — a two-car garage packed floor-to-ceiling after fifteen years of accumulation.
+When a client in San Jose called AP cleanco, they estimated they had "maybe a dozen boxes and some old furniture." What we found on arrival was quite different — a two-car garage packed floor-to-ceiling after fifteen years of accumulation.
 
 ## The Assessment
 

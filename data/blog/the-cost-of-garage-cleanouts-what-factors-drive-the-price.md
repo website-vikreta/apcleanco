@@ -31,4 +31,4 @@ Local disposal rates, fuel costs, and labor market values all vary by region. Ur
 
 ## Getting an Accurate Quote
 
-The most reliable quote comes from an on-site (or photo-based) assessment rather than a phone estimate. AP Cleanco offers free consultations — request yours before committing.
+The most reliable quote comes from an on-site (or photo-based) assessment rather than a phone estimate. AP cleanco offers free consultations — request yours before committing.

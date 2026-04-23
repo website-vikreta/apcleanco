@@ -46,7 +46,7 @@ export default function Footer() {
           <div className="hidden lg:block relative w-[44%] shrink-0">
             <Image
               src="/hero-image.png"
-              alt="ApcleanCo team performing professional junk removal"
+              alt="AP cleanco team performing professional junk removal"
               fill
               className="object-cover object-center"
               sizes="44vw"
@@ -103,7 +103,7 @@ export default function Footer() {
                 <a
                   href="tel:+17327703342"
                   className="block text-sm font-medium text-neutral-600 hover:text-primary-500 transition-colors whitespace-nowrap"
-                  aria-label="Call ApcleanCo at (732) 770-3342"
+                  aria-label="Call AP cleanco at (732) 770-3342"
                 >
                   (732) 770-3342
                 </a>
@@ -112,7 +112,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-sm font-medium text-neutral-600 hover:text-primary-500 transition-colors whitespace-nowrap"
-                  aria-label="ApcleanCo address at New Jersey, USA, opens in Google Maps"
+                  aria-label="AP cleanco address at New Jersey, USA, opens in Google Maps"
                 >
                   New Jersey, USA
                 </a>
@@ -157,7 +157,7 @@ export default function Footer() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`Follow ApcleanCo on ${label}`}
+                      aria-label={`Follow AP cleanco on ${label}`}
                       className="w-8 h-8 flex items-center justify-center rounded-md bg-neutral-100 text-neutral-600 hover:bg-primary-500 hover:text-white transition-colors border border-neutral-200 hover:border-primary-500"
                     >
                       <i className={`bi ${icon} text-sm leading-none`} aria-hidden="true" />
@@ -198,7 +198,7 @@ export default function Footer() {
 
             {/* Center: Copyright */}
             <p className="text-center text-white shrink-0">
-              © 2026 | All rights reserved to ApcleanCo
+              © 2026 | All rights reserved to AP cleanco
             </p>
 
             {/* Right: Legal links */}

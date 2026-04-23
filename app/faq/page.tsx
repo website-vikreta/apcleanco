@@ -5,13 +5,13 @@ import faqs from '@/data/faqs.json'
 export const metadata: Metadata = {
   title: 'FAQs',
   description:
-    'Find answers to common questions about APcleanco garage clean-out, organization, and junk removal services. Learn what we offer, how we work, and how to get started.',
+    'Find answers to common questions about AP cleanco garage clean-out, organization, and junk removal services. Learn what we offer, how we work, and how to get started.',
   openGraph: {
-    title: 'FAQs | APcleanco',
+    title: 'FAQs | AP cleanco',
     description:
-      'Have questions? Browse our FAQ to learn about APcleanco garage services, timelines, add-ons, and how to get started.',
+      'Have questions? Browse our FAQ to learn about AP cleanco garage services, timelines, add-ons, and how to get started.',
     url: 'https://apcleanco.com/faq',
-    siteName: 'APcleanco',
+    siteName: 'AP cleanco',
     type: 'website',
   },
 }

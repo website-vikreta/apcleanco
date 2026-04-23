@@ -4,7 +4,7 @@ dateCreated: "2025-03-15"
 readTime: "5 min read"
 thumbnail: "/hero-image.png"
 slug: "how-to-declutter-your-garage-in-a-weekend"
-excerpt: "Transform your cluttered garage into a functional space with these proven weekend decluttering strategies from the AP Cleanco team."
+excerpt: "Transform your cluttered garage into a functional space with these proven weekend decluttering strategies from the AP cleanco team."
 ---
 
 Most garages double as storage catch-alls — and before long, that single parking space becomes a maze of boxes, tools, and forgotten holiday decorations. The good news? With the right approach, one focused weekend is all you need.
@@ -19,4 +19,4 @@ Tackle one wall or area at a time rather than pulling everything out at once. Th
 
 ## Pair Heavy Lifting With Professional Help
 
-Some items — old water heaters, scrap metal, broken appliances — are genuinely difficult to move solo. That's where AP Cleanco's junk removal team can handle the heavy work safely and efficiently.
+Some items — old water heaters, scrap metal, broken appliances — are genuinely difficult to move solo. That's where AP cleanco's junk removal team can handle the heavy work safely and efficiently.
