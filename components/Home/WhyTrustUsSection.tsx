@@ -13,12 +13,12 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 const TRUST_POINTS = [
   {
     id: 1,
-    icon: 'bi-heart-handshake',
+    icon: 'bi-shield-check',
     text: 'We handle your garage space with care',
   },
   {
     id: 2,
-    icon: 'bi-target',
+    icon: 'bi-check-circle',
     text: 'We focus on real results, not shortcuts',
   },
   {
@@ -73,7 +73,7 @@ export default function WhyTrustUsSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white py-16 md:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="bg-white py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="trust-heading"
     >
       <div className="max-w-7xl mx-auto">
