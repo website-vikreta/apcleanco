@@ -12,10 +12,10 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 // ── Data ──────────────────────────────────────────────────────────────────────
 
 const SERVICES = [
-  { id: 1, title: 'Junk Removal',       image: '/hero-image.png' },
-  { id: 2, title: 'Debris Removal',     image: '/hero-image.png' },
-  { id: 3, title: 'Furniture Removal',  image: '/hero-image.png' },
-  { id: 4, title: 'Garage Cleanouts',   image: '/hero-image.png' },
+  { id: 1, title: 'Garage Clean-Out',       image: '/hero-image.png' },
+  { id: 2, title: 'Garage Deep Cleaning',     image: '/hero-image.png' },
+  { id: 3, title: 'Garage Organization',  image: '/hero-image.png' },
+  { id: 4, title: 'Donation & Recycling Support',   image: '/hero-image.png' },
 ] as const
 
 // ── Service Card ──────────────────────────────────────────────────────────────
@@ -144,8 +144,7 @@ export default function ServicesSection() {
             id="services-heading"
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight"
           >
-            Big or Small,{' '}
-            <span className="text-primary-500">We Haul it All</span>
+            Everything Your Garage Needs
           </h2>
         </div>
 

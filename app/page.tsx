@@ -40,7 +40,7 @@ export default function HomePage() {
       <WhyApcleancoSection />
       <OurProcessSection />
       <ImpactSection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
     </main>
   )
 }
