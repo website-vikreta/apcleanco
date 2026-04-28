@@ -24,9 +24,9 @@ const SOCIAL_LINKS = [
 ]
 
 const LEGAL_LINKS = [
-  { label: 'Terms and Conditions', href: '/terms'      },
-  { label: 'Privacy Policy',       href: '/privacy'    },
-  { label: 'Disclaimer',           href: '/disclaimer' },
+  { label: 'Terms and Conditions', href: '/legal/terms-and-conditions' },
+  { label: 'Privacy Policy',       href: '/legal/privacy-policy'       },
+  { label: 'Disclaimer',           href: '/legal/disclaimer'           },
 ]
 
 // ── Component ─────────────────────────────────────────────────────────────────
