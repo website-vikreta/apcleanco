@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useRef } from 'react'
+import Link from 'next/link'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
@@ -11,25 +12,26 @@ gsap.registerPlugin(useGSAP)
 export type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'ghost' | 'outlined' | 'danger' | 'white'
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {
   variant?: ButtonVariant
   size?: ButtonSize
   icon?: React.ReactNode
   iconPosition?: 'left' | 'right' | 'only'
   loading?: boolean
   magnetic?: boolean
+  href?: string
 }
 
 // ── Style Maps ────────────────────────────────────────────────────────────────
 
 const variantBase: Record<ButtonVariant, string> = {
   primary:  'bg-primary-500 text-white border-2 border-primary-500',
-  secondary:'bg-transparent text-primary-500 border-2 border-primary-500',
-  accent:   'bg-accent-500 text-neutral-900 border-2 border-accent-500',
-  ghost:    'bg-transparent text-current border-2 border-transparent',
-  outlined: 'bg-transparent text-neutral-700 border-2 border-neutral-300',
-  danger:   'bg-red-600 text-white border-2 border-red-600',
-  white:    'bg-white text-primary-700 border-2 border-white',
+  secondary:'bg-transparent text-primary-500 border border-primary-500',
+  accent:   'bg-accent-500 text-neutral-900 border border-accent-500',
+  ghost:    'bg-transparent text-current border border-transparent',
+  outlined: 'bg-transparent text-neutral-700 border border-neutral-300',
+  danger:   'bg-red-600 text-white border border-red-600',
+  white:    'bg-white text-primary-700 border border-white',
 }
 
 const shimmerFill: Record<ButtonVariant, string> = {
@@ -80,17 +82,18 @@ export default function Button({
   disabled = false,
   loading = false,
   magnetic = false,
+  href,
   children,
   className = '',
-  type = 'button',
   onClick,
   ...rest
 }: ButtonProps) {
-  const btnRef   = useRef<HTMLButtonElement>(null)
+  const btnRef   = useRef<HTMLElement>(null)
   const shimmerRef = useRef<HTMLSpanElement>(null)
 
   const isDisabled = disabled || loading
   const iconOnly   = iconPosition === 'only'
+  const isExternal = Boolean(href && /^(https?:\/\/|mailto:|tel:)/i.test(href))
 
   // Set initial shimmer position off-screen left
   const { contextSafe } = useGSAP(
@@ -102,7 +105,7 @@ export default function Button({
 
   // ── GSAP event handlers (contextSafe ensures cleanup on unmount) ───────────
 
-  const handleMouseEnter = contextSafe((_e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseEnter = contextSafe((_e: React.MouseEvent<HTMLElement>) => {
     if (isDisabled) return
     // Lift + scale up
     gsap.to(btnRef.current, { y: -4, scale: 1.04, duration: 0.22, ease: 'power2.out' })
@@ -114,24 +117,24 @@ export default function Button({
     )
   })
 
-  const handleMouseLeave = contextSafe((_e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseLeave = contextSafe((_e: React.MouseEvent<HTMLElement>) => {
     if (isDisabled) return
     // Elastic spring back to rest
     gsap.to(btnRef.current, { y: 0, x: 0, scale: 1, duration: 0.5, ease: 'elastic.out(1, 0.35)' })
   })
 
-  const handleMouseDown = contextSafe((_e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseDown = contextSafe((_e: React.MouseEvent<HTMLElement>) => {
     if (isDisabled) return
     gsap.to(btnRef.current, { scale: 0.94, y: 1, duration: 0.09, ease: 'power3.in' })
   })
 
-  const handleMouseUp = contextSafe((_e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseUp = contextSafe((_e: React.MouseEvent<HTMLElement>) => {
     if (isDisabled) return
     gsap.to(btnRef.current, { scale: 1.04, y: -4, duration: 0.18, ease: 'power2.out' })
   })
 
   // Magnetic: follow cursor inside button bounds
-  const handleMouseMove = contextSafe((e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseMove = contextSafe((e: React.MouseEvent<HTMLElement>) => {
     if (isDisabled || !magnetic || !btnRef.current) return
     const rect = btnRef.current.getBoundingClientRect()
     const cx   = rect.left + rect.width / 2
@@ -146,39 +149,35 @@ export default function Button({
 
   // ── Render ────────────────────────────────────────────────────────────────
 
-  return (
-    <button
-      ref={btnRef}
-      type={type}
-      disabled={isDisabled}
-      onClick={onClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-      onMouseMove={magnetic ? handleMouseMove : undefined}
-      aria-busy={loading ? true : undefined}
-      className={[
-        // Base layout
-        'relative inline-flex items-center justify-center font-semibold',
-        'overflow-hidden select-none',
-        // Focus ring
-        'focus-visible:outline-2 focus-visible:outline-offset-2',
-        // Cursor
-        isDisabled ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer',
-        // Variant + focus
-        variantBase[variant],
-        focusCls[variant],
-        // Size
-        sizeCls[size],
-        // Icon-only: remove horizontal padding, square aspect
-        iconOnly ? `px-0! ${iconOnlyWidth[size]}` : '',
-        className,
-      ]
-        .filter(Boolean)
-        .join(' ')}
-      {...rest}
-    >
+  const commonClassName = [
+    'relative inline-flex items-center justify-center font-semibold',
+    'overflow-hidden select-none',
+    'focus-visible:outline-2 focus-visible:outline-offset-2',
+    isDisabled ? 'opacity-40 cursor-not-allowed pointer-events-none' : 'cursor-pointer',
+    variantBase[variant],
+    focusCls[variant],
+    sizeCls[size],
+    iconOnly ? `px-0! ${iconOnlyWidth[size]}` : '',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ')
+
+  const handlePress = (e: React.MouseEvent<HTMLElement>) => {
+    if (isDisabled) {
+      e.preventDefault()
+      return
+    }
+
+    if (!href) {
+      e.preventDefault()
+    }
+
+    onClick?.(e as unknown as React.MouseEvent<HTMLAnchorElement>)
+  }
+
+  const content = (
+    <>
       {/* ── Shimmer sweep overlay ──────────────────────────────────────────── */}
       <span
         ref={shimmerRef}
@@ -234,6 +233,64 @@ export default function Button({
           <span aria-hidden="true" className="shrink-0 flex items-center">{icon}</span>
         )}
       </span>
-    </button>
+    </>
+  )
+
+  if (href && !isExternal) {
+    return (
+      <Link
+        ref={btnRef as React.Ref<HTMLAnchorElement>}
+        href={href}
+        className={commonClassName}
+        aria-busy={loading ? true : undefined}
+        aria-disabled={isDisabled ? true : undefined}
+        onClick={handlePress}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onMouseMove={magnetic ? handleMouseMove : undefined}
+        {...rest}
+      >
+        {content}
+      </Link>
+    )
+  }
+
+  if (href || onClick) {
+    return (
+      <a
+        ref={btnRef as React.Ref<HTMLAnchorElement>}
+        href={href ?? '#'}
+        className={commonClassName}
+        aria-busy={loading ? true : undefined}
+        aria-disabled={isDisabled ? true : undefined}
+        onClick={handlePress}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onMouseMove={magnetic ? handleMouseMove : undefined}
+        {...rest}
+      >
+        {content}
+      </a>
+    )
+  }
+
+  return (
+    <span
+      ref={btnRef as React.Ref<HTMLSpanElement>}
+      className={commonClassName}
+      aria-busy={loading ? true : undefined}
+      aria-disabled={isDisabled ? true : undefined}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseMove={magnetic ? handleMouseMove : undefined}
+    >
+      {content}
+    </span>
   )
 }

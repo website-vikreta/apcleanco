@@ -13,70 +13,81 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 // ── Data ──────────────────────────────────────────────────────────────────────
 
 const SERVICES = [
-  { id: 1, title: 'Garage Clean-Out',       image: '/hero-image.png' },
-  { id: 2, title: 'Garage Deep Cleaning',     image: '/hero-image.png' },
-  { id: 3, title: 'Garage Organization',  image: '/hero-image.png' },
-  { id: 4, title: 'Donation & Recycling Support',   image: '/hero-image.png' },
-] as const
+  { id: 1, title: 'Garage Clean-Out',             image: '/services/garage-after.webp', anchor: 'garage-cleanouts' },
+  { id: 2, title: 'Garage Deep Cleaning',         image: '/services/deepcleaning-after.webp', anchor: 'deep-cleaning' },
+  { id: 3, title: 'Garage Organization',          image: '/services/garage-organization-after.webp', anchor: 'garage-organisation' },
+  { id: 4, title: 'Donation & Recycling Support', image: '/hero-image.png', anchor: '' },
+]
 
-// ── Service Card ──────────────────────────────────────────────────────────────
+// ── Service Row ───────────────────────────────────────────────────────────────
 
-function ServiceCard({ title, image }: { title: string; image: string }) {
-  const cardRef  = useRef<HTMLDivElement>(null)
-  const imgRef   = useRef<HTMLDivElement>(null)
+function ServiceRow({ title, image, index }: { title: string; image: string; index: number }) {
+  const rowRef    = useRef<HTMLElement>(null)
+  const imgRef    = useRef<HTMLDivElement>(null)
+  const overlayRef = useRef<HTMLDivElement>(null)
+  const titleRef  = useRef<HTMLHeadingElement>(null)
 
-  const { contextSafe } = useGSAP({ scope: cardRef })
+  const { contextSafe } = useGSAP({ scope: rowRef })
 
   const handleMouseEnter = contextSafe(() => {
-    gsap.to(imgRef.current, {
-      scale: 1.25,
-      rotation: 10,
-      duration: 0.55,
-      ease: 'power2.out',
-    })
+    gsap.to(imgRef.current,   { scale: 1.06, duration: 0.5, ease: 'power2.out' })
+    gsap.to(overlayRef.current, { opacity: 0.35, duration: 0.35, ease: 'power2.out' })
+    gsap.to(titleRef.current, { x: 6, duration: 0.2, ease: 'power2.out' })
   })
 
   const handleMouseLeave = contextSafe(() => {
-    gsap.to(imgRef.current, {
-      scale: 1,
-      rotation: 0,
-      duration: 0.6,
-      ease: 'elastic.out(1, 0.45)',
-    })
+    gsap.to(imgRef.current,   { scale: 1, duration: 0.45, ease: 'power2.out' })
+    gsap.to(overlayRef.current, { opacity: 0, duration: 0.3, ease: 'power2.out' })
+    gsap.to(titleRef.current, { x: 0, duration: 0.2, ease: 'power2.out' })
   })
 
   return (
     <article
-      ref={cardRef}
-      className="group relative flex flex-col cursor-default"
+      ref={rowRef}
+      className="service-card group flex items-stretch border-b border-neutral-200 last:border-0 cursor-pointer"
       aria-label={title}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Image container — overflow hidden to clip zoom + rotation */}
-      <div className="relative w-full aspect-4/3 overflow-hidden">
+      {/* Image panel — 40% width, fixed height */}
+      <div className="relative w-2/5 h-36 md:h-44 shrink-0 overflow-hidden">
         <div ref={imgRef} className="absolute inset-0 will-change-transform">
           <Image
             src={image}
             alt={`${title} service`}
             fill
-            sizes="(max-width: 768px) 50vw, 25vw"
+            sizes="(max-width: 768px) 40vw, 25vw"
             className="object-cover"
           />
-          {/* Subtle top-to-transparent overlay for readability */}
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-linear-to-t from-primary-900/30 via-transparent to-transparent"
-          />
         </div>
+        {/* Hover overlay */}
+        <div
+          ref={overlayRef}
+          aria-hidden="true"
+          className="absolute inset-0 bg-primary-900 opacity-0 will-change-[opacity]"
+        />
       </div>
 
-      {/* Title box — overlaps image bottom by ~20px */}
-      <div className="relative z-10 -mt-5 mx-4 bg-white border border-neutral-200 px-5 py-4 text-center overflow-hidden">
-        <span aria-hidden="true" className="absolute inset-x-0 top-0 h-0.5 bg-primary-500" />
-        <h3 className="text-primary-900 font-semibold text-base lg:text-lg leading-snug tracking-tight">
+      {/* Text panel */}
+      <div className="flex-1 flex flex-col justify-center gap-2 px-6 md:px-8 py-5">
+        <span className="text-neutral-300 text-xs font-semibold tabular-nums select-none" aria-hidden="true">
+          0{index + 1}
+        </span>
+        <h3
+          ref={titleRef}
+          className="text-primary-900 font-bold text-lg md:text-xl lg:text-2xl leading-snug tracking-tight will-change-transform"
+        >
           {title}
         </h3>
+        <div aria-hidden="true" className="w-6 h-0.5 bg-accent-500 rounded-full mt-1 group-hover:w-10 transition-all duration-300" />
+      </div>
+
+      {/* Arrow */}
+      <div className="flex items-center pr-6 shrink-0">
+        <i
+          className="bi bi-arrow-right text-neutral-300 group-hover:text-accent-500 group-hover:translate-x-1 transition-all duration-200"
+          aria-hidden="true"
+        />
       </div>
     </article>
   )
@@ -89,44 +100,19 @@ export default function ServicesSection() {
 
   useGSAP(
     () => {
-      // Heading fade-up
       gsap.from('.services-heading', {
-        y: 30,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.services-heading',
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        },
+        y: 24, opacity: 0, duration: 0.65, ease: 'power3.out',
+        scrollTrigger: { trigger: '.services-heading', start: 'top 85%', toggleActions: 'play none none none' },
       })
 
-      // Cards stagger fade-up
       gsap.from('.service-card', {
-        y: 40,
-        opacity: 0,
-        duration: 0.65,
-        stagger: 0.12,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.services-grid',
-          start: 'top 80%',
-          toggleActions: 'play none none none',
-        },
+        y: 16, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out',
+        scrollTrigger: { trigger: '.services-list', start: 'top 82%', toggleActions: 'play none none none' },
       })
 
-      // CTA fade-up
       gsap.from('.services-cta', {
-        y: 20,
-        opacity: 0,
-        duration: 0.55,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.services-cta',
-          start: 'top 90%',
-          toggleActions: 'play none none none',
-        },
+        y: 12, opacity: 0, duration: 0.45, ease: 'power2.out',
+        scrollTrigger: { trigger: '.services-cta', start: 'top 92%', toggleActions: 'play none none none' },
       })
     },
     { scope: sectionRef },
@@ -135,60 +121,64 @@ export default function ServicesSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-neutral-50 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="bg-neutral-50 py-14 md:py-18 lg:py-22 px-4 sm:px-6 lg:px-8"
       aria-labelledby="services-heading"
     >
       <div className="max-w-7xl mx-auto">
 
-        {/* Heading */}
-        <div className="services-heading text-center mb-10 md:mb-14">
-          <p
-            className="text-accent-500 text-xs font-semibold tracking-[0.2em] uppercase mb-3"
-            aria-hidden="true"
-          >
-            What We Do
-          </p>
-          <h2
-            id="services-heading"
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight"
-          >
-            Everything Your Garage Needs
-          </h2>
-          <p className="text-neutral-500 text-base md:text-lg mt-4 max-w-xl mx-auto leading-relaxed">
-            From full clean-outs to deep cleaning and organization — every aspect of restoring your garage, handled.
-          </p>
-        </div>
+        {/* Two-column layout: heading left, list right */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-start">
 
-        {/* Cards grid: 2 cols on sm/md, 4 cols on lg+ */}
-        <div
-          className="services-grid grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
-          role="list"
-          aria-label="Our services"
-        >
-          {SERVICES.map((service) => (
-            <div key={service.id} className="service-card" role="listitem">
-              <ServiceCard title={service.title} image={service.image} />
-            </div>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="services-cta flex justify-center mt-12 md:mt-14">
-          <Link href="/services">
-            <Button
-              variant="primary"
-              size="md"
-              className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
-              icon={<i className="bi bi-arrow-right text-base lg:text-lg leading-none" aria-hidden="true" />}
-              iconPosition="right"
-              aria-label="View all our garage services"
+          {/* Left — heading + CTA */}
+          <div className="services-heading lg:col-span-2 lg:sticky lg:top-32">
+            <p className="text-accent-500 text-xs font-semibold tracking-[0.2em] uppercase mb-3" aria-hidden="true">
+              What We Do
+            </p>
+            <h2
+              id="services-heading"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight mb-5"
             >
-              View Services
-            </Button>
-          </Link>
-        </div>
+              Everything Your Garage Needs
+            </h2>
+            <p className="text-neutral-500 text-base leading-relaxed mb-8">
+              From full clean-outs to deep cleaning and organization — every aspect of restoring your garage, handled.
+            </p>
+            <div className="services-cta">
+              <Link href="/services">
+                <Button
+                  variant="primary"
+                  size="md"
+                  icon={<i className="bi bi-arrow-right leading-none" aria-hidden="true" />}
+                  iconPosition="right"
+                  aria-label="View all our garage services"
+                >
+                  View Services
+                </Button>
+              </Link>
+            </div>
+          </div>
 
+          {/* Right — service rows */}
+          <div
+            className="services-list lg:col-span-3"
+            role="list"
+            aria-label="Our services"
+          >
+            {SERVICES.map((service, i) => (
+              <Link
+                key={service.id}
+                href={service.anchor ? `/services#${service.anchor}` : '/services'}
+                role="listitem"
+                className="block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 rounded"
+              >
+                <ServiceRow title={service.title} image={service.image} index={i} />
+              </Link>
+            ))}
+          </div>
+
+        </div>
       </div>
     </section>
   )
 }
+
