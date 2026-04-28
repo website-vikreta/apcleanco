@@ -46,10 +46,10 @@ export default function Logo({ className = '' }: LogoProps) {
       .to(traceRef.current,  { opacity: 0, duration: 0.22, ease: 'power2.out' }, '<')
   }, { scope: svgRef })
 
-  // ── Hover: square changes to primary-500 (#1f5a44) ─────────────────────
+  // ── Hover: square changes to primary-500 (#2563eb) ─────────────────────
   const onEnter = contextSafe(() => {
     gsap.to([frameRef.current, apRef.current], {
-      fill: '#1f5a44',   // primary-500
+      fill: '#2563eb',   // primary-500 (professional blue)
       duration: 0.25,
       ease: 'power2.out',
     })
@@ -57,7 +57,7 @@ export default function Logo({ className = '' }: LogoProps) {
 
   const onLeave = contextSafe(() => {
     gsap.to([frameRef.current, apRef.current], {
-      fill: '#0b1f17',   // primary-900
+      fill: '#0f172a',   // primary-900 (dark blue-gray)
       duration: 0.35,
       ease: 'power2.out',
     })

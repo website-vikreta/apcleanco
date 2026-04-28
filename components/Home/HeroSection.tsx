@@ -51,7 +51,8 @@ export default function HeroSection() {
 
       // ── 2. Entry animations (staggered reveal) ────────────────────────────
       gsap.timeline({ defaults: { ease: 'power3.out' } })
-        .from('.hero-heading', { y: 50, opacity: 0, duration: 1.0 })
+        .from('.hero-badge',   { y: 20, opacity: 0, duration: 0.75 })
+        .from('.hero-heading', { y: 50, opacity: 0, duration: 1.0 }, '-=0.4')
         .from('.hero-sub',     { y: 35, opacity: 0, duration: 0.85 }, '-=0.65')
         .from('.hero-pills',   { y: 25, opacity: 0, duration: 0.75 }, '-=0.55')
         .from('.hero-ctas',    { y: 25, opacity: 0, duration: 0.75 }, '-=0.5')
@@ -113,51 +114,79 @@ export default function HeroSection() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        {/* Atmospheric gradient overlay — ensures text contrast */}
+        {/* Cinematic overlay — dark base + radial vignette for atmospheric depth */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-linear-to-br from-primary-900/90 via-primary-800/75 to-primary-700/55"
+          className="absolute inset-0 bg-primary-900/65"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse 100% 80% at 65% 35%, rgba(37,99,235,0.10) 0%, rgba(15,23,42,0.50) 100%)',
+          }}
+        />
+        {/* Top-edge gradient — ensures transparent nav always has contrast over bright image areas */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-primary-900/85 to-transparent"
         />
       </div>
 
       {/* ── Hero content ──────────────────────────────────────────────────────── */}
-      <div className="relative z-10 text-center w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-36 sm:pt-36 sm:pb-48">
+      <div className="relative z-10 text-center w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-36 sm:pt-40 sm:pb-48">
+
+        {/* Trust badge */}
+        <div
+          className="hero-badge flex justify-center mb-8"
+          role="status"
+          aria-label="Social proof: Trusted across New Jersey"
+        >
+          <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-white/15 bg-white/[0.07] backdrop-blur-sm text-white/65 text-[11px] sm:text-xs font-medium tracking-[0.2em] uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-400 shrink-0" aria-hidden="true" />
+            Trusted Across New Jersey
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-400 shrink-0" aria-hidden="true" />
+          </span>
+        </div>
 
         {/* Heading */}
         <h1 className="hero-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.07] tracking-tight mb-6">
           Transform Your Garage Into a{' '}
-          <span className="text-accent-400">
+          <br className="hidden sm:block" />
+          <span className="font-light italic text-white/90">
             Clean, Functional Space
           </span>
         </h1>
 
         {/* Subheading */}
-        <p className="hero-sub text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-10">
+        <p className="hero-sub text-base sm:text-lg md:text-xl text-white/65 max-w-2xl mx-auto leading-relaxed mb-10">
           We offer garage clean-out, deep cleaning, garage organization, donation drop-off, and recycling support in New Jersey, built to help you take back your garage space.
         </p>
 
-        {/* Bullet pills */}
+        {/* Bullet pills — editorial thin-rule separator */}
         <div
-          className="hero-pills flex items-center justify-center gap-4 sm:gap-8 mb-12"
+          className="hero-pills flex items-center gap-6 mb-12 max-w-xs mx-auto"
           role="list"
           aria-label="Core service pillars"
         >
+          <span aria-hidden="true" className="flex-1 h-px bg-white/15" />
           {(['Declutter', 'Organize', 'Sustain'] as const).map((word, i) => (
             <React.Fragment key={word}>
               <span
                 role="listitem"
-                className="text-accent-400 font-bold text-xs sm:text-sm tracking-[0.2em] uppercase"
+                className="text-white/50 font-medium text-[10px] sm:text-xs tracking-[0.25em] uppercase"
               >
                 {word}
               </span>
               {i < 2 && (
                 <span
                   aria-hidden="true"
-                  className="w-1 h-1 rounded-full bg-white/35 shrink-0"
+                  className="w-1 h-1 rounded-full bg-white/20 shrink-0"
                 />
               )}
             </React.Fragment>
           ))}
+          <span aria-hidden="true" className="flex-1 h-px bg-white/15" />
         </div>
 
         {/* CTA buttons */}
@@ -182,23 +211,24 @@ export default function HeroSection() {
             Schedule a Call
           </Button>
 
-          {/* Secondary CTA — styled for dark hero background */}
+          {/* Secondary CTA */}
           <button
             type="button"
             className="
-              inline-flex items-center justify-center
+              inline-flex items-center justify-center gap-2
               px-6 py-3 h-11 rounded-lg text-base
               lg:px-8 lg:py-4 lg:h-14 lg:rounded-xl lg:text-lg
-              border-2 border-white/60 text-white font-semibold
+              border border-white/25 text-white/75 font-medium
               tracking-tight
-              hover:border-white hover:bg-white/10
-              transition-all duration-200
+              hover:border-white/50 hover:bg-white/[0.07] hover:text-white
+              transition-all duration-300
               focus-visible:outline-2
               focus-visible:outline-offset-2 focus-visible:outline-white
             "
             aria-label="Get a free quote"
           >
             Get a Free Quote
+            <i className="bi bi-arrow-right text-sm leading-none" aria-hidden="true" />
           </button>
         </div>
       </div>

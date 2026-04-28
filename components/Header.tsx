@@ -41,6 +41,7 @@ export default function Header() {
   // Use a ref to track open state — avoids stale closure inside contextSafe callbacks
   const menuOpenRef = useRef(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [atTop, setAtTop] = useState(true)
 
   // ── GSAP: scroll-driven topbar hide / navbar compact ─────────────────────
   const { contextSafe } = useGSAP(() => {
@@ -53,6 +54,9 @@ export default function Header() {
     const onScroll = () => {
       const y = window.scrollY
       const goingDown = y > lastScrollY && y > topbarH
+
+      // Track transparent-header state
+      setAtTop(y < 100)
 
       // Topbar: collapse / expand
       gsap.to(topbarWrapRef.current, {
@@ -183,7 +187,12 @@ export default function Header() {
       </div>
 
       {/* ── Main Navbar ──────────────────────────────────────────────────── */}
-      <nav className="bg-white" aria-label="Site navigation">
+      <nav
+        className={`transition-colors duration-300 ${
+          atTop ? 'bg-transparent' : 'bg-white/95 backdrop-blur-md border-b border-neutral-200/40'
+        }`}
+        aria-label="Site navigation"
+      >
         <div
           ref={navInnerRef}
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6"
@@ -196,7 +205,9 @@ export default function Header() {
             aria-label="AP cleanco — return to home page"
             className="shrink-0 focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2 rounded"
           >
-            <Logo className="h-12 w-auto" />
+            <div style={{ filter: atTop ? 'brightness(0) invert(1)' : 'none', transition: 'filter 0.35s ease' }}>
+              <Logo className="h-12 w-auto" />
+            </div>
           </Link>
 
           {/* Desktop nav links */}
@@ -209,13 +220,19 @@ export default function Header() {
               <li key={href} role="listitem">
                 <Link
                   href={href}
-                  className="relative px-3 py-1.5 text-base font-medium text-neutral-800 hover:text-primary-500 transition-colors duration-150 group focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2 rounded"
+                  className={`relative px-3 py-1.5 text-base font-medium transition-colors duration-300 group focus-visible:outline-2 focus-visible:outline-offset-2 rounded ${
+                    atTop
+                      ? 'text-white/85 hover:text-white focus-visible:outline-white'
+                      : 'text-neutral-800 hover:text-primary-500 focus-visible:outline-primary-500'
+                  }`}
                 >
                   {label}
                   {/* Accent underline — CSS transition on group-hover (no GSAP needed for a simple scale) */}
                   <span
                     aria-hidden="true"
-                    className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left rounded-full"
+                    className={`absolute bottom-0 left-3 right-3 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left rounded-full ${
+                      atTop ? 'bg-white/40' : 'bg-accent-500'
+                    }`}
                   />
                 </Link>
               </li>
@@ -227,16 +244,28 @@ export default function Header() {
 
             {/* Desktop CTA */}
             <div className="hidden md:block">
-              <Button
-                variant="primary"
-                size="md"
-                icon={<i className="bi bi-calendar2-check text-[13px]" aria-hidden="true" />}
-                iconPosition="left"
-                onClick={() => window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer')}
-                aria-label="Schedule a call — opens in a new tab"
-              >
-                Schedule a Call
-              </Button>
+              {atTop ? (
+                <button
+                  type="button"
+                  onClick={() => window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer')}
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-white/35 text-white/90 text-sm font-semibold hover:bg-white/10 hover:border-white/60 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  aria-label="Schedule a call — opens in a new tab"
+                >
+                  <i className="bi bi-calendar2-check text-[13px]" aria-hidden="true" />
+                  Schedule a Call
+                </button>
+              ) : (
+                <Button
+                  variant="primary"
+                  size="md"
+                  icon={<i className="bi bi-calendar2-check text-[13px]" aria-hidden="true" />}
+                  iconPosition="left"
+                  onClick={() => window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer')}
+                  aria-label="Schedule a call — opens in a new tab"
+                >
+                  Schedule a Call
+                </Button>
+              )}
             </div>
 
             {/* Mobile CTA (compact, always visible in header) */}
@@ -254,7 +283,11 @@ export default function Header() {
             {/* Hamburger toggle */}
             <button
               onClick={toggleMenu}
-              className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-neutral-700 hover:bg-neutral-100 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-1"
+              className={`md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-1 ${
+                atTop
+                  ? 'text-white/85 hover:bg-white/10 focus-visible:outline-white'
+                  : 'text-neutral-700 hover:bg-neutral-100 focus-visible:outline-primary-500'
+              }`}
               aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={menuOpen}
               aria-controls="mobile-nav-menu"
