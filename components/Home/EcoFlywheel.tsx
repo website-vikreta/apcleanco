@@ -314,7 +314,7 @@ export default function EcoFlywheel() {
           {/* Left column: stages 1 & 2 */}
           <div className="flex-1 flex flex-col gap-4">
             {leftStages.map((stage) => (
-              <div key={stage.id} className="stage-card stage-card-left relative flex-1">
+              <div key={stage.id} className="stage-card stage-card-left relative flex-1 flex flex-col">
                 <StageCard stage={stage} />
                 <ConnectorLeft />
               </div>
@@ -327,7 +327,7 @@ export default function EcoFlywheel() {
           {/* Right column: stages 3 & 4 */}
           <div className="flex-1 flex flex-col gap-4">
             {rightStages.map((stage) => (
-              <div key={stage.id} className="stage-card stage-card-right relative flex-1">
+              <div key={stage.id} className="stage-card stage-card-right relative flex-1 flex flex-col">
                 <ConnectorRight />
                 <StageCard stage={stage} />
               </div>

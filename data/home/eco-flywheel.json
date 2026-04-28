@@ -2,29 +2,9 @@
   "title": "We Clean. We Care. We Go Green.",
   "subtitle": "Clearing clutter the right way for a cleaner, greener tomorrow.",
   "stages": [
-    {
-      "id": 1,
-      "title": "We Revive",
-      "description": "We collect junk, clutter & unwanted items responsibly",
-      "position": "top"
-    },
-    {
-      "id": 2,
-      "title": "We Sort",
-      "description": "We carefully sort every item to decide the best next step",
-      "position": "left"
-    },
-    {
-      "id": 3,
-      "title": "We Donate, Recycle & Resale",
-      "description": "Usable items are donated to those in need. Recyclable materials are sent to recycling facilities. Valuable items are resold to give them a new life.",
-      "position": "right"
-    },
-    {
-      "id": 4,
-      "title": "We Plant",
-      "description": "For every place we clean, we plant 2 trees to give back to nature",
-      "position": "bottom"
-    }
+    { "id": 1, "title": "We Revive",                     "description": "Every job starts here — we collect junk, clutter, and unwanted items from your space with care and purpose.", "position": "top"    },
+    { "id": 2, "title": "We Sort",                       "description": "Nothing gets tossed blindly. Each item is carefully assessed and sorted to find its best possible next destination.", "position": "left"   },
+    { "id": 3, "title": "We Donate, Recycle & Resell",   "description": "Usable items go to families in need, recyclables reach certified facilities, and valuables find deserving new owners.", "position": "right"  },
+    { "id": 4, "title": "We Plant",                      "description": "For every clean we complete, two trees are planted — our commitment to giving back to the planet we protect.",     "position": "bottom" }
   ]
 }
