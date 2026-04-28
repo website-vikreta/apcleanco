@@ -92,7 +92,7 @@ function getStageIcon(id: number) {
 function StageCard({ stage }: { stage: Stage }) {
   return (
     <div
-      className="stage-card group bg-white border border-primary-200 rounded-2xl p-5 lg:p-6 flex items-start gap-4 transition-all duration-300 hover:border-primary-400 hover:scale-[1.01] will-change-transform"
+      className="stage-card group bg-white border border-primary-200 rounded-2xl p-5 lg:p-6 flex items-start gap-4 h-full transition-all duration-300 hover:border-primary-400 hover:scale-[1.01] will-change-transform"
       role="region"
       aria-label={`${stage.title}: ${stage.description}`}
     >
@@ -315,9 +315,9 @@ export default function EcoFlywheel() {
         <div className="hidden md:flex items-stretch gap-5 lg:gap-8 mb-8 lg:mb-10">
 
           {/* Left column: stages 1 & 2 */}
-          <div className="flex-1 flex flex-col gap-4 justify-center">
+          <div className="flex-1 flex flex-col gap-4">
             {leftStages.map((stage) => (
-              <div key={stage.id} className="stage-card stage-card-left relative">
+              <div key={stage.id} className="stage-card stage-card-left relative flex-1">
                 <StageCard stage={stage} />
                 <ConnectorLeft />
               </div>
@@ -328,9 +328,9 @@ export default function EcoFlywheel() {
           <CenterPiece centerRef={centerRef} />
 
           {/* Right column: stages 3 & 4 */}
-          <div className="flex-1 flex flex-col gap-4 justify-center">
+          <div className="flex-1 flex flex-col gap-4">
             {rightStages.map((stage) => (
-              <div key={stage.id} className="stage-card stage-card-right relative">
+              <div key={stage.id} className="stage-card stage-card-right relative flex-1">
                 <ConnectorRight />
                 <StageCard stage={stage} />
               </div>
