@@ -11,18 +11,21 @@ import LegalContent from '@/components/legal/LegalContent'
  * Uses semantic HTML structure and accessible typography
  */
 
+const PAGE_TITLE = 'Privacy Policy'
+const LAST_UPDATED = 'April 23, 2026'
+
 export const metadata: Metadata = {
-  title: 'Privacy Policy | ApcleanCo',
+  title: `${PAGE_TITLE} | ApcleanCo`,
   description: 'Privacy Policy for ApcleanCo. Learn how we collect, use, and protect your personal information.',
   robots: 'index, follow',
   openGraph: {
-    title: 'Privacy Policy | ApcleanCo',
+    title: `${PAGE_TITLE} | ApcleanCo`,
     description: 'Privacy Policy for ApcleanCo. Learn how we collect, use, and protect your personal information.',
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: 'Privacy Policy | ApcleanCo',
+    title: `${PAGE_TITLE} | ApcleanCo`,
     description: 'Privacy Policy for ApcleanCo. Learn how we collect, use, and protect your personal information.',
   },
 }
@@ -40,7 +43,7 @@ export default function PrivacyPolicyPage() {
       {/* Centered container with max-width for optimal readability */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14 lg:py-16">
         {/* Page header with title and meta */}
-        <LegalHeader title={legalPage.title} lastUpdated={legalPage.lastUpdated} />
+        <LegalHeader title={PAGE_TITLE} lastUpdated={LAST_UPDATED} />
 
         {/* Legal content rendered as WYSIWYG HTML */}
         <LegalContent
