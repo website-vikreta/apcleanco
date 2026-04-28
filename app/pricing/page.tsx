@@ -8,6 +8,7 @@ import { AddonsTable } from '@/components/pricing/AddonsTable'
 export default function PricingPage() {
   return (
     <main className="min-h-screen bg-neutral-50">
+      <div aria-hidden="true" className="h-22 md:h-32" />
       {/* Header */}
       <section className="py-16 md:py-20">
         <PricingHeader />

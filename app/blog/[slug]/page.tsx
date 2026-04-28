@@ -53,6 +53,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
   return (
     <main aria-label={`Blog post: ${blog.title}`}>
+      <div aria-hidden="true" className="h-22 md:h-32" />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14 lg:py-16">
         {/* Blog header: thumbnail, title, meta */}
         <BlogHeader

@@ -39,6 +39,7 @@ export default function FAQPage() {
       />
 
       <main id="main-content">
+        <div aria-hidden="true" className="h-22 md:h-32" />
         {/* Page Header */}
         <section
           aria-labelledby="faq-heading"

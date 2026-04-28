@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <main className="w-full">
+      <div aria-hidden="true" className="h-22 md:h-32" />
       {/* Hero Section */}
       <ServicesHero />
 
