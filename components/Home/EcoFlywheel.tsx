@@ -33,7 +33,7 @@ function IconRevive() {
     <svg
       viewBox="0 0 24 24" fill="none" stroke="currentColor"
       strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"
-      className="w-7 h-7 text-primary-500" aria-hidden="true"
+      className="w-5 h-5 text-primary-500" aria-hidden="true"
     >
       <path d="M1 4v6h6" />
       <path d="M23 20v-6h-6" />
@@ -47,7 +47,7 @@ function IconSort() {
     <svg
       viewBox="0 0 24 24" fill="none" stroke="currentColor"
       strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"
-      className="w-7 h-7 text-primary-500" aria-hidden="true"
+      className="w-5 h-5 text-primary-500" aria-hidden="true"
     >
       <rect x="3" y="3" width="5" height="18" rx="1" />
       <rect x="9.5" y="6" width="5" height="15" rx="1" />
@@ -61,7 +61,7 @@ function IconDonate() {
     <svg
       viewBox="0 0 24 24" fill="none" stroke="currentColor"
       strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"
-      className="w-7 h-7 text-primary-500" aria-hidden="true"
+      className="w-5 h-5 text-primary-500" aria-hidden="true"
     >
       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
     </svg>
@@ -73,7 +73,7 @@ function IconPlant() {
     <svg
       viewBox="0 0 24 24" fill="none" stroke="currentColor"
       strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"
-      className="w-7 h-7 text-primary-500" aria-hidden="true"
+      className="w-5 h-5 text-primary-500" aria-hidden="true"
     >
       <path d="M12 22v-10" />
       <path d="M12 12s-5-3-5-8a5 5 0 0 1 10 0c0 5-5 8-5 8z" />
@@ -113,12 +113,12 @@ function CenterGlobe() {
 function StageCard({ stage }: { stage: Stage }) {
   return (
     <div
-      className="stage-card group bg-white border border-primary-200 rounded-2xl p-6 lg:p-7 transition-all duration-300 hover:border-primary-400 hover:scale-[1.02] will-change-transform"
+      className="stage-card group bg-white border border-primary-200 rounded-xl p-4 lg:p-5 transition-all duration-300 hover:border-primary-400 hover:scale-[1.02] will-change-transform"
       role="region"
       aria-label={`${stage.title}: ${stage.description}`}
     >
       {/* Badge + rule */}
-      <div className="flex items-center gap-3 mb-5" aria-hidden="true">
+      <div className="flex items-center gap-3 mb-3" aria-hidden="true">
         <span className="w-7 h-7 rounded-full bg-primary-500 text-white text-xs font-bold flex items-center justify-center shrink-0 group-hover:bg-primary-600 transition-colors duration-300">
           {stage.id}
         </span>
@@ -126,17 +126,17 @@ function StageCard({ stage }: { stage: Stage }) {
       </div>
 
       {/* Icon */}
-      <div className="w-14 h-14 rounded-xl bg-primary-50 border border-primary-100 flex items-center justify-center mb-4 group-hover:bg-primary-100 transition-colors duration-300">
+      <div className="w-10 h-10 rounded-lg bg-primary-50 border border-primary-100 flex items-center justify-center mb-3 group-hover:bg-primary-100 transition-colors duration-300">
         {getStageIcon(stage.id)}
       </div>
 
       {/* Title */}
-      <h3 className="text-base lg:text-[1.0625rem] font-bold text-primary-900 mb-2 leading-snug">
+      <h3 className="text-sm font-bold text-primary-900 mb-1.5 leading-snug">
         {stage.title}
       </h3>
 
       {/* Description */}
-      <p className="text-sm text-neutral-700 leading-relaxed">
+      <p className="text-xs text-neutral-700 leading-relaxed">
         {stage.description}
       </p>
     </div>
@@ -149,7 +149,7 @@ function CenterPiece({ centerRef }: { centerRef: React.RefObject<HTMLDivElement 
   return (
     <div
       ref={centerRef}
-      className="col-start-2 row-start-2 flex flex-col items-center justify-center w-full min-h-[280px] lg:min-h-[320px] relative"
+      className="col-start-2 row-start-2 flex flex-col items-center justify-center w-full min-h-[220px] lg:min-h-[260px] relative"
       aria-hidden="true"
     >
       {/* Animated SVG rings */}
@@ -185,7 +185,7 @@ function CenterPiece({ centerRef }: { centerRef: React.RefObject<HTMLDivElement 
 
       {/* Globe + badge */}
       <div className="relative z-10 flex flex-col items-center gap-3">
-        <div className="w-28 h-28 lg:w-32 lg:h-32 rounded-full bg-primary-500 border-4 border-primary-400 flex items-center justify-center">
+        <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-primary-500 border-4 border-primary-400 flex items-center justify-center">
           <CenterGlobe />
         </div>
         <div className="bg-primary-900 rounded-full px-4 py-1.5">
@@ -285,7 +285,7 @@ export default function EcoFlywheel() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-primary-100 py-16 md:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative bg-primary-100 py-10 md:py-14 lg:py-18 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="eco-flywheel-title"
     >
       {/* ── Decorative background leaves ──────────────────────────────────── */}
@@ -309,9 +309,9 @@ export default function EcoFlywheel() {
       <div className="relative z-10 max-w-6xl mx-auto">
 
         {/* ── Section heading ──────────────────────────────────────────────── */}
-        <div className="flywheel-heading text-center mb-12 md:mb-16">
+        <div className="flywheel-heading text-center mb-8 md:mb-10">
           {/* Pill label */}
-          <div className="inline-flex items-center gap-2 bg-primary-200 border border-primary-300 rounded-full px-4 py-1.5 mb-5">
+          <div className="inline-flex items-center gap-2 bg-primary-200 border border-primary-300 rounded-full px-4 py-1.5 mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-primary-500" aria-hidden="true" />
             <span className="text-xs font-semibold text-primary-700 tracking-[0.1em] uppercase">
               Eco Commitment
@@ -320,17 +320,17 @@ export default function EcoFlywheel() {
 
           <h2
             id="eco-flywheel-title"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight mb-3 md:mb-4 leading-tight"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-900 tracking-tight mb-2 md:mb-3 leading-tight"
           >
             {flywheelData.title}
           </h2>
-          <p className="text-base md:text-lg text-neutral-700 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-base text-neutral-700 max-w-2xl mx-auto leading-relaxed">
             {flywheelData.subtitle}
           </p>
         </div>
 
         {/* ── Desktop: 3 × 3 flywheel grid ────────────────────────────────── */}
-        <div className="hidden md:grid grid-cols-3 grid-rows-3 gap-6 lg:gap-10 items-center mb-12 lg:mb-16">
+        <div className="hidden md:grid grid-cols-3 grid-rows-3 gap-4 lg:gap-6 items-center mb-6 lg:mb-8">
 
           {/* Row 1: Stage 1 top-center */}
           <div className="col-start-2 row-start-1">
@@ -359,8 +359,8 @@ export default function EcoFlywheel() {
         {/* ── Mobile: center visual + stacked cards ───────────────────────── */}
         <div className="md:hidden mb-10">
           {/* Compact center visual */}
-          <div className="flex flex-col items-center gap-2 mb-8" aria-hidden="true">
-            <div className="w-20 h-20 rounded-full bg-primary-500 border-4 border-primary-400 flex items-center justify-center">
+          <div className="flex flex-col items-center gap-2 mb-5" aria-hidden="true">
+            <div className="w-14 h-14 rounded-full bg-primary-500 border-4 border-primary-400 flex items-center justify-center">
               <svg
                 viewBox="0 0 64 64" fill="none" stroke="white"
                 strokeLinecap="round" strokeLinejoin="round"
@@ -381,7 +381,7 @@ export default function EcoFlywheel() {
           </div>
 
           {/* Stage cards: 1-col xs, 2-col sm */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {stages.map((stage) => (
               <StageCard key={stage.id} stage={stage} />
             ))}
@@ -397,7 +397,7 @@ export default function EcoFlywheel() {
           {IMPACT_PILLARS.map(({ label, desc }) => (
             <div
               key={label}
-              className="impact-pillar bg-primary-900 px-5 py-6 lg:py-7 text-center"
+              className="impact-pillar bg-primary-900 px-4 py-4 lg:py-5 text-center"
               role="listitem"
             >
               <p className="font-bold text-white text-sm lg:text-[0.9375rem] mb-1 leading-snug">
