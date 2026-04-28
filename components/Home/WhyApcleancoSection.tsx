@@ -378,26 +378,18 @@ export default function WhyApcleancoSection() {
           role="group"
           aria-label="Why AP cleanco call to action buttons"
         >
-          <Button
-            variant="primary"
-            size="md"
-            className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
-            icon={<i className="bi bi-arrow-right text-base lg:text-lg leading-none" aria-hidden="true" />}
-            iconPosition="right"
-            onClick={() => window.open('https://calendly.com/parthdharia99/30min', '_blank', 'noopener,noreferrer')}
+          <a
+            href="https://calendly.com/parthdharia99/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center font-semibold overflow-hidden select-none focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer bg-primary-500 text-white border-2 border-primary-500 focus-visible:outline-primary-600 px-6 py-3 text-base h-11 rounded-lg lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl hover:bg-primary-600 hover:border-primary-600 transition-colors duration-200 gap-2"
             aria-label="Schedule your free estimate"
           >
             Schedule Free Estimate
-          </Button>
-          <Link href="/about">
-            <Button
-              variant="secondary"
-              size="md"
-              className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
-              aria-label="Learn our story"
-            >
-              Our Story
-            </Button>
+            <i className="bi bi-arrow-right text-base lg:text-lg leading-none" aria-hidden="true" />
+          </a>
+          <Link href="/about" className="inline-flex items-center justify-center font-semibold overflow-hidden select-none focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer bg-neutral-100 text-primary-900 border-2 border-neutral-100 focus-visible:outline-primary-500 px-6 py-3 text-base h-11 rounded-lg lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl hover:bg-neutral-50 transition-colors duration-200">
+            Our Story
           </Link>
         </div>
 

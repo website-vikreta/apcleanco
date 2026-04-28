@@ -2,10 +2,10 @@
 
 import React, { useRef } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Button from '../Button'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
@@ -196,40 +196,26 @@ export default function HeroSection() {
           aria-label="Call to action buttons"
         >
           {/* Primary CTA — Calendly */}
-          <Button
-            variant="white"
-            size="md"
-            magnetic
-            className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl lg:gap-2.5"
-            icon={<i className="bi bi-calendar2-check text-lg lg:text-xl leading-none" aria-hidden="true" />}
-            iconPosition="left"
-            onClick={() =>
-              window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer')
-            }
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 h-11 rounded-lg text-base font-semibold bg-white text-primary-700 border-2 border-white hover:bg-white/90 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl lg:gap-2.5"
             aria-label="Schedule a free estimate"
           >
+            <i className="bi bi-calendar2-check text-lg lg:text-xl leading-none" aria-hidden="true" />
             Schedule Free Estimate
-          </Button>
+          </a>
 
           {/* Secondary CTA */}
-          <button
-            type="button"
-            className="
-              inline-flex items-center justify-center gap-2
-              px-6 py-3 h-11 rounded-lg text-base
-              lg:px-8 lg:py-4 lg:h-14 lg:rounded-xl lg:text-lg
-              border border-white/25 text-white/75 font-medium
-              tracking-tight
-              hover:border-white/50 hover:bg-white/[0.07] hover:text-white
-              transition-all duration-300
-              focus-visible:outline-2
-              focus-visible:outline-offset-2 focus-visible:outline-white
-            "
-            aria-label="Get a free quote"
+          <Link
+            href="/services"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 h-11 rounded-lg text-base font-medium border border-white/25 text-white/75 hover:border-white/50 hover:bg-white/[0.07] hover:text-white transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:px-8 lg:py-4 lg:h-14 lg:rounded-xl lg:text-lg"
+            aria-label="View our services"
           >
-            Get a Free Quote
+            View Services
             <i className="bi bi-arrow-right text-sm leading-none" aria-hidden="true" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

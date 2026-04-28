@@ -4,12 +4,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import Logo from '@/components/Logo'
-import Button from '@/components/Button'
+
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 
 const NAV_LINKS = [
-  { label: 'Services',   href: '#services' },
+  { label: 'Services',   href: '/services' },
   { label: 'About Us',   href: '/about'    },
   { label: 'Blog',       href: '/blog'     },
   { label: 'FAQ',        href: '/faq'      },
@@ -84,16 +84,16 @@ export default function Footer() {
               Get your free New Jersey estimate.
             </p>
 
-            <Button
-              variant="white"
-              size="md"
-              className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
-              icon={<i className="bi bi-arrow-right" aria-hidden="true" />}
-              iconPosition="right"
-              aria-label="Get a free garage clean-out quote"
+            <a
+              href="https://calendly.com/parthdharia99/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 h-11 rounded-lg text-base font-semibold bg-white text-primary-700 border-2 border-white hover:bg-white/90 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
+              aria-label="Schedule your free garage estimate"
             >
               Get a Free Quote
-            </Button>
+              <i className="bi bi-arrow-right" aria-hidden="true" />
+            </a>
 
           </div>
         </div>
