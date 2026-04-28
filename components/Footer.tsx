@@ -159,12 +159,12 @@ export default function Footer() {
           {/* Divider */}
           <div className="border-t border-white/10 my-6" aria-hidden="true" />
 
-          {/* Footer bottom: Copyright · Legal */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-xs text-white/30">
+          {/* Footer bottom: distributed layout */}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-white/30">
 
-            {/* Copyright + dev credit */}
-            <p className="text-center">
-              © 2026 AP cleanco &nbsp;·&nbsp;{' '}
+            {/* Left: Dev credit */}
+            <p className="text-center lg:text-left">
+              Designed &amp; Developed by{' '}
               <a
                 href="https://websitevikreta.com"
                 target="_blank"
@@ -176,18 +176,23 @@ export default function Footer() {
               </a>
             </p>
 
-            {/* Legal links */}
+            {/* Center: Copyright */}
+            <p className="text-center text-white/60 shrink-0">
+              © 2026 | All rights reserved to AP cleanco
+            </p>
+
+            {/* Right: Legal links */}
             <nav aria-label="Legal links">
-              <ul className="flex items-center gap-x-1 justify-center" role="list">
+              <ul className="flex flex-wrap items-center gap-x-1 gap-y-1 justify-center lg:justify-end" role="list">
                 {LEGAL_LINKS.map(({ label, href }, index) => (
                   <React.Fragment key={label}>
                     <li>
-                      <Link href={href} className="hover:text-white transition-colors">
+                      <Link href={href} className="text-white/30 hover:text-white transition-colors">
                         {label}
                       </Link>
                     </li>
                     {index < LEGAL_LINKS.length - 1 && (
-                      <li aria-hidden="true" className="text-white/20 select-none px-1">·</li>
+                      <li aria-hidden="true" className="text-white/20 select-none px-0.5">·</li>
                     )}
                   </React.Fragment>
                 ))}
