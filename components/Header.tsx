@@ -160,7 +160,7 @@ export default function Header() {
             {/* Right — social icons */}
             <div className="flex items-center gap-4">
               <span
-                className="text-neutral-600 text-[10px] uppercase tracking-[0.18em]"
+                className="text-neutral-200 text-[10px] uppercase tracking-[0.18em]"
                 aria-hidden="true"
               >
                 Follow
@@ -174,7 +174,7 @@ export default function Header() {
                     rel="noopener noreferrer"
                     role="listitem"
                     aria-label={`Follow us on ${label}`}
-                    className="text-neutral-500 hover:text-accent-400 transition-colors duration-150 text-[15px] leading-none focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-1 rounded"
+                    className="text-neutral-200 hover:text-accent-400 transition-colors duration-150 text-[15px] leading-none focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-1 rounded"
                   >
                     <i className={`bi ${icon}`} aria-hidden="true" />
                   </a>

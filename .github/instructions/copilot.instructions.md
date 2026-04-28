@@ -71,3 +71,4 @@ On new instructions, update relevant files in:
 
 ## DON'T
 Don't test anything on the browser. 
+Don't execute npm run dev or npm run build.
