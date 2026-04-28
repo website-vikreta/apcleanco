@@ -76,37 +76,24 @@ export default function Footer() {
 
             <h2
               id="footer-cta-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-5"
+              className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-4"
             >
-              Ready to Transform<br className="hidden sm:block" /> Your Garage?
+              Ready to Transform Your Garage?
             </h2>
-            <p className="text-white/60 text-base mb-9 leading-relaxed max-w-md">
-              Get your free New Jersey estimate. We&apos;ll leave your garage cleaner,
-              more functional, and easy to maintain.
+            <p className="text-white/60 text-base mb-6 leading-relaxed max-w-md">
+              Get your free New Jersey estimate.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Button
-                variant="white"
-                size="md"
-                className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
-                icon={<i className="bi bi-arrow-right" aria-hidden="true" />}
-                iconPosition="right"
-                aria-label="Get a free garage clean-out quote"
-              >
-                Get a Free Quote
-              </Button>
-              <Button
-                variant="ghost"
-                size="md"
-                className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl text-white/70! hover:text-white! border-2 border-white/20! hover:border-white/50!"
-                icon={<i className="bi bi-telephone-fill text-sm" aria-hidden="true" />}
-                iconPosition="left"
-                aria-label="Call AP cleanco at (732) 770-3342"
-              >
-                (732) 770-3342
-              </Button>
-            </div>
+            <Button
+              variant="white"
+              size="md"
+              className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
+              icon={<i className="bi bi-arrow-right" aria-hidden="true" />}
+              iconPosition="right"
+              aria-label="Get a free garage clean-out quote"
+            >
+              Get a Free Quote
+            </Button>
 
           </div>
         </div>
