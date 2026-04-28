@@ -19,6 +19,7 @@ export interface ButtonProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorE
   iconPosition?: 'left' | 'right' | 'only'
   loading?: boolean
   magnetic?: boolean
+  disabled?: boolean
   href?: string
 }
 
