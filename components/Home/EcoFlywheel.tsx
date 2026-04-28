@@ -103,9 +103,6 @@ function StageCard({ stage }: { stage: Stage }) {
 
       {/* Text */}
       <div className="flex-1 min-w-0">
-        <p className="text-[10px] font-semibold text-primary-500 tracking-[0.1em] uppercase mb-1">
-          Step {stage.id}
-        </p>
         <h3 className="text-base lg:text-[1.0625rem] font-bold text-primary-900 mb-1 leading-snug">
           {stage.title}
         </h3>
