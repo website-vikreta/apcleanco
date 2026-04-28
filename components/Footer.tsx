@@ -29,15 +29,6 @@ const LEGAL_LINKS = [
   { label: 'Disclaimer',           href: '/legal/disclaimer'           },
 ]
 
-// ── Trust signals for footer ──────────────────────────────────────────────────
-
-const TRUST_SIGNALS = [
-  { icon: 'bi-geo-alt-fill',          label: 'New Jersey Based'         },
-  { icon: 'bi-lightning-charge-fill', label: 'Same-Day Available'       },
-  { icon: 'bi-patch-check-fill',      label: '100% Satisfaction'        },
-  { icon: 'bi-leaf',                  label: 'Eco-Friendly Disposal'    },
-]
-
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function Footer() {
@@ -168,21 +159,11 @@ export default function Footer() {
           {/* Divider */}
           <div className="border-t border-white/10 my-6" aria-hidden="true" />
 
-          {/* Row 2: Trust signals · Copyright · Legal */}
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-4 text-xs">
-
-            {/* Trust signals inline */}
-            <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2" role="list" aria-label="Why choose AP cleanco">
-              {TRUST_SIGNALS.map(({ icon, label }) => (
-                <li key={label} className="flex items-center gap-1.5">
-                  <i className={`bi ${icon} text-accent-500 text-xs`} aria-hidden="true" />
-                  <span className="text-white/40">{label}</span>
-                </li>
-              ))}
-            </ul>
+          {/* Footer bottom: Copyright · Legal */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-xs text-white/30">
 
             {/* Copyright + dev credit */}
-            <p className="text-white/30 shrink-0 text-center">
+            <p className="text-center">
               © 2026 AP cleanco &nbsp;·&nbsp;{' '}
               <a
                 href="https://websitevikreta.com"
@@ -197,16 +178,16 @@ export default function Footer() {
 
             {/* Legal links */}
             <nav aria-label="Legal links">
-              <ul className="flex flex-wrap items-center gap-x-1 gap-y-1 justify-center lg:justify-end" role="list">
+              <ul className="flex items-center gap-x-1 justify-center" role="list">
                 {LEGAL_LINKS.map(({ label, href }, index) => (
                   <React.Fragment key={label}>
                     <li>
-                      <Link href={href} className="text-white/30 hover:text-white transition-colors">
+                      <Link href={href} className="hover:text-white transition-colors">
                         {label}
                       </Link>
                     </li>
                     {index < LEGAL_LINKS.length - 1 && (
-                      <li aria-hidden="true" className="text-white/20 select-none px-0.5">·</li>
+                      <li aria-hidden="true" className="text-white/20 select-none px-1">·</li>
                     )}
                   </React.Fragment>
                 ))}
