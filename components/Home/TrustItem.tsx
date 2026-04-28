@@ -36,7 +36,7 @@ export default function TrustItem({ icon, text, index }: TrustItemProps) {
   const handleMouseEnter = () => {
     gsap.to(itemRef.current, {
       scale: 1.02,
-      backgroundColor: 'rgba(31, 90, 68, 0.04)', // subtle primary tint
+      backgroundColor: 'rgba(37, 99, 235, 0.05)', // subtle primary blue tint
       duration: 0.3,
       ease: 'power2.out',
     })
@@ -45,7 +45,7 @@ export default function TrustItem({ icon, text, index }: TrustItemProps) {
   const handleMouseLeave = () => {
     gsap.to(itemRef.current, {
       scale: 1,
-      backgroundColor: 'rgba(31, 90, 68, 0)', // transparent
+      backgroundColor: 'rgba(37, 99, 235, 0)',
       duration: 0.25,
       ease: 'power2.out',
     })

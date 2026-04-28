@@ -81,7 +81,7 @@ const COMPARISON_ROWS = [
 function CheckIcon() {
   return (
     <span
-      className="inline-flex items-center justify-center w-6 h-6 text-primary-500"
+      className="inline-flex items-center justify-center w-6 h-6 text-accent-500"
       aria-hidden="true"
     >
       <i className="bi bi-check-circle-fill text-lg leading-none" />
@@ -280,6 +280,12 @@ export default function WhyApcleancoSection() {
 
         {/* Heading */}
         <div className="why-heading text-center mb-10 md:mb-14">
+          <p
+            className="text-accent-500 text-xs font-semibold tracking-[0.2em] uppercase mb-3"
+            aria-hidden="true"
+          >
+            The Difference
+          </p>
           <h2
             id="why-heading"
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight"

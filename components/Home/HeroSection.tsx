@@ -165,7 +165,7 @@ export default function HeroSection() {
 
         {/* Bullet pills — editorial thin-rule separator */}
         <div
-          className="hero-pills flex items-center gap-6 mb-12 max-w-xs mx-auto"
+          className="hero-pills flex items-center gap-3 sm:gap-4 md:gap-6 mb-12 w-full max-w-2xl mx-auto px-4 sm:px-0"
           role="list"
           aria-label="Core service pillars"
         >
@@ -174,7 +174,7 @@ export default function HeroSection() {
             <React.Fragment key={word}>
               <span
                 role="listitem"
-                className="text-white/50 font-medium text-[10px] sm:text-xs tracking-[0.25em] uppercase"
+                className="text-white/50 font-medium text-[9px] sm:text-[10px] md:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase whitespace-nowrap"
               >
                 {word}
               </span>

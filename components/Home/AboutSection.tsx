@@ -42,6 +42,18 @@ export default function AboutSection() {
         },
       })
 
+      gsap.from('.about-stats', {
+        y: 16,
+        opacity: 0,
+        duration: 0.55,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.about-stats',
+          start: 'top 90%',
+          toggleActions: 'play none none none',
+        },
+      })
+
       gsap.from('.about-ctas', {
         y: 20,
         opacity: 0,
@@ -87,17 +99,25 @@ export default function AboutSection() {
           <div className="flex flex-col gap-6 lg:gap-8 order-1 lg:order-0">
 
             {/* Heading — visible first on all screens */}
-            <h2
-              id="about-heading"
-              className="about-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight"
-            >
-              Fast, Affordable clean-out & deep cleaning services{' '}
-              <span className="text-primary-500">in New Jersey</span>
-            </h2>
+            <div className="flex flex-col gap-2 order-1">
+              <p
+                className="text-accent-500 text-xs font-semibold tracking-[0.2em] uppercase"
+                aria-hidden="true"
+              >
+                About Us
+              </p>
+              <h2
+                id="about-heading"
+                className="about-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight"
+              >
+                Fast, Affordable clean-out & deep cleaning services{' '}
+                <span className="text-primary-500">in New Jersey</span>
+              </h2>
+            </div>
 
             {/* Image — shown here only on sm/md, hidden on lg+ (no parallax needed) */}
             <div
-              className="about-image-wrap relative w-full overflow-hidden lg:hidden order-2"
+              className="about-image-wrap relative w-full overflow-hidden lg:hidden order-3"
               style={{ height: '340px' }}
               aria-hidden="true"
             >
@@ -118,8 +138,23 @@ export default function AboutSection() {
               </div>
             </div>
 
+            {/* Stats badges */}
+            <div className="about-stats flex flex-wrap items-center gap-x-5 gap-y-3 order-2">
+              {[
+                { label: 'NJ-Based Service',    icon: 'bi-geo-alt-fill' },
+                { label: 'Same-Day Available',   icon: 'bi-lightning-charge-fill' },
+                { label: '100% Satisfaction',    icon: 'bi-patch-check-fill' },
+                { label: 'Eco-Friendly',         icon: 'bi-leaf' },
+              ].map(({ label, icon }) => (
+                <div key={label} className="flex items-center gap-2">
+                  <i className={`${icon} text-accent-500 text-sm`} aria-hidden="true" />
+                  <span className="text-neutral-600 text-sm font-medium">{label}</span>
+                </div>
+              ))}
+            </div>
+
             {/* Body */}
-            <div className="about-body flex flex-col gap-4 order-3">
+            <div className="about-body flex flex-col gap-4 order-4">
               <p className="text-neutral-700 text-base md:text-lg leading-relaxed">
                 Garages fill up over time and it becomes cluttered, hard to use, and easy to ignore. We help fix that properly through garage clean-out, garage deep cleaning, and garage organization services in New Jersey.
               </p>
@@ -133,7 +168,7 @@ export default function AboutSection() {
 
             {/* CTAs */}
             <div
-              className="about-ctas flex flex-row flex-wrap gap-3 md:gap-4 order-4"
+              className="about-ctas flex flex-row flex-wrap gap-3 md:gap-4 order-5"
               role="group"
               aria-label="About us call to action buttons"
             >

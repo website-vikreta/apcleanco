@@ -71,7 +71,8 @@ function ServiceCard({ title, image }: { title: string; image: string }) {
       </div>
 
       {/* Title box — overlaps image bottom by ~20px */}
-      <div className="relative z-10 -mt-5 mx-4 bg-white border border-neutral-200 px-5 py-4 text-center">
+      <div className="relative z-10 -mt-5 mx-4 bg-white border border-neutral-200 px-5 py-4 text-center overflow-hidden">
+        <span aria-hidden="true" className="absolute inset-x-0 top-0 h-0.5 bg-primary-500" />
         <h3 className="text-primary-900 font-semibold text-base lg:text-lg leading-snug tracking-tight">
           {title}
         </h3>
@@ -140,12 +141,21 @@ export default function ServicesSection() {
 
         {/* Heading */}
         <div className="services-heading text-center mb-10 md:mb-14">
+          <p
+            className="text-accent-500 text-xs font-semibold tracking-[0.2em] uppercase mb-3"
+            aria-hidden="true"
+          >
+            What We Do
+          </p>
           <h2
             id="services-heading"
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight"
           >
             Everything Your Garage Needs
           </h2>
+          <p className="text-neutral-500 text-base md:text-lg mt-4 max-w-xl mx-auto leading-relaxed">
+            From full clean-outs to deep cleaning and organization — every aspect of restoring your garage, handled.
+          </p>
         </div>
 
         {/* Cards grid: 2 cols on sm/md, 4 cols on lg+ */}
