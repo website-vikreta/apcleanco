@@ -42,6 +42,7 @@ export default function Header() {
   const menuOpenRef = useRef(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [atTop, setAtTop] = useState(true)
+  const collapsedRef = useRef(false)
 
   // ── GSAP: scroll-driven topbar hide / navbar compact ─────────────────────
   const { contextSafe } = useGSAP(() => {
@@ -50,36 +51,47 @@ export default function Header() {
     gsap.set(topbarWrapRef.current, { height: topbarH })
 
     let lastScrollY = 0
+    let lastAtTop = true
 
     const onScroll = () => {
       const y = window.scrollY
+      const currentAtTop = y < 100
       const goingDown = y > lastScrollY && y > topbarH
 
-      // Track transparent-header state
-      setAtTop(y < 100)
+      // Only update atTop state if it changed
+      if (currentAtTop !== lastAtTop) {
+        setAtTop(currentAtTop)
+        lastAtTop = currentAtTop
+      }
 
-      // Topbar: collapse / expand
-      gsap.to(topbarWrapRef.current, {
-        height:   goingDown ? 0 : topbarH,
-        duration: goingDown ? 0.22 : 0.3,
-        ease:     goingDown ? 'power2.in' : 'power2.out',
-        overwrite: true,
-      })
-      gsap.to(topbarRef.current, {
-        y:        goingDown ? -topbarH : 0,
-        duration: goingDown ? 0.22 : 0.3,
-        ease:     goingDown ? 'power2.in' : 'power2.out',
-        overwrite: true,
-      })
+      // Only animate if collapsed state changes
+      const shouldCollapse = goingDown
+      if (shouldCollapse !== collapsedRef.current) {
+        collapsedRef.current = shouldCollapse
 
-      // Navbar: compact / full padding
-      gsap.to(navInnerRef.current, {
-        paddingTop:    goingDown ? '0.5rem'  : '1.25rem',
-        paddingBottom: goingDown ? '0.5rem'  : '1.25rem',
-        duration: goingDown ? 0.22 : 0.3,
-        ease:     goingDown ? 'power2.in' : 'power2.out',
-        overwrite: true,
-      })
+        // Topbar: collapse / expand
+        gsap.to(topbarWrapRef.current, {
+          height:   shouldCollapse ? 0 : topbarH,
+          duration: shouldCollapse ? 0.22 : 0.3,
+          ease:     shouldCollapse ? 'power2.in' : 'power2.out',
+          overwrite: 'auto',
+        })
+        gsap.to(topbarRef.current, {
+          y:        shouldCollapse ? -topbarH : 0,
+          duration: shouldCollapse ? 0.22 : 0.3,
+          ease:     shouldCollapse ? 'power2.in' : 'power2.out',
+          overwrite: 'auto',
+        })
+
+        // Navbar: compact / full padding
+        gsap.to(navInnerRef.current, {
+          paddingTop:    shouldCollapse ? '0.5rem'  : '1.25rem',
+          paddingBottom: shouldCollapse ? '0.5rem'  : '1.25rem',
+          duration: shouldCollapse ? 0.22 : 0.3,
+          ease:     shouldCollapse ? 'power2.in' : 'power2.out',
+          overwrite: 'auto',
+        })
+      }
 
       lastScrollY = Math.max(0, y)
     }
