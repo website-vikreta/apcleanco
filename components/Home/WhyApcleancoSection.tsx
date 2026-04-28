@@ -81,7 +81,7 @@ const COMPARISON_ROWS = [
 function CheckIcon() {
   return (
     <span
-      className="inline-flex items-center justify-center w-6 h-6 text-accent-500"
+      className="inline-flex items-center justify-center w-6 h-6 text-primary-500"
       aria-hidden="true"
     >
       <i className="bi bi-check-circle-fill text-lg leading-none" />
