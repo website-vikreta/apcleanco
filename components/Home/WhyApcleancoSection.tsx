@@ -388,8 +388,8 @@ export default function WhyApcleancoSection() {
             Schedule Free Estimate
             <i className="bi bi-arrow-right text-base lg:text-lg leading-none" aria-hidden="true" />
           </a>
-          <Link href="/about" className="inline-flex items-center justify-center font-semibold overflow-hidden select-none focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer bg-neutral-100 text-primary-900 border-2 border-neutral-100 focus-visible:outline-primary-500 px-6 py-3 text-base h-11 rounded-lg lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl hover:bg-neutral-50 transition-colors duration-200">
-            Our Story
+          <Link href="/pricing" className="inline-flex items-center justify-center font-semibold overflow-hidden select-none focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer bg-neutral-100 text-primary-900 border-2 border-neutral-100 focus-visible:outline-primary-500 px-6 py-3 text-base h-11 rounded-lg lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl hover:bg-neutral-50 transition-colors duration-200">
+            View Plans
           </Link>
         </div>
 
