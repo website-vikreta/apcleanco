@@ -15,6 +15,10 @@
       "/^cd \"/Users/shubhamgujarathi/Website Vikreta/Projects/Clients/ApcleanCo/apcleanco\" && node -e \"require\\('remark'\\); require\\('remark-html'\\); require\\('remark-gfm'\\); console\\.log\\('OK'\\)\"$/": {
          "approve": true,
          "matchCommandLine": true
+      },
+      "/^cd /tmp && python3 << 'EOF'\nimport base64\nimport zipfile\nimport xml\\.etree\\.ElementTree as ET\nimport sys\n\n# The docx file binary data \\(provided in attachment\\)\ndocx_path = \"/tmp/privacy_policy_04232026\\.docx\"\n\ntry:\n    # Extract text from docx\n    with zipfile\\.ZipFile\\(docx_path, 'r'\\) as zip_ref:\n        # Read the main document XML\n        xml_content = zip_ref\\.read\\('word/document\\.xml'\\)\n        root = ET\\.fromstring\\(xml_content\\)\n        \n        # Namespace\n        ns = \\{'w': 'http://schemas\\.openxmlformats\\.org/wordprocessingml/2006/main'\\}\n        \n        # Extract all text\n        text_elements = root\\.findall\\('\\.//w:t', ns\\)\n        full_text = ''\\.join\\(\\[t\\.text for t in text_elements if t\\.text\\]\\)\n        \n        print\\(full_text\\)\nexcept Exception as e:\n    print\\(f\"Error: \\{e\\}\", file=sys\\.stderr\\)\n    sys\\.exit\\(1\\)\nEOF\n$/": {
+         "approve": true,
+         "matchCommandLine": true
       }
    }
 }

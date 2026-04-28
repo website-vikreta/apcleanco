@@ -19,13 +19,6 @@ const COMPARISON_ROWS = [
     others: 'Inconsistent results',
   },
   {
-    id: 2,
-    icon: 'bi-flower1',
-    feature: 'Products Used',
-    apCleanco: 'Eco-friendly & family-safe',
-    others: 'Harsh chemicals',
-  },
-  {
     id: 3,
     icon: 'bi-tag',
     feature: 'Pricing',
