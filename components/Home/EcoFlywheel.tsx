@@ -113,7 +113,7 @@ function CenterGlobe() {
 function StageCard({ stage }: { stage: Stage }) {
   return (
     <div
-      className="stage-card group bg-white border border-primary-200 rounded-2xl p-6 lg:p-7 transition-all duration-300 hover:border-primary-400 hover:scale-[1.02]"
+      className="stage-card group bg-white border border-primary-200 rounded-2xl p-6 lg:p-7 transition-all duration-300 hover:border-primary-400 hover:scale-[1.02] will-change-transform"
       role="region"
       aria-label={`${stage.title}: ${stage.description}`}
     >
@@ -179,7 +179,7 @@ function CenterPiece({ centerRef }: { centerRef: React.RefObject<HTMLDivElement 
         <circle
           cx="160" cy="160" r="75"
           fill="currentColor"
-          className="text-primary-100 opacity-60"
+          className="text-primary-200 opacity-50"
         />
       </svg>
 
@@ -189,7 +189,7 @@ function CenterPiece({ centerRef }: { centerRef: React.RefObject<HTMLDivElement 
           <CenterGlobe />
         </div>
         <div className="bg-primary-900 rounded-full px-4 py-1.5">
-          <p className="text-[11px] font-bold tracking-widest uppercase text-white">
+          <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-white">
             2 Trees Per Clean
           </p>
         </div>
@@ -210,58 +210,72 @@ export default function EcoFlywheel() {
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       if (prefersReducedMotion) return
 
-      // Heading block fade up
-      gsap.from('.flywheel-heading', {
-        y: 30, opacity: 0, duration: 0.7, ease: 'power2.out',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 78%',
-          toggleActions: 'play none none none',
-        },
-      })
+      // ── Set initial hidden states first ──────────────────────────────
+      // Using gsap.set + gsap.to (not gsap.from) prevents elements from
+      // staying invisible when ScrollTrigger misses on first load.
+      gsap.set('.flywheel-heading', { y: 30, opacity: 0 })
+      gsap.set(centerRef.current,   { scale: 0.85, opacity: 0 })
+      gsap.set('.stage-card',        { y: 28, opacity: 0 })
+      gsap.set('.impact-pillar',     { y: 20, opacity: 0 })
 
-      // Center globe scale + fade
-      gsap.from(centerRef.current, {
-        scale: 0.82, opacity: 0, duration: 0.9, ease: 'power2.out',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 72%',
-          toggleActions: 'play none none none',
-        },
-      })
-
-      // SVG dashed ring draw (strokeDashoffset: circumference → 0)
       const dashRing = sectionRef.current?.querySelector('#dash-ring') as SVGCircleElement
+      const circ = 2 * Math.PI * 140 // ≈ 879
+      if (dashRing) gsap.set(dashRing, { strokeDashoffset: circ })
+
+      // ── Heading block fade up ────────────────────────────────────────
+      gsap.to('.flywheel-heading', {
+        y: 0, opacity: 1, duration: 0.75, ease: 'power2.out',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 85%',
+          once: true,
+          invalidateOnRefresh: true,
+        },
+      })
+
+      // ── Center globe scale + fade ────────────────────────────────────
+      gsap.to(centerRef.current, {
+        scale: 1, opacity: 1, duration: 0.95, ease: 'power2.out',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+          once: true,
+          invalidateOnRefresh: true,
+        },
+      })
+
+      // ── SVG ring draw ────────────────────────────────────────────────
       if (dashRing) {
-        const circ = 2 * Math.PI * 140 // ≈ 879
-        gsap.set(dashRing, { strokeDashoffset: circ })
         gsap.to(dashRing, {
           strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 72%',
-            toggleActions: 'play none none none',
+            start: 'top 80%',
+            once: true,
+            invalidateOnRefresh: true,
           },
         })
       }
 
-      // Stage cards staggered entry
-      gsap.from('.stage-card', {
-        y: 28, opacity: 0, duration: 0.65, stagger: 0.15, ease: 'power2.out',
+      // ── Stage cards staggered entry ──────────────────────────────────
+      gsap.to('.stage-card', {
+        y: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: 'power2.out',
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 68%',
-          toggleActions: 'play none none none',
+          start: 'top 78%',
+          once: true,
+          invalidateOnRefresh: true,
         },
       })
 
-      // Impact bar pillars stagger
-      gsap.from('.impact-pillar', {
-        y: 20, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out',
+      // ── Impact bar pillars stagger ───────────────────────────────────
+      gsap.to('.impact-pillar', {
+        y: 0, opacity: 1, duration: 0.55, stagger: 0.09, ease: 'power2.out',
         scrollTrigger: {
           trigger: '.eco-impact-bar',
-          start: 'top 88%',
-          toggleActions: 'play none none none',
+          start: 'top 92%',
+          once: true,
+          invalidateOnRefresh: true,
         },
       })
     },
@@ -271,12 +285,12 @@ export default function EcoFlywheel() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-primary-50 py-16 md:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative bg-primary-100 py-16 md:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="eco-flywheel-title"
     >
       {/* ── Decorative background leaves ──────────────────────────────────── */}
       <div
-        className="absolute top-0 left-0 w-80 h-80 opacity-[0.04] pointer-events-none -translate-x-1/3 -translate-y-1/3 rotate-12"
+        className="absolute top-0 left-0 w-80 h-80 opacity-[0.08] pointer-events-none -translate-x-1/3 -translate-y-1/3 rotate-12"
         aria-hidden="true"
       >
         <svg viewBox="0 0 300 300" fill="currentColor" className="text-primary-900 w-full h-full">
@@ -284,7 +298,7 @@ export default function EcoFlywheel() {
         </svg>
       </div>
       <div
-        className="absolute bottom-20 right-0 w-[30rem] h-[30rem] opacity-[0.04] pointer-events-none translate-x-1/3 rotate-[200deg]"
+        className="absolute bottom-20 right-0 w-[30rem] h-[30rem] opacity-[0.08] pointer-events-none translate-x-1/3 rotate-[200deg]"
         aria-hidden="true"
       >
         <svg viewBox="0 0 300 300" fill="currentColor" className="text-primary-900 w-full h-full">
@@ -297,9 +311,9 @@ export default function EcoFlywheel() {
         {/* ── Section heading ──────────────────────────────────────────────── */}
         <div className="flywheel-heading text-center mb-12 md:mb-16">
           {/* Pill label */}
-          <div className="inline-flex items-center gap-2 bg-primary-100 border border-primary-200 rounded-full px-4 py-1.5 mb-5">
+          <div className="inline-flex items-center gap-2 bg-primary-200 border border-primary-300 rounded-full px-4 py-1.5 mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-primary-500" aria-hidden="true" />
-            <span className="text-xs font-semibold text-primary-700 tracking-widest uppercase">
+            <span className="text-xs font-semibold text-primary-700 tracking-[0.1em] uppercase">
               Eco Commitment
             </span>
           </div>
@@ -360,7 +374,7 @@ export default function EcoFlywheel() {
               </svg>
             </div>
             <div className="bg-primary-900 rounded-full px-3 py-1">
-              <p className="text-[10px] font-bold tracking-widest uppercase text-white">
+              <p className="text-[10px] font-bold tracking-[0.1em] uppercase text-white">
                 2 Trees Per Clean
               </p>
             </div>
