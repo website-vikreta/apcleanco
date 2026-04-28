@@ -35,9 +35,9 @@ export default function HomePage() {
     <main>
       <HeroSection />
       <ServicesSection />
-      <WhyTrustUsSection />
       <AboutSection />
       <WhyApcleancoSection />
+      <WhyTrustUsSection />
       <OurProcessSection />
       <EcoFlywheel />
       {/* <TestimonialsSection /> */}

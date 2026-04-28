@@ -84,7 +84,7 @@ export default function AboutSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-neutral-50 py-16 md:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="bg-white py-16 md:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="about-heading"
     >
       <div className="max-w-7xl mx-auto">
@@ -123,7 +123,7 @@ export default function AboutSection() {
             >
               <div className="absolute inset-0">
                 <Image
-                  src="/hero-image.png"
+                  src="/about-us.webp"
                   alt="AP Clean Co team removing junk"
                   fill
                   sizes="100vw"
@@ -176,7 +176,6 @@ export default function AboutSection() {
                 <Button
                   variant="primary"
                   size="md"
-                  className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
                   icon={<i className="bi bi-arrow-right text-base lg:text-lg leading-none" aria-hidden="true" />}
                   iconPosition="right"
                   aria-label="Learn more about AP Clean Co on Our Story page"
@@ -184,15 +183,14 @@ export default function AboutSection() {
                   Learn more
                 </Button>
               </Link>
-              <a
-                href="https://calendly.com/parthdharia99/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center font-semibold overflow-hidden select-none focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer bg-neutral-100 text-primary-900 border-2 border-neutral-100 focus-visible:outline-primary-500 px-6 py-3 text-base h-11 rounded-lg lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl hover:bg-neutral-50 transition-colors duration-200"
+              <Button
+                variant="secondary"
+                size="md"
+                onClick={() => window.open('https://calendly.com/parthdharia99/30min', '_blank', 'noopener,noreferrer')}
                 aria-label="Get a free quote — opens scheduling"
               >
                 Get a Free Quote
-              </a>
+              </Button>
             </div>
 
           </div>
@@ -209,7 +207,7 @@ export default function AboutSection() {
             >
               <div className="absolute inset-0">
                 <Image
-                  src="/hero-image.png"
+                  src="/about-us.webp"
                   alt="AP Clean Co team removing junk"
                   fill
                   sizes="40vw"

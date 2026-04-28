@@ -91,7 +91,7 @@ export default function WhyTrustUsSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-primary-900 py-16 md:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="bg-white py-16 md:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="trust-heading"
     >
       <div className="max-w-7xl mx-auto">
@@ -99,18 +99,18 @@ export default function WhyTrustUsSection() {
         {/* ── Header ──────────────────────────────────────────────────────── */}
         <div className="mb-10 md:mb-14 text-center">
           <p
-            className="text-accent-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4"
+            className="text-accent-500 text-xs font-semibold tracking-[0.2em] uppercase mb-4"
             aria-hidden="true"
           >
             Why Choose Us
           </p>
           <h2
             id="trust-heading"
-            className="trust-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4 md:mb-6"
+            className="trust-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight mb-4 md:mb-6"
           >
-            Why{' '}<span className="text-primary-300">Trust Us</span>
+            Why <span className="text-primary-600">Trust Us</span>
           </h2>
-          <p className="trust-intro text-white/60 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="trust-intro text-neutral-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
             Letting someone work in your space is a big decision. That&apos;s why we keep every
             job straightforward, respectful, and professional from start to finish.
           </p>
@@ -125,23 +125,23 @@ export default function WhyTrustUsSection() {
           {TRUST_POINTS.map((point) => (
             <li key={point.id} role="listitem">
               <article
-                className="trust-card h-full flex flex-col items-start gap-4 p-6 md:p-7 rounded-xl border border-white/10 bg-white/6 backdrop-blur-sm"
+                className="trust-card h-full flex flex-col items-start gap-4 p-6 md:p-7 rounded-xl border border-neutral-200 bg-white shadow-sm"
                 aria-label={`${point.label}: ${point.text}`}
               >
                 {/* Icon */}
                 <div
-                  className="flex items-center justify-center w-11 h-11 rounded-lg bg-white/10"
+                  className="flex items-center justify-center w-11 h-11 rounded-lg bg-primary-50"
                   aria-hidden="true"
                 >
-                  <i className={`${point.icon} text-primary-300 text-xl leading-none`} />
+                  <i className={`${point.icon} text-primary-600 text-xl leading-none`} />
                 </div>
 
                 {/* Text */}
                 <div className="flex flex-col gap-1.5">
-                  <h3 className="text-white font-semibold text-sm md:text-base tracking-tight">
+                  <h3 className="text-primary-900 font-semibold text-sm md:text-base tracking-tight">
                     {point.label}
                   </h3>
-                  <p className="text-white/60 text-sm leading-relaxed">
+                  <p className="text-neutral-600 text-sm leading-relaxed">
                     {point.text}
                   </p>
                 </div>

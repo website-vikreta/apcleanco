@@ -144,6 +144,18 @@
   }
 }
 
+// Logo filter state transitions (scroll-driven)
+// Use CSS classes instead of inline styles for better performance
+.logo-expanded {
+  filter: brightness(0) invert(1);
+  will-change: filter;
+}
+
+.logo-collapsed {
+  filter: none;
+  will-change: filter;
+}
+
 // Responsive adjustments
 @media (prefers-reduced-motion: reduce) {
   * {

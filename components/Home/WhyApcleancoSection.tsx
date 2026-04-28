@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useRef } from 'react'
-import Link from 'next/link'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -118,17 +117,17 @@ function DesktopRow({
 }) {
   return (
     <div
-      className={`why-row grid grid-cols-[1fr_1fr_1fr] group transition-colors duration-200 hover:bg-neutral-100 ${
-        isLast ? '' : 'border-b border-neutral-200'
+      className={`why-row grid grid-cols-[1fr_1fr_1fr] group transition-colors duration-200 bg-white hover:bg-primary-50/40 ${
+        isLast ? '' : 'border-b border-neutral-100'
       }`}
     >
       {/* Feature */}
-      <div className="flex items-center gap-3 px-6 py-5">
+      <div className="flex items-center gap-3 px-5 py-3.5">
         <span
-          className="shrink-0 w-9 h-9 flex items-center justify-center bg-primary-50 text-primary-500"
+          className="shrink-0 w-8 h-8 flex items-center justify-center bg-primary-50 text-primary-500"
           aria-hidden="true"
         >
-          <i className={`bi ${icon} text-lg leading-none`} />
+          <i className={`bi ${icon} text-base leading-none`} />
         </span>
         <span className="font-semibold text-primary-900 text-sm md:text-base tracking-tight">
           {feature}
@@ -136,7 +135,7 @@ function DesktopRow({
       </div>
 
       {/* APcleanco */}
-      <div className="flex items-center gap-2.5 px-6 py-5 bg-primary-50/60 group-hover:bg-primary-50 transition-colors duration-200 border-x border-primary-200">
+      <div className="flex items-center gap-2.5 px-5 py-3.5 bg-primary-50">
         <CheckIcon />
         <span className="text-primary-800 text-sm md:text-base font-medium">
           {apCleanco}
@@ -144,7 +143,7 @@ function DesktopRow({
       </div>
 
       {/* Others */}
-      <div className="flex items-center gap-2.5 px-6 py-5">
+      <div className="flex items-center gap-2.5 px-5 py-3.5">
         <CrossIcon />
         <span className="text-neutral-500 text-sm md:text-base">
           {others}
@@ -168,39 +167,39 @@ function MobileCard({
   others: string
 }) {
   return (
-    <div className="why-card border border-neutral-200 overflow-hidden">
+    <div className="why-card border border-neutral-100 overflow-hidden bg-white">
       {/* Feature title */}
-      <div className="flex items-center gap-3 px-4 py-3 bg-neutral-50 border-b border-neutral-200">
+      <div className="flex items-center gap-3 px-4 py-2.5 bg-neutral-50 border-b border-neutral-100">
         <span
-          className="shrink-0 w-8 h-8 flex items-center justify-center bg-primary-50 text-primary-500"
+          className="shrink-0 w-7 h-7 flex items-center justify-center bg-primary-50 text-primary-500"
           aria-hidden="true"
         >
-          <i className={`bi ${icon} text-base leading-none`} />
+          <i className={`bi ${icon} text-sm leading-none`} />
         </span>
-        <span className="font-semibold text-primary-900 text-sm tracking-tight">
+        <span className="font-semibold text-primary-900 text-xs md:text-sm tracking-tight">
           {feature}
         </span>
       </div>
 
       {/* AP Cleanco row */}
-      <div className="flex items-center gap-2.5 px-4 py-3 bg-primary-50/70 border-b border-primary-200">
+      <div className="flex items-center gap-2.5 px-4 py-2.5 bg-primary-50/50 border-b border-neutral-100">
         <CheckIcon />
         <div>
           <p className="text-xs font-semibold text-primary-500 uppercase tracking-wide mb-0.5">
             AP cleanco
           </p>
-          <p className="text-primary-800 text-sm font-medium">{apCleanco}</p>
+          <p className="text-primary-800 text-xs md:text-sm font-medium">{apCleanco}</p>
         </div>
       </div>
 
       {/* Others row */}
-      <div className="flex items-center gap-2.5 px-4 py-3">
+      <div className="flex items-center gap-2.5 px-4 py-2.5">
         <CrossIcon />
         <div>
           <p className="text-xs font-semibold text-neutral-400 uppercase tracking-wide mb-0.5">
             Other Companies
           </p>
-          <p className="text-neutral-500 text-sm">{others}</p>
+          <p className="text-neutral-500 text-xs md:text-sm">{others}</p>
         </div>
       </div>
     </div>
@@ -274,7 +273,7 @@ export default function WhyApcleancoSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="bg-neutral-50 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="why-heading"
     >
       <div className="max-w-6xl mx-auto">
@@ -298,27 +297,27 @@ export default function WhyApcleancoSection() {
 
         {/* Intro Paragraph */}
         <div className="max-w-3xl mx-auto mb-12 text-center">
-          <p className="text-lg md:text-xl text-neutral-700 leading-relaxed">
+          <p className="text-lg text-neutral-700 leading-relaxed">
             We believe a garage and the space inside it should not feel cluttered or wasted. At AP cleanco, we focus on garage clean-out, garage deep cleaning, and garage organization so you can take back your garage space.
           </p>
         </div>
 
         {/* ── Desktop table (lg+) ─────────────────────────────────────────── */}
         <div
-          className="why-table hidden lg:block border border-neutral-200 overflow-hidden mb-12"
+          className="why-table hidden lg:block overflow-hidden mb-12"
           role="table"
           aria-label="AP cleanco vs other companies comparison"
         >
           {/* Table header */}
           <div
-            className="grid grid-cols-[1fr_1fr_1fr] border-b border-neutral-200 bg-neutral-50"
+            className="grid grid-cols-[1fr_1fr_1fr] border-b border-neutral-200 bg-white"
             role="row"
           >
-            <div className="px-6 py-4" role="columnheader" aria-label="Feature" />
+            <div className="px-5 py-3.5" role="columnheader" aria-label="Feature" />
 
             {/* AP cleanco header */}
             <div
-              className="flex items-center justify-center gap-2 px-6 py-4 bg-primary-500 border-x border-primary-600"
+              className="flex items-center justify-center gap-2 px-5 py-3.5 bg-primary-500"
               role="columnheader"
             >
               <i className="bi bi-check-circle-fill text-white text-base" aria-hidden="true" />
@@ -329,7 +328,7 @@ export default function WhyApcleancoSection() {
 
             {/* Others header */}
             <div
-              className="flex items-center justify-center gap-2 px-6 py-4"
+              className="flex items-center justify-center gap-2 px-5 py-3.5"
               role="columnheader"
             >
               <i className="bi bi-x-circle-fill text-neutral-400 text-base" aria-hidden="true" />
@@ -378,19 +377,26 @@ export default function WhyApcleancoSection() {
           role="group"
           aria-label="Why AP cleanco call to action buttons"
         >
-          <a
+          <Button
+            variant="primary"
+            size="md"
             href="https://calendly.com/parthdharia99/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center font-semibold overflow-hidden select-none focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer bg-primary-500 text-white border-2 border-primary-500 focus-visible:outline-primary-600 px-6 py-3 text-base h-11 rounded-lg lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl hover:bg-primary-600 hover:border-primary-600 transition-colors duration-200 gap-2"
+            icon={<i className="bi bi-arrow-right text-base lg:text-lg leading-none" aria-hidden="true" />}
+            iconPosition="right"
             aria-label="Schedule your free estimate"
           >
             Schedule Free Estimate
-            <i className="bi bi-arrow-right text-base lg:text-lg leading-none" aria-hidden="true" />
-          </a>
-          <Link href="/pricing" className="inline-flex items-center justify-center font-semibold overflow-hidden select-none focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer bg-neutral-100 text-primary-900 border-2 border-neutral-100 focus-visible:outline-primary-500 px-6 py-3 text-base h-11 rounded-lg lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl hover:bg-neutral-50 transition-colors duration-200">
+          </Button>
+          <Button
+            variant="secondary"
+            size="md"
+            href="/pricing"
+            aria-label="View pricing plans"
+          >
             View Plans
-          </Link>
+          </Button>
         </div>
 
       </div>
