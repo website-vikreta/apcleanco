@@ -66,7 +66,7 @@ export default function HeroSection() {
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: 'bottom top',
+          end: '+=400',
           scrub: 0.1,
         },
       })
