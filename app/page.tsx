@@ -6,7 +6,7 @@ import WhyTrustUsSection from '@/components/Home/WhyTrustUsSection'
 import AboutSection from '@/components/Home/AboutSection'
 import WhyApcleancoSection from '@/components/Home/WhyApcleancoSection'
 import OurProcessSection from '@/components/Home/OurProcessSection'
-import ImpactSection from '@/components/Home/ImpactSection'
+import EcoFlywheel from '@/components/Home/EcoFlywheel'
 import TestimonialsSection from '@/components/Home/TestimonialsSection'
 
 export const metadata: Metadata = {
@@ -39,7 +39,7 @@ export default function HomePage() {
       <AboutSection />
       <WhyApcleancoSection />
       <OurProcessSection />
-      <ImpactSection />
+      <EcoFlywheel />
       {/* <TestimonialsSection /> */}
     </main>
   )
