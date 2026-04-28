@@ -51,11 +51,11 @@ export default function HeroSection() {
 
       // ── 2. Entry animations (staggered reveal) ────────────────────────────
       gsap.timeline({ defaults: { ease: 'power3.out' } })
-        .from('.hero-badge',   { y: 20, opacity: 0, duration: 0.75 })
-        .from('.hero-heading', { y: 50, opacity: 0, duration: 1.0 }, '-=0.4')
-        .from('.hero-sub',     { y: 35, opacity: 0, duration: 0.85 }, '-=0.65')
-        .from('.hero-pills',   { y: 25, opacity: 0, duration: 0.75 }, '-=0.55')
-        .from('.hero-ctas',    { y: 25, opacity: 0, duration: 0.75 }, '-=0.5')
+        .from('.hero-badge',   { y: 20, opacity: 0, duration: 0.6 })
+        .from('.hero-heading', { y: 50, opacity: 0, duration: 0.8 }, '-=0.35')
+        .from('.hero-sub',     { y: 35, opacity: 0, duration: 0.7 }, '-=0.55')
+        .from('.hero-pills',   { y: 25, opacity: 0, duration: 0.6 }, '-=0.45')
+        .from('.hero-ctas',    { y: 25, opacity: 0, duration: 0.6 }, '-=0.4')
 
       // ── 3. Parallax background ────────────────────────────────────────────
       //    Background div is taller than the section (top extended upward,
@@ -67,7 +67,7 @@ export default function HeroSection() {
           trigger: section,
           start: 'top top',
           end: 'bottom top',
-          scrub: true,
+          scrub: 0.1,
         },
       })
 
@@ -76,7 +76,7 @@ export default function HeroSection() {
         trigger: section,
         start: 'top top',
         end: '+=500',
-        scrub: 0.4,
+        scrub: 0.2,
         onUpdate: (self) => {
           const p   = self.progress
           const pts = NOTCHED_PTS.map((v, i) => v + (STRAIGHT_PTS[i] - v) * p)
@@ -210,7 +210,7 @@ export default function HeroSection() {
           {/* Secondary CTA */}
           <Link
             href="/services"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 h-11 rounded-lg text-base font-medium border border-white/25 text-white/75 hover:border-white/50 hover:bg-white/[0.07] hover:text-white transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:px-8 lg:py-4 lg:h-14 lg:rounded-xl lg:text-lg"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 h-11 rounded-lg text-base font-medium border border-white/25 text-white/75 hover:border-white/50 hover:bg-white/[0.07] hover:text-white transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:px-8 lg:py-4 lg:h-14 lg:rounded-xl lg:text-lg"
             aria-label="View our services"
           >
             View Services
