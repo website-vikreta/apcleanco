@@ -11,16 +11,16 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 // ── Hardcoded colors (EcoFlywheel only) ────────────────────────────────────────
 
 const COLORS = {
-  primary50:  '#f0f7ff',
-  primary100: '#e0f0ff',
-  primary200: '#bae1ff',
-  primary300: '#7cc5ff',
-  primary400: '#4da6ff',
-  primary500: '#2563eb',
-  primary700: '#1e3a5f',
-  primary900: '#0f172a',
-  neutral700: '#3d4556',
-  white:      '#ffffff',
+  primary50: '#eef5f1',
+  primary100: '#d6e6de',
+  primary200: '#b7d2c5',
+  primary300: '#8fb8a7',
+  primary400: '#5f9a86',
+  primary500: '#1f5a44',
+  primary700: '#12392b',
+  primary900: '#0b1f17',
+  neutral700: '#3e4f49',
+  white: '#ffffff',
 }
 
 // ── Types ─────────────────────────────────────────────────────────────────────

@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useRef } from 'react'
+import Link from 'next/link'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -381,20 +382,23 @@ export default function WhyApcleancoSection() {
             variant="primary"
             size="md"
             className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
-            icon={<i className="bi bi-telephone-fill text-base lg:text-lg leading-none" aria-hidden="true" />}
-            iconPosition="left"
-            aria-label="Schedule a free call with AP cleanco"
+            icon={<i className="bi bi-arrow-right text-base lg:text-lg leading-none" aria-hidden="true" />}
+            iconPosition="right"
+            onClick={() => window.open('https://calendly.com/parthdharia99/30min', '_blank', 'noopener,noreferrer')}
+            aria-label="Schedule your free estimate"
           >
-            Schedule a Free Call
+            Schedule Free Estimate
           </Button>
-          <Button
-            variant="secondary"
-            size="md"
-            className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
-            aria-label="Learn more about AP cleanco"
-          >
-            About Us
-          </Button>
+          <Link href="/about">
+            <Button
+              variant="secondary"
+              size="md"
+              className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
+              aria-label="Learn our story"
+            >
+              Our Story
+            </Button>
+          </Link>
         </div>
 
       </div>

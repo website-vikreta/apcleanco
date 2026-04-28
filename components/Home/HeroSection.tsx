@@ -11,7 +11,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
-const CALENDLY_URL = 'https://calendly.com/apcleanco'
+const CALENDLY_URL = 'https://calendly.com/parthdharia99/30min'
 
 /**
  * 7-vertex polygon for the bottom notch:
@@ -129,7 +129,7 @@ export default function HeroSection() {
         {/* Top-edge gradient — ensures transparent nav always has contrast over bright image areas */}
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-primary-900/85 to-transparent"
+          className="absolute inset-x-0 top-0 h-44 bg-linear-to-b from-primary-900/85 to-transparent"
         />
       </div>
 
@@ -206,9 +206,9 @@ export default function HeroSection() {
             onClick={() =>
               window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer')
             }
-            aria-label="Schedule a call — opens Calendly in a new tab"
+            aria-label="Schedule a free estimate"
           >
-            Schedule a Call
+            Schedule Free Estimate
           </Button>
 
           {/* Secondary CTA */}

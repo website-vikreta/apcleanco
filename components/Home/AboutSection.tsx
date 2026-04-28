@@ -188,9 +188,10 @@ export default function AboutSection() {
                 variant="secondary"
                 size="md"
                 className="lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
-                aria-label="Get a free quote"
+                onClick={() => window.open('https://calendly.com/parthdharia99/30min', '_blank', 'noopener,noreferrer')}
+                aria-label="Get a free quote — opens scheduling"
               >
-                Get a free Quote
+                Get a Free Quote
               </Button>
             </div>
 

@@ -27,7 +27,7 @@ const SOCIAL_LINKS = [
   { icon: 'bi-linkedin',  href: 'https://www.linkedin.com/company/apcleanco/', label: 'LinkedIn' },
 ]
 
-const CALENDLY_URL = 'https://calendly.com/apcleanco'
+const CALENDLY_URL = 'https://calendly.com/parthdharia99/30min'
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
