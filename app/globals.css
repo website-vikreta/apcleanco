@@ -8,38 +8,38 @@
   /* Font */
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
 
-  /* Primary (Deep Eco Green) — matches design-system.instructions.md */
-  --color-primary-50:  #eef5f1;
-  --color-primary-100: #d6e6de;
-  --color-primary-200: #b7d2c5;
-  --color-primary-300: #8fb8a7;
-  --color-primary-400: #5f9a86;
-  --color-primary-500: #1f5a44;
-  --color-primary-600: #174836;
-  --color-primary-700: #12392b;
-  --color-primary-800: #0f2f23;
-  --color-primary-900: #0b1f17;
+  /* Primary (Professional Blue) */
+  --color-primary-50:  #f0f7ff;
+  --color-primary-100: #e0f0ff;
+  --color-primary-200: #bae1ff;
+  --color-primary-300: #7cc5ff;
+  --color-primary-400: #4da6ff;
+  --color-primary-500: #2563eb;
+  --color-primary-600: #1e40af;
+  --color-primary-700: #1e3a5f;
+  --color-primary-800: #1e3a5f;
+  --color-primary-900: #0f172a;
 
-  /* Accent (Warm Gold) */
-  --color-accent-50:  #faf6e8;
-  --color-accent-100: #f3e8c7;
-  --color-accent-200: #e8d999;
-  --color-accent-300: #dcc56b;
-  --color-accent-400: #d4b24a;
-  --color-accent-500: #caa33a;
-  --color-accent-600: #a8842f;
+  /* Accent (Rust - Distinctive Premium) */
+  --color-accent-50:  #faf3ee;
+  --color-accent-100: #f3e5d8;
+  --color-accent-200: #e5d1bb;
+  --color-accent-300: #d4b399;
+  --color-accent-400: #c49560;
+  --color-accent-500: #a65628;
+  --color-accent-600: #8a4620;
 
-  /* Neutral (Warm, not dull gray) */
-  --color-neutral-50:  #f7f9f8;
-  --color-neutral-100: #eef2f0;
-  --color-neutral-200: #dde5e1;
-  --color-neutral-300: #c2cec8;
-  --color-neutral-400: #94a8a0;
-  --color-neutral-500: #6b7f77;
-  --color-neutral-700: #3e4f49;
-  --color-neutral-900: #0b1f17;
+  /* Neutral (Cool Blue-Gray - Clean, Modern) */
+  --color-neutral-50:  #f8fafb;
+  --color-neutral-100: #f0f4f8;
+  --color-neutral-200: #d4dce6;
+  --color-neutral-300: #bcc5d2;
+  --color-neutral-400: #8b94a3;
+  --color-neutral-500: #5a6476;
+  --color-neutral-700: #3d4556;
+  --color-neutral-900: #0f172a;
 
-  /* Semantic */
+  /* Semantic (unchanged - intuitive semantic colors) */
   --color-success-500: #2f855a;
   --color-error-500:   #c53030;
   --color-warning-500: #d69e2e;
@@ -47,7 +47,7 @@
   /* Aliases */
   --color-white:      #fff;
   --color-text-base:  var(--color-neutral-900);
-  --color-text-muted: #6b7f77;
+  --color-text-muted: #5a6476;
   --color-error:      #c53030;
 
   /* Custom Animations */
