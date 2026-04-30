@@ -1,17 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 import Button from '@/components/Button'
-import ReviewsCarousel from './ReviewsCarousel'
+// import ReviewsCarousel from './ReviewsCarousel'
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 
 const SERVICES = [
-  { label: 'Garage Cleanouts',  href: '/#services' },
-  { label: 'Junk Removal',      href: '/#services' },
-  { label: 'Debris Removal',    href: '/#services' },
-  { label: 'Furniture Removal', href: '/#services' },
-  { label: 'Deep Cleaning',     href: '/#services' },
-  { label: 'Donation Drop-Off', href: '/#services' },
+  { label: 'Garage Cleanouts',  href: '/services#garage-cleanouts' },
+  { label: 'Deep Cleaning',     href: '/services#deep-cleaning' },
+  { label: 'Garage Organisation', href: '/services#garage-organisation' },
 ]
 
 // ── Sidebar ───────────────────────────────────────────────────────────────────
@@ -47,15 +44,7 @@ export default function BlogSidebar() {
         </nav>
       </div>
 
-      {/* ── 2. Reviews carousel ──────────────────────────────────────────── */}
-      <div className="border border-neutral-200 bg-white p-6">
-        <h2 className="text-base font-semibold text-primary-900 uppercase tracking-widest mb-5">
-          What Clients Say
-        </h2>
-        <ReviewsCarousel />
-      </div>
-
-      {/* ── 3. Sticky CTA Card ──────────────────────────────────────────────── */}
+      {/* ── 2. Sticky CTA Card ──────────────────────────────────────────────── */}
       {/*
           sticky is applied here to the card itself, within the parent
           sidebar flex column. The sidebar sits inside the grid which
@@ -67,7 +56,7 @@ export default function BlogSidebar() {
         aria-label="Consultation booking call to action"
       >
         {/* Decorative accent bar */}
-        <div aria-hidden="true" className="w-8 h-0.5 bg-accent-400 mb-5 transition-all duration-300 group-hover:w-14 group-hover:bg-accent-300" />
+        <div aria-hidden="true" className="w-8 h-0.5 bg-primary-400 mb-5 transition-all duration-300 group-hover:w-14 group-hover:bg-primary-300" />
 
         <h2 className="text-xl font-bold text-white leading-snug mb-3">
           Book a Free Consultation
@@ -77,8 +66,8 @@ export default function BlogSidebar() {
           day in most cases.
         </p>
 
-        <Link
-          href="https://calendly.com/apcleanco"
+        <a
+          href="https://calendly.com/parthdharia99/30min"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Book a free consultation — opens in new tab"
@@ -91,7 +80,7 @@ export default function BlogSidebar() {
           >
             Book Now
           </Button>
-        </Link>
+        </a>
 
         {/* Trust indicators */}
         <ul
@@ -102,7 +91,7 @@ export default function BlogSidebar() {
           {['No commitment required', 'Same-day availability', 'Eco-friendly disposal'].map(
             (item) => (
               <li key={item} className="flex items-center gap-2 text-xs text-primary-100">
-                <i className="bi bi-check-circle-fill text-accent-400 text-sm shrink-0" aria-hidden="true" />
+                <i className="bi bi-check-circle-fill text-primary-400 text-sm shrink-0" aria-hidden="true" />
                 {item}
               </li>
             ),

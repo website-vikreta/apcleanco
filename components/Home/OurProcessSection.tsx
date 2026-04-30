@@ -263,7 +263,7 @@ export default function OurProcessSection() {
             id="process-heading"
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight"
           >
-            Our <span className="text-accent-500">Process</span>
+            Our <span className="text-primary-500">Process</span>
           </h2>
           <p className="text-neutral-500 text-base md:text-lg mt-3 max-w-xl mx-auto">
             A clear, structured approach to transforming your garage into a clean, organized space.

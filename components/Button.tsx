@@ -28,7 +28,7 @@ export interface ButtonProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorE
 const variantBase: Record<ButtonVariant, string> = {
   primary:  'bg-primary-500 text-white border-2 border-primary-500',
   secondary:'bg-transparent text-primary-500 border border-primary-500',
-  accent:   'bg-accent-500 text-neutral-900 border border-accent-500',
+  accent:   'bg-primary-500 text-neutral-900 border border-primary-500',
   ghost:    'bg-transparent text-current border border-transparent',
   outlined: 'bg-transparent text-neutral-700 border border-neutral-300',
   danger:   'bg-red-600 text-white border border-red-600',

@@ -30,7 +30,7 @@ const FounderCard = ({ name, quote, description, linkedIn, instagram }: FounderC
       <h3 className="text-2xl font-bold text-primary-900">{name}</h3>
 
       {/* Quote */}
-      <p className="text-lg italic text-accent-600 font-medium leading-relaxed">&quot;{quote}&quot;</p>
+      <p className="text-lg italic text-primary-600 font-medium leading-relaxed">&quot;{quote}&quot;</p>
 
       {/* Description */}
       <p className="text-neutral-700 text-base leading-relaxed">{description}</p>

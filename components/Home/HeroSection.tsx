@@ -143,9 +143,9 @@ export default function HeroSection() {
           aria-label="Social proof: Trusted across New Jersey"
         >
           <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-white/15 bg-white/[0.07] backdrop-blur-sm text-white/65 text-[11px] sm:text-xs font-medium tracking-[0.2em] uppercase">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-400 shrink-0" aria-hidden="true" />
+            <span className="w-1.5 h-1.5 rounded-full bg-primary-400 shrink-0" aria-hidden="true" />
             Trusted Across New Jersey
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-400 shrink-0" aria-hidden="true" />
+            <span className="w-1.5 h-1.5 rounded-full bg-primary-400 shrink-0" aria-hidden="true" />
           </span>
         </div>
 

@@ -86,7 +86,7 @@ export default function VisionMissionSection() {
             aria-labelledby="mission-title"
           >
             <div
-              className="w-12 h-12 rounded-lg bg-accent-500 flex items-center justify-center text-neutral-900 text-xl"
+              className="w-12 h-12 rounded-lg bg-primary-500 flex items-center justify-center text-neutral-900 text-xl"
               aria-hidden="true"
             >
               <i className="bi bi-flag-fill" />

@@ -98,12 +98,6 @@ export default function WhyTrustUsSection() {
 
         {/* ── Header ──────────────────────────────────────────────────────── */}
         <div className="mb-10 md:mb-14 text-center">
-          <p
-            className="text-accent-500 text-xs font-semibold tracking-[0.2em] uppercase mb-4"
-            aria-hidden="true"
-          >
-            Why Choose Us
-          </p>
           <h2
             id="trust-heading"
             className="trust-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight mb-4 md:mb-6"

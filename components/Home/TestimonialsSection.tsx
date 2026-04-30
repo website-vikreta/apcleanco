@@ -109,11 +109,11 @@ function TestimonialCard({
           {Array.from({ length: 5 }).map((_, i) => (
             <i
               key={i}
-              className="bi bi-star-fill text-accent-400 text-base leading-none"
+              className="bi bi-star-fill text-primary-400 text-base leading-none"
               aria-hidden="true"
             />
           ))}
-          <span className="ml-1.5 text-xs font-semibold text-accent-600 leading-none">5.0</span>
+          <span className="ml-1.5 text-xs font-semibold text-primary-600 leading-none">5.0</span>
         </div>
         <i
           className="bi bi-quote text-3xl text-primary-100 leading-none"

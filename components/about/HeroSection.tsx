@@ -75,12 +75,12 @@ export default function HeroSection() {
             id="hero-heading"
             className="hero-heading text-4xl sm:text-5xl md:text-6xl font-bold text-primary-900 leading-tight tracking-tight mb-6"
           >
-            About <span className="text-accent-600">AP cleanco</span>
+            About <span className="text-primary-600">AP cleanco</span>
           </h1>
 
           {/* Divider */}
           <div
-            className="mx-auto mb-6 h-0.5 w-12 bg-accent-400"
+            className="mx-auto mb-6 h-0.5 w-12 bg-primary-400"
             aria-hidden="true"
           />
 

@@ -100,12 +100,6 @@ export default function AboutSection() {
 
             {/* Heading — visible first on all screens */}
             <div className="flex flex-col gap-2 order-1">
-              <p
-                className="text-accent-500 text-xs font-semibold tracking-[0.2em] uppercase"
-                aria-hidden="true"
-              >
-                About Us
-              </p>
               <h2
                 id="about-heading"
                 className="about-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight"
@@ -136,21 +130,6 @@ export default function AboutSection() {
                   className="absolute inset-0 bg-linear-to-br from-primary-900/15 via-transparent to-transparent"
                 />
               </div>
-            </div>
-
-            {/* Stats badges */}
-            <div className="about-stats flex flex-wrap items-center gap-x-5 gap-y-3 order-2">
-              {[
-                { label: 'NJ-Based Service',    icon: 'bi-geo-alt-fill' },
-                { label: 'Same-Day Available',   icon: 'bi-lightning-charge-fill' },
-                { label: '100% Satisfaction',    icon: 'bi-patch-check-fill' },
-                { label: 'Eco-Friendly',         icon: 'bi-leaf' },
-              ].map(({ label, icon }) => (
-                <div key={label} className="flex items-center gap-2">
-                  <i className={`${icon} text-accent-500 text-sm`} aria-hidden="true" />
-                  <span className="text-neutral-600 text-sm font-medium">{label}</span>
-                </div>
-              ))}
             </div>
 
             {/* Body */}

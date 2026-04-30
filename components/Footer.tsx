@@ -66,14 +66,6 @@ export default function Footer() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 lg:py-24">
           <div className="max-w-lg">
 
-            {/* Eyebrow with rust rule */}
-            <div className="flex items-center gap-3 mb-5" aria-hidden="true">
-              <span className="block w-8 h-px bg-accent-500" />
-              <p className="text-accent-400 text-xs font-semibold tracking-[0.2em] uppercase">
-                Get Started Today
-              </p>
-            </div>
-
             <h2
               id="footer-cta-heading"
               className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-4"
@@ -133,7 +125,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Follow AP cleanco on ${label}`}
-                    className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/6 text-white/50 hover:bg-accent-500 hover:text-white transition-colors border border-white/10 hover:border-accent-500"
+                    className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/6 text-white/50 hover:bg-primary-500 hover:text-white transition-colors border border-white/10 hover:border-primary-500"
                   >
                     <i className={`bi ${icon} text-sm leading-none`} aria-hidden="true" />
                   </a>
@@ -146,25 +138,22 @@ export default function Footer() {
           {/* Divider */}
           <div className="border-t border-white/10 my-6" aria-hidden="true" />
 
+          {/* Hidden backlink for SEO */}
+          <a
+            href="https://websitevikreta.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sr-only"
+            aria-label="Website Vikreta"
+          >
+            Website Vikreta
+          </a>
+
           {/* Footer bottom: distributed layout */}
           <div className="flex flex-col lg:flex-row items-center justify-between gap-4 text-xs text-white/30">
 
-            {/* Left: Dev credit */}
-            <p className="text-center lg:text-left">
-              Designed &amp; Developed by{' '}
-              <a
-                href="https://websitevikreta.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent-400/60 hover:text-accent-400 transition-colors"
-                aria-label="Website Vikreta — opens in a new tab"
-              >
-                Website Vikreta
-              </a>
-            </p>
-
-            {/* Center: Copyright */}
-            <p className="text-center text-white/60 shrink-0">
+            {/* Left: Copyright */}
+            <p className="text-center lg:text-left text-white/60">
               © 2026 | All rights reserved to AP cleanco
             </p>
 
