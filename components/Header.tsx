@@ -132,7 +132,7 @@ export default function Header() {
       
       // For hero pages: atTop drives transparent navbar; for others: always false (white navbar)
       const currentAtTop = hasHeroRef.current ? y < 100 : false
-      const goingDown = y > lastScrollY && y > topbarH
+      const goingDown = y > lastScrollY && y > getTopbarH()
 
       // Update state (batched, only when threshold crossed)
       if (currentAtTop !== lastAtTop) {
