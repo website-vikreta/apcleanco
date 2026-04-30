@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
 
   return (
     <main aria-label="Privacy Policy" className="bg-neutral-50">
-      <div aria-hidden="true" className="h-22 md:h-32" />
+      <div aria-hidden="true" className="h-0 md:h-10" />
       {/* Centered container with max-width for optimal readability */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14 lg:py-16">
         {/* Page header with title and meta */}
@@ -58,7 +58,7 @@ export default function PrivacyPolicyPage() {
             <strong>Questions about our privacy practices?</strong> Contact us at{' '}
             <a
               href="mailto:apcleancosupport@gmail.com"
-              className="text-primary-500 underline hover:text-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-500"
+              className="text-primary-500 underline hover:text-primary-700 focus:ring-2 focus:ring-primary-500 rounded"
             >
               apcleancosupport@gmail.com
             </a>

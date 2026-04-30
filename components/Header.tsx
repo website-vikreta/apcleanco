@@ -1,13 +1,17 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import gsap from 'gsap'
 import Logo from './Logo'
 import { useGSAP } from '@gsap/react'
 import Button from './Button'
 
 gsap.registerPlugin(useGSAP)
+
+// ── Routes with hero sections (dark image background overlay) ────────────────
+const ROUTES_WITH_HERO = ['/', '/services', '/blog']
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 
@@ -32,6 +36,13 @@ const CALENDLY_URL = 'https://calendly.com/parthdharia99/30min'
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function Header() {
+  const pathname = usePathname()
+  
+  // Determine if current route has a hero section
+  const hasHeroSection = ROUTES_WITH_HERO.some(route => 
+    route === '/' ? pathname === '/' : pathname.startsWith(route)
+  )
+  
   const headerRef     = useRef<HTMLElement>(null)
   const topbarWrapRef = useRef<HTMLDivElement>(null)
   const topbarRef     = useRef<HTMLDivElement>(null)
@@ -41,16 +52,28 @@ export default function Header() {
   // Use a ref to track open state — avoids stale closure inside contextSafe callbacks
   const menuOpenRef = useRef(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [atTop, setAtTop] = useState(true)
+  const [atTop, setAtTop] = useState(hasHeroSection)
   const collapsedRef = useRef(false)
   const rafIdRef = useRef<number | null>(null)
   const logoRef = useRef<HTMLDivElement>(null)
 
+  // Use a ref so the GSAP scroll closure always reads the latest value (avoids stale closure)
+  const hasHeroRef = useRef(hasHeroSection)
+
+  // Update both atTop state and ref whenever the route changes
+  useEffect(() => {
+    hasHeroRef.current = hasHeroSection
+    setAtTop(hasHeroSection)
+    collapsedRef.current = false
+  }, [hasHeroSection])
+
   // ── GSAP: scroll-driven topbar hide / navbar compact (optimized) ─────────
   const { contextSafe } = useGSAP(() => {
-    // Capture natural topbar height (0 on mobile since hidden md:block)
-    const topbarH = topbarRef.current?.offsetHeight ?? 0
-    gsap.set(topbarWrapRef.current, { height: topbarH })
+    // Read topbar height dynamically so resize events get the correct value
+    const getTopbarH = () => topbarRef.current?.scrollHeight ?? 0
+
+    // Initialise wrapper height from natural topbar height
+    gsap.set(topbarWrapRef.current, { height: getTopbarH() })
 
     let lastScrollY = 0
     let lastAtTop = true
@@ -61,6 +84,9 @@ export default function Header() {
       if (rafIdRef.current !== null) {
         cancelAnimationFrame(rafIdRef.current)
       }
+
+      // Re-read height at animation time so it's always current (handles resize)
+      const topbarH = getTopbarH()
 
       // Use a single timeline for coordinated animations (better performance)
       const tl = gsap.timeline({ overwrite: 'auto' })
@@ -103,7 +129,9 @@ export default function Header() {
 
     const onScroll = () => {
       const y = window.scrollY
-      const currentAtTop = y < 100
+      
+      // For hero pages: atTop drives transparent navbar; for others: always false (white navbar)
+      const currentAtTop = hasHeroRef.current ? y < 100 : false
       const goingDown = y > lastScrollY && y > topbarH
 
       // Update state (batched, only when threshold crossed)
@@ -135,8 +163,18 @@ export default function Header() {
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
+
+    // On resize, re-sync the wrapper height in case topbar visibility changed (mobile ↔ desktop)
+    const onResize = () => {
+      if (!collapsedRef.current) {
+        gsap.set(topbarWrapRef.current, { height: getTopbarH() })
+      }
+    }
+    window.addEventListener('resize', onResize, { passive: true })
+
     return () => {
       window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onResize)
       if (rafIdRef.current !== null) {
         cancelAnimationFrame(rafIdRef.current)
       }
@@ -315,14 +353,15 @@ export default function Header() {
             {/* Mobile CTA (compact, always visible in header) */}
             <div className="md:hidden">
               <Button
-                variant="accent"
+                variant="primary"
                 size="sm"
                 onClick={() => window.open(CALENDLY_URL, '_blank', 'noopener,noreferrer')}
                 aria-label="Schedule a call — opens in a new tab"
               >
-                Schedule
+                Schedule a Call
               </Button>
             </div>
+
 
             {/* Hamburger toggle */}
             <button

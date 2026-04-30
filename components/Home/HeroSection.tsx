@@ -117,7 +117,7 @@ export default function HeroSection() {
         {/* Cinematic overlay — dark base + radial vignette for atmospheric depth */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-primary-900/65"
+          className="absolute inset-0 bg-primary-900/80"
         />
         <div
           aria-hidden="true"

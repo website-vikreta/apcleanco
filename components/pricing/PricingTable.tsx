@@ -74,8 +74,7 @@ export const PricingTable: React.FC = () => {
                   }
                 `}
               >
-                <span className="hidden sm:inline">{s.label}</span>
-                <span className="sm:hidden">{s.label.replace(' Garage', '')}</span>
+                <span className="inline">{s.label}</span>
               </button>
             ))}
           </div>
