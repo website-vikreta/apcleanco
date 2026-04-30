@@ -58,7 +58,7 @@ export default function PrivacyPolicyPage() {
             <strong>Questions about our privacy practices?</strong> Contact us at{' '}
             <a
               href="mailto:apcleancosupport@gmail.com"
-              className="text-primary-500 underline hover:text-primary-700 focus:ring-2 focus:ring-primary-500 rounded"
+              className="text-primary-500 underline hover:text-primary-700 focus-visible:ring-2 focus-visible:ring-primary-500 rounded"
             >
               apcleancosupport@gmail.com
             </a>
