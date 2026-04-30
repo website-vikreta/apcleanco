@@ -71,8 +71,8 @@ const COMPARISON_ROWS = [
     id: 10,
     icon: 'bi-lightning-charge',
     feature: 'Service Speed',
-    apCleanco: 'Same-day service available when possible',
-    others: 'Scheduling delays',
+    apCleanco: 'Same-day completion for scheduled bookings',
+    others: 'May take multiple days to complete',
   },
 ] as const
 
