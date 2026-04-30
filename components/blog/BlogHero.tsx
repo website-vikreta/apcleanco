@@ -57,7 +57,7 @@ export default function BlogHero() {
         {/* Decorative divider */}
         <div
           aria-hidden="true"
-          className="blog-hero-divider mx-auto mb-6 h-0.5 w-16 bg-accent-400 origin-left"
+          className="blog-hero-divider mx-auto mb-6 h-0.5 w-16 bg-primary-400 origin-left"
         />
 
         <p className="blog-hero-sub text-base sm:text-lg md:text-xl text-primary-100 leading-relaxed max-w-2xl mx-auto">

@@ -55,12 +55,12 @@ export default function PrivacyPolicyPage() {
         {/* Footer CTA or additional info (optional) */}
         <div className="mt-12 md:mt-16 pt-8 md:pt-10 border-t border-neutral-200">
           <p className="text-sm md:text-base text-neutral-700">
-            <strong>Questions about our privacy practices?</strong> Contact our Privacy Officer at{' '}
+            <strong>Questions about our privacy practices?</strong> Contact us at{' '}
             <a
-              href="mailto:privacy@apcleanco.com"
+              href="mailto:apcleancosupport@gmail.com"
               className="text-primary-500 underline hover:text-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-500"
             >
-              privacy@apcleanco.com
+              apcleancosupport@gmail.com
             </a>
             .
           </p>

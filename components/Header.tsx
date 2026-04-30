@@ -194,20 +194,20 @@ export default function Header() {
             <div className="flex items-center gap-6">
               <a
                 href="tel:+17327703342"
-                className="flex items-center gap-2 hover:text-accent-400 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2 rounded"
+                className="flex items-center gap-2 hover:text-primary-400 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-primary-400 focus-visible:outline-offset-2 rounded"
                 aria-label="Call our office: +1 (732) 770-3342"
               >
-                <i className="bi bi-telephone-fill text-accent-500 text-[11px]" aria-hidden="true" />
+                <i className="bi bi-telephone-fill text-primary-500 text-[11px]" aria-hidden="true" />
                 <span>+1 (732) 770-3342</span>
               </a>
               <a
                 href="https://maps.google.com/?q=New+Jersey+USA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-accent-400 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-2 rounded"
+                className="flex items-center gap-2 hover:text-primary-400 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-primary-400 focus-visible:outline-offset-2 rounded"
                 aria-label="Get directions: New Jersey, USA"
               >
-                <i className="bi bi-geo-alt-fill text-accent-500 text-[11px]" aria-hidden="true" />
+                <i className="bi bi-geo-alt-fill text-primary-500 text-[11px]" aria-hidden="true" />
                 <span>New Jersey, USA</span>
               </a>
             </div>
@@ -229,7 +229,7 @@ export default function Header() {
                     rel="noopener noreferrer"
                     role="listitem"
                     aria-label={`Follow us on ${label}`}
-                    className="text-neutral-200 hover:text-accent-400 transition-colors duration-150 text-[15px] leading-none focus-visible:outline-2 focus-visible:outline-accent-400 focus-visible:outline-offset-1 rounded"
+                    className="text-neutral-200 hover:text-primary-400 transition-colors duration-150 text-[15px] leading-none focus-visible:outline-2 focus-visible:outline-primary-400 focus-visible:outline-offset-1 rounded"
                   >
                     <i className={`bi ${icon}`} aria-hidden="true" />
                   </a>
@@ -286,7 +286,7 @@ export default function Header() {
                   <span
                     aria-hidden="true"
                     className={`absolute bottom-0 left-3 right-3 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left rounded-full ${
-                      atTop ? 'bg-white/40' : 'bg-accent-500'
+                      atTop ? 'bg-white/40' : 'bg-primary-500'
                     }`}
                   />
                 </Link>
@@ -388,7 +388,7 @@ export default function Header() {
                 aria-label="Call our office: +1 (732) 770-3342"
                 className="flex items-center gap-1.5 text-sm text-neutral-500 hover:text-primary-500 transition-colors duration-150"
               >
-                <i className="bi bi-telephone-fill text-[11px] text-accent-500" aria-hidden="true" />
+                <i className="bi bi-telephone-fill text-[11px] text-primary-500" aria-hidden="true" />
                 <span>+1 (732) 770-3342</span>
               </a>
               <div className="flex items-center gap-3" role="list" aria-label="Social media">

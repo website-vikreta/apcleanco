@@ -46,7 +46,7 @@ function StarRating({ rating }: { rating: number }) {
       {Array.from({ length: 5 }).map((_, i) => (
         <i
           key={i}
-          className={`bi bi-star-fill text-xs ${i < rating ? 'text-accent-500' : 'text-neutral-200'}`}
+          className={`bi bi-star-fill text-xs ${i < rating ? 'text-primary-500' : 'text-neutral-200'}`}
           aria-hidden="true"
         />
       ))}

@@ -79,13 +79,13 @@ function ServiceRow({ title, image, index }: { title: string; image: string; ind
         >
           {title}
         </h3>
-        <div aria-hidden="true" className="w-6 h-0.5 bg-accent-500 rounded-full mt-1 group-hover:w-10 transition-all duration-300" />
+        <div aria-hidden="true" className="w-6 h-0.5 bg-primary-500 rounded-full mt-1 group-hover:w-10 transition-all duration-300" />
       </div>
 
       {/* Arrow */}
       <div className="flex items-center pr-6 shrink-0">
         <i
-          className="bi bi-arrow-right text-neutral-300 group-hover:text-accent-500 group-hover:translate-x-1 transition-all duration-200"
+          className="bi bi-arrow-right text-neutral-300 group-hover:text-primary-500 group-hover:translate-x-1 transition-all duration-200"
           aria-hidden="true"
         />
       </div>
@@ -131,9 +131,6 @@ export default function ServicesSection() {
 
           {/* Left — heading + CTA */}
           <div className="services-heading lg:col-span-2 lg:sticky lg:top-32">
-            <p className="text-accent-500 text-xs font-semibold tracking-[0.2em] uppercase mb-3" aria-hidden="true">
-              What We Do
-            </p>
             <h2
               id="services-heading"
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-900 tracking-tight leading-tight mb-5"

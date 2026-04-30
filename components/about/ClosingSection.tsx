@@ -41,7 +41,7 @@ export default function ClosingSection() {
             className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-900 leading-relaxed"
           >
             Built for homeowners who value{' '}
-            <span className="text-accent-600">clarity, cleanliness, and peace of mind.</span>
+            <span className="text-primary-600">clarity, cleanliness, and peace of mind.</span>
           </p>
           <p className="text-neutral-700 text-lg mt-6 md:mt-8 leading-relaxed">
             When your space is clear, your mind is clear. And that changes everything.

@@ -50,13 +50,13 @@ export default function ServicesHero() {
           id="services-hero-heading"
           className="services-hero-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight tracking-tight mb-6"
         >
-          Our <span className="text-accent-400">Professional Services</span>
+          Our <span className="text-primary-400">Professional Services</span>
         </h1>
 
         {/* Decorative divider */}
         <div
           aria-hidden="true"
-          className="services-hero-divider mx-auto mb-6 h-0.5 w-16 bg-accent-400 origin-left"
+          className="services-hero-divider mx-auto mb-6 h-0.5 w-16 bg-primary-400 origin-left"
         />
 
         <p className="services-hero-sub text-base sm:text-lg md:text-xl text-primary-100 leading-relaxed max-w-3xl mx-auto">

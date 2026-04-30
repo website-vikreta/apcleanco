@@ -91,7 +91,7 @@ export default function ImpactSection() {
             className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight"
           >
             Our{' '}
-            <span className="text-accent-400">Impact</span>
+            <span className="text-primary-400">Impact</span>
           </h2>
         </div>
 
@@ -106,7 +106,7 @@ export default function ImpactSection() {
               className="impact-stat flex flex-col items-center text-center px-6 py-8 lg:py-0"
             >
               <span
-                className="mb-3 w-12 h-12 flex items-center justify-center bg-primary-700 text-accent-400"
+                className="mb-3 w-12 h-12 flex items-center justify-center bg-primary-700 text-primary-400"
                 aria-hidden="true"
               >
                 <i className={`bi ${stat.icon} text-2xl leading-none`} />
