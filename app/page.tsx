@@ -33,6 +33,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main>
+      <div aria-hidden="true" className="h-0 md:h-10" />
       <HeroSection />
       <ServicesSection />
       <AboutSection />

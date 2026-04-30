@@ -22,7 +22,7 @@ export default function BlogPage() {
   const blogs = getAllBlogs()
 
   return (
-    <main>      <div aria-hidden="true" className="h-22 md:h-32" />      {/* ── Hero Section ─────────────────────────────────────────────────────── */}
+    <main>      <div aria-hidden="true" className="h-0 md:h-10" />      {/* ── Hero Section ─────────────────────────────────────────────────────── */}
       <BlogHero />
 
       {/* ── Blog Listing + Sidebar ────────────────────────────────────────────── */}

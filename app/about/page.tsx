@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main>
-      <div aria-hidden="true" className="h-22 md:h-32" />
+      <div aria-hidden="true" className="h-0 md:h-10" />
       <HeroSection />
       <StorySection />
       <FoundersSection />

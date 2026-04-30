@@ -36,12 +36,12 @@ export default function BlogHero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-[75%_center]"
         />
         {/* Primary-color overlay for readability */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-primary-900/75"
+          className="absolute inset-0 bg-primary-900/90"
         />
       </div>
 
