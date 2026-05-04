@@ -81,21 +81,31 @@ export default function CTASection() {
             <Button
               variant="primary"
               size="lg"
+              href="https://calendly.com/parthdharia99/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               icon={<i className="bi bi-calendar2-check text-xl" aria-hidden="true" />}
               iconPosition="left"
               magnetic
+              aria-label="Book a free consultation — opens in a new tab"
             >
               Book a Free Slot
             </Button>
-            <Button
-              variant="outlined"
-              size="lg"
-              className="border-primary-500 text-primary-500 hover:bg-primary-50"
-              icon={<i className="bi bi-chat-dots text-xl" aria-hidden="true" />}
-              iconPosition="right"
+            <a
+              href="mailto:apcleancosupport@gmail.com"
+              className="inline-flex"
+              aria-label="Email us at apcleancosupport@gmail.com"
             >
-              Chat with Us
-            </Button>
+              <Button
+                variant="outlined"
+                size="lg"
+                className="border-primary-500 text-primary-500 hover:bg-primary-50"
+                icon={<i className="bi bi-chat-dots text-xl" aria-hidden="true" />}
+                iconPosition="right"
+              >
+                Chat with Us
+              </Button>
+            </a>
           </div>
         </div>
       </div>

@@ -34,30 +34,6 @@ const FounderCard = ({ name, quote, description, linkedIn, instagram }: FounderC
 
       {/* Description */}
       <p className="text-neutral-700 text-base leading-relaxed">{description}</p>
-
-      {/* Social Links */}
-      <div className="flex gap-3 pt-2" role="group" aria-label={`${name}'s social profiles`}>
-        <a
-          href={linkedIn}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-neutral-100 text-primary-500 hover:bg-primary-500 hover:text-white transition-all duration-300"
-          aria-label={`${name} on LinkedIn`}
-        >
-          <i className="bi bi-linkedin" />
-        </a>
-        {instagram && (
-          <a
-            href={instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-neutral-100 text-primary-500 hover:bg-primary-500 hover:text-white transition-all duration-300"
-            aria-label={`${name} on Instagram`}
-          >
-            <i className="bi bi-instagram" />
-          </a>
-        )}
-      </div>
     </div>
   )
 }

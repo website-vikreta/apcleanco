@@ -19,7 +19,7 @@ const GARAGE_SIZES: { value: GarageSize; label: string }[] = [
   { value: '3_car', label: '3 Car Garage' },
 ]
 
-const CALENDLY_URL = 'https://calendly.com/apcleanco'
+const CALENDLY_URL = 'https://calendly.com/parthdharia99/30min'
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
@@ -201,7 +201,6 @@ export const PricingTable: React.FC = () => {
                 >
                   Book This Plan
                 </Button>
-
               </div>
             </article>
           )

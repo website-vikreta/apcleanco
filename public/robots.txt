@@ -1,0 +1,85 @@
+# ApcleanCo robots.txt
+# Optimized for SEO and Generative Engine Optimization (GEO)
+# Last updated: May 4, 2025
+
+# Default rules - allow all crawlers with respectful delays
+User-agent: *
+Allow: /
+Disallow: /_next/
+Disallow: /api/
+Disallow: /.git/
+Crawl-delay: 1
+Request-rate: 30/1m
+
+# Google Bot - Search Engine Optimization
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+Request-rate: 60/1m
+
+# Google Bot - Image crawling
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing Bot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+Request-rate: 30/1m
+
+# Yahoo Slurp
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Yandex Bot
+User-agent: YandexBot
+Allow: /
+
+# Baidu Bot (for GEO - Asian markets)
+User-agent: Baiduspider
+Allow: /
+
+# Generative AI crawlers (optional - uncomment to disallow)
+# These crawlers help with AI model training and GEO discovery
+User-agent: GPTBot
+Allow: /blog
+Allow: /about
+Allow: /services
+Disallow: /legal
+Disallow: /pricing
+
+User-agent: CCBot
+Allow: /blog
+Allow: /about
+Allow: /services
+Disallow: /legal
+Disallow: /pricing
+
+User-agent: anthropic-ai
+Allow: /blog
+Allow: /about
+Allow: /services
+Disallow: /legal
+Disallow: /pricing
+
+User-agent: claudebot
+Allow: /blog
+Allow: /about
+Allow: /services
+Disallow: /legal
+Disallow: /pricing
+
+User-agent: Perplexitybot
+Allow: /blog
+Allow: /about
+Allow: /services
+Disallow: /legal
+Disallow: /pricing
+
+# Sitemaps - Primary reference for crawlers
+Sitemap: https://apcleanco.com/sitemap.xml

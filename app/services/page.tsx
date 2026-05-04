@@ -3,19 +3,30 @@ import { ServiceCard } from '@/components/services/ServiceCard';
 import ServicesHero from '@/components/services/ServicesHero';
 
 export const metadata: Metadata = {
-  title: 'Our Services | AP cleanco',
-  description:
-    'Professional garage cleanouts, deep cleaning, and organization services. Discover how AP cleanco transforms your space.',
+  title: 'Garage Cleaning, Junk Removal & Organization | Services NJ',
+  description: 'Professional garage cleaning, junk removal, deep cleaning, house organizing, and pressure washing services throughout New Jersey. Expert decluttering solutions.',
+  keywords: [
+    'garage cleaning services NJ',
+    'junk removal services New Jersey',
+    'deep cleaning services NJ',
+    'house organization services',
+    'professional cleaners NJ',
+    'garage organizing service',
+    'pressure washing NJ',
+    'debris removal NJ',
+    'garage declutter service',
+  ],
   openGraph: {
-    title: 'Our Services | AP cleanco',
+    title: 'Our Services | Garage Cleaning & Junk Removal NJ',
     description:
-      'Professional garage cleanouts, deep cleaning, and organization services.',
+      'Professional garage cleanouts, deep cleaning, and organization services throughout New Jersey.',
+    url: 'https://apcleanco.com/services',
     images: [
       {
         url: '/hero-image.png',
         width: 1200,
         height: 630,
-        alt: 'AP cleanco Services',
+        alt: 'AP cleanco Services - Garage Cleaning NJ',
       },
     ],
   },

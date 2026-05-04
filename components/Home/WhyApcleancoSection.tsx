@@ -372,7 +372,7 @@ export default function WhyApcleancoSection() {
             rel="noopener noreferrer"
             icon={<i className="bi bi-arrow-right text-base lg:text-lg leading-none" aria-hidden="true" />}
             iconPosition="right"
-            aria-label="Schedule your free estimate"
+            aria-label="Schedule your free estimate — opens in a new tab"
           >
             Schedule Free Estimate
           </Button>

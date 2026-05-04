@@ -7,17 +7,22 @@ import VisionMissionSection from '@/components/about/VisionMissionSection'
 import CTASection from '@/components/about/CTASection'
 
 export const metadata: Metadata = {
-  title: 'About AP cleanco - Our Story & Mission | Premium Junk Removal',
-  description:
-    'Discover AP cleanco\'s journey, founder story, and mission to transform spaces. Learn about our values, vision, and why we\'re the trusted choice for professional junk removal and garage cleanouts.',
+  title: 'About AP cleanco | NJ\'s Most Trusted Garage Cleaning Company',
+  description: 'Meet the AP cleanco team. Discover our mission, values, and why New Jersey families trust us for professional garage cleanouts and junk removal since [year].',
   keywords: [
-    'about ap cleanco',
-    'junk removal company',
-    'founder story',
-    'professional cleaning company',
-    'trusted junk removal',
-    'garage cleanout service',
+    'about AP cleanco',
+    'professional cleaning company NJ',
+    'trusted junk removal company',
+    'best cleaning service New Jersey',
+    'garage cleanout experts',
+    'top rated cleaners NJ',
+    'licensed cleaning company',
   ],
+  openGraph: {
+    title: 'About AP cleanco | NJ\'s Trusted Garage Cleaning Company',
+    description: 'Our story, mission, and commitment to professional garage cleanouts and junk removal in New Jersey.',
+    url: 'https://apcleanco.com/about',
+  },
 }
 
 export default function AboutPage() {

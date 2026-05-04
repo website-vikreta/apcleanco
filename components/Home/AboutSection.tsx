@@ -165,7 +165,9 @@ export default function AboutSection() {
               <Button
                 variant="secondary"
                 size="md"
-                onClick={() => window.open('https://calendly.com/parthdharia99/30min', '_blank', 'noopener,noreferrer')}
+                href="https://calendly.com/parthdharia99/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Get a free quote — opens scheduling"
               >
                 Get a Free Quote

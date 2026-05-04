@@ -35,10 +35,9 @@ export const PlanColumn: React.FC<PlanColumnProps> = ({ plan, currentPrice }) =>
         variant={plan.featured ? 'primary' : 'outlined'}
         size="md"
         className="w-full"
-        onClick={() => {
-          // TODO: Connect to Calendly or quote form
-          window.location.href = '#contact'
-        }}
+        href="https://calendly.com/parthdharia99/30min"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         Book a Slot
       </Button>
