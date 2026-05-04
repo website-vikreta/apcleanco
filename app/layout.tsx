@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { ThemeSwitcher } from '@/components/ThemeSwitcher'
 import { StructuredData } from '@/components/StructuredData'
+import { GoogleAnalytics } from '@/components/GoogleAnalytics'
 
 export const metadata: Metadata = {
   title: {
@@ -55,6 +56,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <StructuredData />
+        <GoogleAnalytics />
       </head>
       <body className="font-sans antialiased">
         <Header />

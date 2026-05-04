@@ -82,6 +82,8 @@ export default function Footer() {
                      rel="noopener noreferrer"
                      className="inline-flex items-center gap-2 px-6 py-3 h-11 rounded-lg text-base font-semibold bg-white text-primary-700 border-2 border-white hover:bg-white/90 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl"
                      aria-label="Schedule your free garage estimate — opens in a new tab">
+                        <span>Get a Free Quote</span>
+                        <i className="bi bi-arrow-right" aria-hidden="true" />
                   </a>
                </div>
             </div>
