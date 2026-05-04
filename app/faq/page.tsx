@@ -3,13 +3,20 @@ import FAQAccordion from '@/components/faq/FAQAccordion'
 import faqs from '@/data/faqs.json'
 
 export const metadata: Metadata = {
-  title: 'FAQs',
-  description:
-    'Find answers to common questions about AP cleanco garage clean-out, organization, and junk removal services. Learn what we offer, how we work, and how to get started.',
+  title: 'Frequently Asked Questions | Garage Cleaning & Junk Removal NJ',
+  description: 'Have questions about garage cleaning, junk removal, or home organization? Find answers to common FAQs about AP cleanco services in New Jersey.',
+  keywords: [
+    'how much does garage cleaning cost',
+    'what is junk removal',
+    'garage cleaning FAQs',
+    'junk removal questions',
+    'how does junk removal work',
+    'garage organization help',
+  ],
   openGraph: {
-    title: 'FAQs | AP cleanco',
+    title: 'FAQs | Garage Cleaning & Junk Removal NJ',
     description:
-      'Have questions? Browse our FAQ to learn about AP cleanco garage services, timelines, add-ons, and how to get started.',
+      'Answers to your questions about AP cleanco garage cleaning and junk removal services in New Jersey.',
     url: 'https://apcleanco.com/faq',
     siteName: 'AP cleanco',
     type: 'website',

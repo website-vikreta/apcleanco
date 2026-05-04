@@ -36,7 +36,7 @@ export const ServiceCard = ({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center py-12 lg:py-16">
         {/* Image Container - Desktop Left Position */}
         {isImageLeft && (
-          <div className="order-1 lg:col-span-1 h-80 md:h-72 lg:h-[420px] w-full">
+          <div className="order-1 lg:col-span-1 h-80 md:h-72 lg:h-105 w-full">
             <BeforeAfterImage
               beforeImage={beforeImage}
               afterImage={afterImage}
@@ -61,7 +61,7 @@ export const ServiceCard = ({
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/contact" className="inline-flex">
+            <Link href="/pricing" className="inline-flex">
               <Button
                 variant="primary"
                 size="md"
@@ -92,7 +92,7 @@ export const ServiceCard = ({
 
         {/* Image Container - Desktop Right Position */}
         {!isImageLeft && (
-          <div className="order-1 lg:order-2 lg:col-span-1 h-80 md:h-72 lg:h-[420px] w-full">
+          <div className="order-1 lg:order-2 lg:col-span-1 h-80 md:h-72 lg:h-105 w-full">
             <BeforeAfterImage
               beforeImage={beforeImage}
               afterImage={afterImage}

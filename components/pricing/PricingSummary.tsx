@@ -40,7 +40,9 @@ export const PricingSummary: React.FC<PricingSummaryProps> = ({
           variant="primary"
           size="md"
           className="w-full mt-4"
-          onClick={() => (window.location.href = '#contact')}
+          href="https://calendly.com/parthdharia99/30min"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Book Now
         </Button>
