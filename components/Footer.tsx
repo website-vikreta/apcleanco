@@ -42,7 +42,7 @@ export default function Footer() {
          >
             {/* Full-bleed background photo */}
             <Image
-               src="/services/garage-after.webp"
+               src="/services/garage-after.jpeg"
                alt=""
                role="presentation"
                fill

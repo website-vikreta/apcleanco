@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import { ServiceCard } from '@/components/services/ServiceCard';
 import ServicesHero from '@/components/services/ServicesHero';
+import { AdditionalServicesGrid } from '@/components/services/AdditionalServicesGrid';
+import OurProcessSection from '@/components/Home/OurProcessSection';
 
 export const metadata: Metadata = {
   title: 'Garage Cleaning, Junk Removal & Organization | Services NJ',
@@ -47,8 +49,8 @@ export default function ServicesPage() {
             id="garage-cleanouts"
             name="Garage Cleanouts"
             description="Transform your cluttered garage into a clean, functional space. Our professional team removes unwanted items, debris, and junk, leaving your garage spotless and ready to use. We handle everything from sorting to responsible disposal."
-            beforeImage="/after-service.png"
-            afterImage="/hero-image.png"
+            beforeImage="/services/garage-after.jpeg"
+            afterImage="/services/garage-before.jpeg"
             imageAlt="Garage cleanout transformation"
             imagePosition="left"
           />
@@ -61,8 +63,8 @@ export default function ServicesPage() {
             id="deep-cleaning"
             name="Deep Cleaning"
             description="Experience a thorough clean that goes beyond the basics. Our deep cleaning service tackles every corner of your garage, including floors, walls, shelves, and hard-to-reach areas. We use eco-friendly methods to ensure your space is pristine and healthy."
-            beforeImage="/after-service.png"
-            afterImage="/hero-image.png"
+            beforeImage="/services/deepcleaning-after.jpeg"
+            afterImage="/services/deepcleaning-before.jpeg"
             imageAlt="Deep cleaning service results"
             imagePosition="right"
           />
@@ -75,13 +77,19 @@ export default function ServicesPage() {
             id="garage-organisation"
             name="Garage Organisation"
             description="Create an organized system that lasts. We design custom storage solutions tailored to your needs, install shelving and racks, and organize items for easy access and maintenance. A well-organized garage saves time and reduces stress."
-            beforeImage="/after-service.png"
-            afterImage="/hero-image.png"
+            beforeImage="/services/garage-organization-after.jpeg"
+            afterImage="/services/garage-organization-before.jpeg"
             imageAlt="Garage organization system"
             imagePosition="left"
           />
         </div>
       </section>
+
+      {/* Additional Services Section */}
+      <AdditionalServicesGrid />
+
+      {/* Our Process Section */}
+      <OurProcessSection />
     </main>
   );
 }
