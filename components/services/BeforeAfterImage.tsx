@@ -136,7 +136,7 @@ export const BeforeAfterImage = ({
           src={beforeImage}
           alt={`Before: ${alt}`}
           fill
-          className="object-cover w-full h-full"
+          className="object-cover object-left w-full h-full"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 60vw"
         />
       </div>
@@ -151,7 +151,7 @@ export const BeforeAfterImage = ({
           src={afterImage}
           alt={`After: ${alt}`}
           fill
-          className="object-cover w-full h-full"
+          className="object-cover object-left w-full h-full"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 60vw"
         />
       </div>
