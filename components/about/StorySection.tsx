@@ -45,6 +45,7 @@ export default function StorySection() {
   return (
     <section
       ref={sectionRef}
+      id="story-section"
       className="w-full bg-white py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="story-heading"
     >

@@ -7,8 +7,16 @@ import Button from '../Button'
 
 gsap.registerPlugin(useGSAP)
 
+const CALENDLY_URL = 'https://calendly.com/parthdharia99/30min'
+
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
+
+  const handleScrollToStory = () => {
+    // Scroll to story section
+    const storySection = document.getElementById('story-section')
+    storySection?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   useGSAP(
     () => {
@@ -96,23 +104,25 @@ export default function HeroSection() {
             role="group"
             aria-label="Hero section call to action buttons"
           >
-            <Button
-              variant="primary"
-              size="lg"
-              icon={<i className="bi bi-calendar-check text-base" aria-hidden="true" />}
-              iconPosition="left"
-              magnetic
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 h-11 rounded-lg text-base font-semibold bg-primary-600 text-white border-2 border-primary-600 hover:bg-primary-700 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 lg:px-8 lg:py-4 lg:text-lg lg:h-14 lg:rounded-xl lg:gap-2.5"
+              aria-label="Schedule your free assessment"
             >
+              <i className="bi bi-calendar-check text-base" aria-hidden="true" />
               Book a Free Call
-            </Button>
+            </a>
             <Button
               variant="outlined"
               size="lg"
               className="border-primary-500 text-primary-500 hover:bg-primary-50"
               icon={<i className="bi bi-arrow-down text-base" aria-hidden="true" />}
               iconPosition="right"
+              onClick={handleScrollToStory}
             >
-              Scroll to Story
+              Learn Our Story
             </Button>
           </div>
         </div>

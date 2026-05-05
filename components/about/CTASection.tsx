@@ -58,6 +58,7 @@ export default function CTASection() {
   return (
     <section
       ref={sectionRef}
+      id="cta-section"
       className="w-full bg-neutral-50 py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
       aria-labelledby="cta-heading"
     >
