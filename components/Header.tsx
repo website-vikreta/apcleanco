@@ -20,7 +20,7 @@ const NAV_LINKS = [
   { label: 'Services', href: '/services' },
   { label: 'About Us', href: '/about' },
   { label: 'Pricing',  href: '/pricing' },
-  { label: 'Blog',     href: '/blog' },
+//   { label: 'Blog',     href: '/blog' },
 ]
 
 const SOCIAL_LINKS = [
