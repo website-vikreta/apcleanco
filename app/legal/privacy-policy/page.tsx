@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
 
   return (
     <main aria-label="Privacy Policy" className="bg-neutral-50">
-      <div aria-hidden="true" className="h-0 md:h-10" />
+      <div aria-hidden="true" className="h-16 md:h-32 lg:h-40" />
       {/* Centered container with max-width for optimal readability */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-14 lg:py-16">
         {/* Page header with title and meta */}

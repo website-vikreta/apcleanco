@@ -56,9 +56,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <StructuredData />
-        <GoogleAnalytics />
       </head>
       <body className="font-sans antialiased">
+        <GoogleAnalytics />
         <Header />
         {children}
         <Footer />
