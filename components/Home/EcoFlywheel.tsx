@@ -406,20 +406,23 @@ export default function EcoFlywheel() {
 
         {/* ── Impact bar ───────────────────────────────────────────────── */}
         <div
-          className="eco-impact-bar bg-primary-700 rounded-2xl overflow-hidden grid grid-cols-2 lg:grid-cols-4 gap-px"
+          className="eco-impact-bar rounded-2xl overflow-hidden grid grid-cols-2 lg:grid-cols-4 gap-px"
+          style={{ backgroundColor: 'rgb(11, 31, 23)' }}
           role="list"
           aria-label="Our eco impact pillars"
         >
           {IMPACT_PILLARS.map(({ label, desc }) => (
             <div
               key={label}
-              className="impact-pillar bg-primary-900 px-5 py-5 lg:py-6 text-center"
+              className="impact-pillar px-5 py-5 lg:py-6 text-center"
               role="listitem"
             >
               <p className="font-bold text-white text-sm lg:text-[0.9375rem] mb-1 leading-snug">
                 {label}
               </p>
-              <p className="text-primary-300 text-xs leading-snug">{desc}</p>
+              <p className="text-xs leading-snug" style={{ color: 'rgb(95, 154, 134)' }}>
+                {desc}
+              </p>
             </div>
           ))}
         </div>

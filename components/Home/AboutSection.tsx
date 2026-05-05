@@ -117,7 +117,7 @@ export default function AboutSection() {
             >
               <div className="absolute inset-0">
                 <Image
-                  src="/about-us.webp"
+                  src="/services/power-washing.jpeg"
                   alt="AP Clean Co team removing junk"
                   fill
                   sizes="100vw"
@@ -188,7 +188,7 @@ export default function AboutSection() {
             >
               <div className="absolute inset-0">
                 <Image
-                  src="/about-us.webp"
+                  src="/services/power-washing.jpeg"
                   alt="AP Clean Co team removing junk"
                   fill
                   sizes="40vw"
