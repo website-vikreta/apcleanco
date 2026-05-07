@@ -8,11 +8,11 @@ import CTASection from '@/components/about/CTASection'
 
 export const metadata: Metadata = {
   title: 'About AP cleanco | NJ\'s Most Trusted Garage Cleaning Company',
-  description: 'Meet the AP cleanco team. Discover our mission, values, and why New Jersey families trust us for professional garage cleanouts and junk removal since [year].',
+  description: 'Meet the AP cleanco team. Discover our mission, values, and why New Jersey families trust us for professional garage cleaning services since [year].',
   keywords: [
     'about AP cleanco',
     'professional cleaning company NJ',
-    'trusted junk removal company',
+    'trusted garage cleaning company',
     'best cleaning service New Jersey',
     'garage cleanout experts',
     'top rated cleaners NJ',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'About AP cleanco | NJ\'s Trusted Garage Cleaning Company',
-    description: 'Our story, mission, and commitment to professional garage cleanouts and junk removal in New Jersey.',
+    description: 'Our story, mission, and commitment to professional garage cleaning services in New Jersey.',
     url: 'https://apcleanco.com/about',
   },
 }

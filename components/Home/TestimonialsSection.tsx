@@ -20,7 +20,7 @@ const TESTIMONIALS = [
     id: 2,
     name: 'Rohit Sharma',
     designation: 'Property Owner',
-    testimonial: 'AP cleanco handled the junk removal at my rental property quickly and without any hassle on my end. What impressed me most was how they sorted recyclables on the spot rather than dumping everything. I will definitely be calling them again for my next turnover.',
+    testimonial: 'AP cleanco handled the cleanout at my rental property quickly and without any hassle on my end. What impressed me most was how they sorted recyclables on the spot rather than dumping everything. I will definitely be calling them again for my next turnover.',
   },
   {
     id: 3,

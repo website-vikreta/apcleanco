@@ -94,7 +94,7 @@ export default function HeroSection() {
 
           {/* Subheading */}
           <p className="hero-subheading text-base sm:text-lg md:text-xl text-neutral-700 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Two founders, one mission: make junk removal simple, affordable, and stress-free.
+            Two founders, one mission: make garage cleaning simple, affordable, and stress-free.
             Discover the story behind AP cleanco.
           </p>
 

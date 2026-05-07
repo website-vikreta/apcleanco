@@ -19,4 +19,4 @@ Tackle one wall or area at a time rather than pulling everything out at once. Th
 
 ## Pair Heavy Lifting With Professional Help
 
-Some items — old water heaters, scrap metal, broken appliances — are genuinely difficult to move solo. That's where AP cleanco's junk removal team can handle the heavy work safely and efficiently.
+Some items — old water heaters, scrap metal, broken appliances — are genuinely difficult to move solo. That's where AP cleanco's cleanup crew can handle the heavy work safely and efficiently.

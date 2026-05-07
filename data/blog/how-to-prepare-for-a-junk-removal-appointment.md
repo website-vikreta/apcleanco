@@ -1,13 +1,13 @@
 ---
-title: "How to Prepare for a Junk Removal Appointment"
+title: "How to Prepare for a Garage Cleanout Appointment"
 dateCreated: "2025-05-20"
 readTime: "3 min read"
 thumbnail: "/hero-image.png"
-slug: "how-to-prepare-for-a-junk-removal-appointment"
-excerpt: "A few minutes of preparation before our crew arrives can meaningfully speed up your junk removal job and help you get the most out of your booking."
+slug: "how-to-prepare-for-a-garage-cleanout"
+excerpt: "A few minutes of preparation before our crew arrives can meaningfully speed up your cleanout and help you get the most out of your booking."
 ---
 
-Junk removal is one of the most hands-off home services you can hire — but a small amount of preparation on your end makes a noticeable difference.
+A garage cleanout is one of the most hands-off home services you can hire — but a small amount of preparation on your end makes a noticeable difference.
 
 ## Identify Items in Advance
 

@@ -5,12 +5,11 @@ import BlogList from '@/components/blog/BlogList'
 import BlogSidebar from '@/components/blog/BlogSidebar'
 
 export const metadata: Metadata = {
-  title: 'Garage Cleaning Tips, Junk Removal Guides & Insights | Blog',
-  description: 'Learn practical garage cleaning tips, junk removal strategies, decluttering advice, and home organization insights from AP cleanco experts in New Jersey.',
+  title: 'Garage Cleaning Tips, Guides & Insights | Blog',
+  description: 'Learn practical garage cleaning tips, decluttering advice, and home organization insights from AP cleanco experts in New Jersey.',
   keywords: [
     'garage cleaning tips',
     'how to declutter garage',
-    'junk removal guide',
     'garage organization ideas',
     'cleaning hacks',
     'home organization tips',
@@ -18,8 +17,8 @@ export const metadata: Metadata = {
     'post construction cleaning',
   ],
   openGraph: {
-    title: 'Blog | Garage Cleaning Tips & Junk Removal Guides',
-    description: 'Expert advice on garage cleaning, decluttering, junk removal, and home organization from AP cleanco.',
+    title: 'Blog | Garage Cleaning Tips & Guides',
+    description: 'Expert advice on garage cleaning, decluttering, and home organization from AP cleanco.',
     url: 'https://apcleanco.com/blog',
   },
 }

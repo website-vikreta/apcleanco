@@ -5,11 +5,10 @@ import { AdditionalServicesGrid } from '@/components/services/AdditionalServices
 import OurProcessSection from '@/components/Home/OurProcessSection';
 
 export const metadata: Metadata = {
-  title: 'Garage Cleaning, Junk Removal & Organization | Services NJ',
-  description: 'Professional garage cleaning, junk removal, deep cleaning, house organizing, and pressure washing services throughout New Jersey. Expert decluttering solutions.',
+  title: 'Garage Cleaning & Organization Services | Services NJ',
+  description: 'Professional garage cleaning, deep cleaning, house organizing, and pressure washing services throughout New Jersey. Expert decluttering solutions.',
   keywords: [
     'garage cleaning services NJ',
-    'junk removal services New Jersey',
     'deep cleaning services NJ',
     'house organization services',
     'professional cleaners NJ',
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
     'garage declutter service',
   ],
   openGraph: {
-    title: 'Our Services | Garage Cleaning & Junk Removal NJ',
+    title: 'Our Services | Garage Cleaning & Organization NJ',
     description:
       'Professional garage cleanouts, deep cleaning, and organization services throughout New Jersey.',
     url: 'https://apcleanco.com/services',

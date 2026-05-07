@@ -3,7 +3,7 @@ export const organizationSchema = {
   '@type': 'LocalBusiness',
   name: 'AP cleanco',
   image: 'https://apcleanco.com/logo.png',
-  description: 'Professional garage cleaning, junk removal, and organization services in New Jersey',
+  description: 'Professional garage cleaning and organization services in New Jersey',
   url: 'https://apcleanco.com',
   telephone: '+1 (732) 770-3342',
   email: 'info@apcleanco.com',
@@ -34,7 +34,7 @@ export const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'HomeAndConstructionBusiness',
   name: 'AP cleanco',
-  description: 'Professional garage cleaning and junk removal services',
+  description: 'Professional garage cleaning services',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Cleaning Services',
@@ -51,8 +51,8 @@ export const serviceSchema = {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: 'Junk Removal',
-          description: 'Eco-friendly junk removal and disposal',
+          name: 'Debris Hauling & Disposal',
+          description: 'Eco-friendly debris disposal and hauling',
         },
       },
       {

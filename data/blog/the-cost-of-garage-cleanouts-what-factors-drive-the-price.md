@@ -11,7 +11,7 @@ Pricing for garage cleanouts varies widely depending on several real, measurable
 
 ## Volume of Material
 
-The single largest pricing variable is how much there is to remove. Most junk removal services price by the fraction of a truck load. A quarter-truck job costs significantly less than a full two-truck job.
+The single largest pricing variable is how much there is to remove. Most garage cleanout services price by the fraction of a truck load. A quarter-truck job costs significantly less than a full two-truck job.
 
 ## Weight of Load
 

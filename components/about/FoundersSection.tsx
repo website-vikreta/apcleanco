@@ -13,18 +13,19 @@ interface FounderCardProps {
   description: string
   linkedIn: string
   instagram?: string
+  image: string
 }
 
-const FounderCard = ({ name, quote, description, linkedIn, instagram }: FounderCardProps) => {
+const FounderCard = ({ name, quote, description, linkedIn, instagram, image }: FounderCardProps) => {
   return (
     <div className="founder-card flex flex-col gap-4">
-      {/* Placeholder avatar — replace with actual image */}
-      <div
-        className="w-full aspect-square bg-neutral-200 rounded-lg overflow-hidden founder-avatar flex items-center justify-center"
-        aria-hidden="true"
-      >
-        <i className="bi bi-person-fill text-4xl text-neutral-400" />
-      </div>
+      {/* Founder image */}
+      <img
+        src={image}
+        alt={`${name}, ApcleanCo founder`}
+        className="w-full aspect-square rounded-lg overflow-hidden founder-avatar object-cover"
+        loading="lazy"
+      />
 
       {/* Name */}
       <h3 className="text-2xl font-bold text-primary-900">{name}</h3>
@@ -109,14 +110,16 @@ export default function FoundersSection() {
             description="Operations and strategy drive. Parth ensures every project runs flawlessly, from the first quote to the final cleanup. Relentless about quality and customer satisfaction."
             linkedIn="https://linkedin.com/in/parth-dharia"
             instagram="https://instagram.com/parth_dharia"
+            image="/team/parth.png"
           />
 
           <FounderCard
             name="Arvind Dhankhad"
             quote="We're not just removing junk—we're removing burden."
-            description="Creative vision and growth. Arvind leads the brand, community, and innovation. Passionate about building genuine connections and reimagining what junk removal can be."
+            description="Creative vision and growth. Arvind leads the brand, community, and innovation. Passionate about building genuine connections and reimagining what garage cleaning can be."
             linkedIn="https://linkedin.com/in/arvind-dhankhad"
             instagram="https://instagram.com/arvind_dhankhad"
+            image="/team/arvind.png"
           />
         </div>
       </div>

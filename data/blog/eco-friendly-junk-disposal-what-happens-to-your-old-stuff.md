@@ -23,4 +23,4 @@ Only what cannot be reused or recycled ends up in disposal. We document the brea
 
 ## Why It Matters
 
-Eco-conscious junk removal isn't a marketing tagline. It reflects a straightforward reality: a lot of what fills garages has usable life left — and routing it correctly costs nothing extra to you.
+Eco-conscious disposal isn't a marketing tagline. It reflects a straightforward reality: a lot of what fills garages has usable life left — and routing it correctly costs nothing extra to you.
