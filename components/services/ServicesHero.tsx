@@ -30,7 +30,7 @@ export default function ServicesHero() {
       {/* Background image */}
       <div aria-hidden="true" className="absolute inset-0">
         <Image
-          src="/hero-image.png"
+          src="/services/dusting-shelves.jpeg"
           alt=""
           fill
           priority

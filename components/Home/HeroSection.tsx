@@ -106,7 +106,7 @@ export default function HeroSection() {
         }}
       >
         <Image
-          src="/hero-image.png"
+          src="/services/garage-inspection.jpeg"
           alt=""
           role="presentation"
           fill

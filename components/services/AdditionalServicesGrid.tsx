@@ -27,14 +27,14 @@ const additionalServices = [
 const serviceImageMap: { [key: string]: string } = {
   'Garage Inspection & Consultation': '/services/garage-inspection.jpeg',
   'Sorting & Categorization': '/services/sorting-category.jpeg',
-  'Junk & Debris Removal': '/hero-image.png',
-  'Responsible Disposal & Recycling': '/hero-image.png',
+  'Junk & Debris Removal': '/services/junk-debris-removal.jpeg',
+  'Responsible Disposal & Recycling': '/services/sorting-category.png',
   'Floor Vacuuming & Dust Removal': '/services/vaccuming-floor.jpeg',
   'Power Washing for Deep Clean': '/services/power-washing.jpeg',
-  'Floor Mopping & Finishing': '/hero-image.png',
+  'Floor Mopping & Finishing': '/services/floor-mopping.jpeg',
   'Dusting Shelves, Walls & Corners': '/services/dusting-shelves.jpeg',
-  'Stain & Grime Scrubbing': '/hero-image.png',
-  'Final Organization & Storage Setup': '/hero-image.png',
+  'Stain & Grime Scrubbing': '/services/scrubbing.jpeg',
+  'Final Organization & Storage Setup': '/services/sorting-organize.jpeg',
 };
 
 const getServiceImage = (serviceName: string): string => {

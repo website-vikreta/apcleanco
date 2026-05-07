@@ -188,7 +188,7 @@ export default function AboutSection() {
             >
               <div className="absolute inset-0">
                 <Image
-                  src="/services/power-washing.jpeg"
+                  src="/services/scrubbing.jpeg"
                   alt="AP Clean Co team removing junk"
                   fill
                   sizes="40vw"
