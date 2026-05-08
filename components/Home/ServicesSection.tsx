@@ -16,7 +16,7 @@ const SERVICES = [
   { id: 1, title: 'Garage Clean-Out',             image: '/services/garage-after.jpeg', anchor: 'garage-cleanouts' },
   { id: 2, title: 'Garage Deep Cleaning',         image: '/services/deepcleaning-after.jpeg', anchor: 'deep-cleaning' },
   { id: 3, title: 'Garage Organization',          image: '/services/garage-organization-after.jpeg', anchor: 'garage-organisation' },
-  { id: 4, title: 'Donation & Recycling Support', image: '/hero-image.png', anchor: '' },
+  { id: 4, title: 'Donation & Recycling Support', image: '/services/recycle.jpeg', anchor: '' },
 ]
 
 // ── Service Row ───────────────────────────────────────────────────────────────
