@@ -61,7 +61,7 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-neutral-50"
+      className="relative w-full min-h-[50vh] flex items-center justify-center overflow-hidden bg-neutral-50 pt-[10vh]"
       aria-labelledby="hero-heading"
     >
       {/* Minimal accent line — top right corner */}
@@ -73,10 +73,6 @@ export default function HeroSection() {
       {/* Content Container */}
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-28">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Label */}
-          <p className="hero-label text-xs md:text-sm font-semibold tracking-widest uppercase text-primary-600 mb-4">
-            About Our Company
-          </p>
 
           {/* Heading */}
           <h1
@@ -94,8 +90,7 @@ export default function HeroSection() {
 
           {/* Subheading */}
           <p className="hero-subheading text-base sm:text-lg md:text-xl text-neutral-700 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Two founders, one mission: make garage cleaning simple, affordable, and stress-free.
-            Discover the story behind AP cleanco.
+            Two founders, one mission : make garage cleaning simple, structured, and stress-free. Meet the team behind AP cleanco, New Jersey's garage cleanout and deep cleaning specialists. Our story, values, and how we work.
           </p>
 
           {/* CTAs */}
@@ -104,7 +99,7 @@ export default function HeroSection() {
             role="group"
             aria-label="Hero section call to action buttons"
           >
-            <a
+            {/* <a
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -113,8 +108,8 @@ export default function HeroSection() {
             >
               <i className="bi bi-calendar-check text-base" aria-hidden="true" />
               Book a Free Call
-            </a>
-            <Button
+            </a> */}
+            {/* <Button
               variant="outlined"
               size="lg"
               className="border-primary-500 text-primary-500 hover:bg-primary-50"
@@ -123,7 +118,7 @@ export default function HeroSection() {
               onClick={handleScrollToStory}
             >
               Learn Our Story
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>

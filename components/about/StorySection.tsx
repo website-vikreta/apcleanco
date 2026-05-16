@@ -60,16 +60,22 @@ export default function StorySection() {
 
         {/* Body */}
         <div className="story-body space-y-6 md:space-y-8">
+          <p className="text-xl md:text-2xl text-neutral-700 leading-relaxed font-bold">
+            We did not set out to start a cleaning company. We set out to fix a problem we could not ignore.
+          </p>
           <p className="text-lg md:text-xl text-neutral-700 leading-relaxed">
-            AP cleanco started from something we kept seeing everywhere. No matter the house, the garage was often the same: cluttered, unorganized, and not even usable for what it was meant for. In many cases, people could not even park their car inside. Everything just gets pushed there over time: boxes, old items, and things people plan to &quot;deal with later.&quot; Eventually, the space becomes hard to use and easy to ignore.
+            Like any good story, ours also started without a plan and just an idea, which we came across when we constantly visited our friend's house in New Jersey. We stepped into his garage, which, like many of our homes, had turned into a storage space of all sorts over the years. However, this was not the result of us being messy and disorganized. This is a result of “Life just moves fast," and none of us ever got to the garage to make it look like the rest of their home, where the car has not been in over years. Boxes that belonged to the previous move. Items to be donated "someday." Random items stored in places they did not belong. And tools, covered up by anything but tools.
           </p>
 
           <p className="text-lg md:text-xl text-neutral-700 leading-relaxed">
-            For us, that never felt right. We&apos;ve always been the kind of people who need things to be clean and organized. If a space is messy, it stays on our mind until it&apos;s fixed. So instead of ignoring the problem, we decided to build something around it.
+            In that moment, we both were thinking the same thing: that this is a solvable problem, not a small one, not a "spend a weekend and figure it out" kind of problem. The one that needed a structured approach using proper disposal and organizing and someone who actually cared about the outcome.
+          </p>
+          <p className="text-lg md:text-xl text-neutral-700 leading-relaxed">
+            <i>Garages don't get cluttered because people are lazy. They get cluttered because nobody made it simple enough to fix. That's exactly what we do.</i>
           </p>
 
           <p className="text-lg md:text-xl text-neutral-700 leading-relaxed">
-            AP cleanco focuses on garage clean-out, garage deep cleaning, and garage organization to turn cluttered garages into clean, functional, and usable spaces. We also help with donation drop-off, recycling, and responsible item handling so things do not get thrown away if they still have value. The goal is simple: to help people take back their garage space and make it cleaner, more functional, and easier to manage.
+            So we built <strong>AP cleanco</strong> to bridge that gap. A garage-first service designed to do the job properly and not just to haul things away, but sort, clean, organize, donate, and recycle responsibly. Every job is structured. Every space is left cleaner, more functional, and easier to maintain than we found it.
           </p>
         </div>
       </div>

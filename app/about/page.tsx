@@ -7,7 +7,7 @@ import VisionMissionSection from '@/components/about/VisionMissionSection'
 import CTASection from '@/components/about/CTASection'
 
 export const metadata: Metadata = {
-  title: 'About AP cleanco | NJ\'s Most Trusted Garage Cleaning Company',
+  title: 'About AP cleanco | Garage Cleanout & Deep Cleaning Specialists',
   description: 'Meet the AP cleanco team. Discover our mission, values, and why New Jersey families trust us for professional garage cleaning services since [year].',
   keywords: [
     'about AP cleanco',
@@ -33,7 +33,7 @@ export default function AboutPage() {
       <StorySection />
       <FoundersSection />
       <VisionMissionSection />
-      <CTASection />
+      {/* <CTASection /> */}
     </main>
   )
 }
