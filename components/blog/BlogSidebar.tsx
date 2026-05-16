@@ -6,9 +6,16 @@ import Button from '@/components/Button'
 // ── Data ──────────────────────────────────────────────────────────────────────
 
 const SERVICES = [
-  { label: 'Garage Cleanouts',  href: '/services#garage-cleanouts' },
-  { label: 'Deep Cleaning',     href: '/services#deep-cleaning' },
-  { label: 'Garage Organisation', href: '/services#garage-organisation' },
+  { label: 'Garage Inspection & Consultation',  href: '/services#garage-organisation' },
+  { label: 'Sorting & Categorization',          href: '/services#garage-organisation' },
+  { label: 'Junk & Debris Removal',             href: '/services#garage-organisation' },
+  { label: 'Responsible Disposal & Recycling',  href: '/services#garage-organisation' },
+  { label: 'Floor Vacuuming & Dust Removal',    href: '/services#garage-organisation' },
+  { label: 'Power Washing for Deep Clean',      href: '/services#garage-organisation' },
+  { label: 'Floor Mopping & Finishing',         href: '/services#garage-organisation' },
+  { label: 'Dusting Shelves, Walls & Corners',  href: '/services#garage-organisation' },
+  { label: 'Stain & Grime Scrubbing',           href: '/services#garage-organisation' },
+  { label: 'Final Organization & Storage Setup', href: '/services#garage-organisation' },
 ]
 
 // ── Sidebar ───────────────────────────────────────────────────────────────────

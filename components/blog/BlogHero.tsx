@@ -31,7 +31,7 @@ export default function BlogHero() {
       {/* Background image */}
       <div ref={bgRef} aria-hidden="true" className="absolute inset-0">
         <Image
-          src="/hero-image.png"
+          src="/services/garage-inspection.jpeg"
           alt=""
           fill
           priority

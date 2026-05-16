@@ -11,9 +11,9 @@ import Logo from '@/components/Logo'
 const NAV_LINKS = [
    { label: 'Services', href: '/services' },
    { label: 'About Us', href: '/about' },
-   // { label: 'Blog', href: '/blog' },
    { label: 'FAQ', href: '/faq' },
    { label: 'Pricing', href: '/pricing' },
+   { label: 'Blog', href: '/blog' },
 ]
 
 const SOCIAL_LINKS = [

@@ -11,7 +11,9 @@ import Button from './Button'
 gsap.registerPlugin(useGSAP)
 
 // ── Routes with hero sections (dark image background overlay) ────────────────
-const ROUTES_WITH_HERO = ['/', '/services', '/blog']
+// Entries in EXACT_ROUTES match only that pathname; PREFIX_ROUTES match any sub-path.
+const EXACT_ROUTES  = ['/', '/blog']
+const PREFIX_ROUTES = ['/services']
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 
@@ -20,7 +22,7 @@ const NAV_LINKS = [
   { label: 'Services', href: '/services' },
   { label: 'About Us', href: '/about' },
   { label: 'Pricing',  href: '/pricing' },
-//   { label: 'Blog',     href: '/blog' },
+  { label: 'Blog',     href: '/blog' },
 ]
 
 const SOCIAL_LINKS = [
@@ -39,9 +41,9 @@ export default function Header() {
   const pathname = usePathname()
   
   // Determine if current route has a hero section
-  const hasHeroSection = ROUTES_WITH_HERO.some(route => 
-    route === '/' ? pathname === '/' : pathname.startsWith(route)
-  )
+  const hasHeroSection =
+    EXACT_ROUTES.includes(pathname) ||
+    PREFIX_ROUTES.some(route => pathname.startsWith(route))
   
   const headerRef     = useRef<HTMLElement>(null)
   const topbarWrapRef = useRef<HTMLDivElement>(null)
