@@ -4,6 +4,7 @@ import HeroSection from '@/components/about/HeroSection'
 import StorySection from '@/components/about/StorySection'
 import FoundersSection from '@/components/about/FoundersSection'
 import VisionMissionSection from '@/components/about/VisionMissionSection'
+import AvailabilitySection from '@/components/about/AvailabilitySection'
 import CTASection from '@/components/about/CTASection'
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function AboutPage() {
       <StorySection />
       <FoundersSection />
       <VisionMissionSection />
+      <AvailabilitySection />
       {/* <CTASection /> */}
     </main>
   )

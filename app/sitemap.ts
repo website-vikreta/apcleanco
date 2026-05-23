@@ -42,6 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // Blog posts
     {
+      url: `${baseUrl}/blog/garage-deep-cleaning-nj-what-it-actually-involves`,
+      lastModified: new Date('2026-05-23'),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/blog/how-to-finally-clean-out-your-garage-in-one-weekend`,
       lastModified: new Date('2026-05-16'),
       changeFrequency: 'monthly',
