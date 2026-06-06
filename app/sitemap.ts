@@ -42,6 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // Blog posts
     {
+      url: `${baseUrl}/blog/how-much-does-garage-cleanout-cost-nj-2026`,
+      lastModified: new Date('2026-06-06'),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/blog/garage-deep-cleaning-nj-what-it-actually-involves`,
       lastModified: new Date('2026-05-23'),
       changeFrequency: 'monthly',

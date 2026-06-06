@@ -1,0 +1,36 @@
+// Blog styling - Tables and content typography
+
+.prose-blog {
+  // Table styling
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    border: 1px solid #ddd;
+
+    thead {
+      th {
+        background-color: whitesmoke;
+        color: #000;
+        text-align: left;
+        padding: 12px 16px;
+        border: 1px solid #ddd;
+        font-weight: 600;
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: #f9f9f9;
+        }
+
+        td {
+          padding: 12px 16px;
+          border: 1px solid #ddd;
+          text-align: left;
+        }
+      }
+    }
+  }
+}

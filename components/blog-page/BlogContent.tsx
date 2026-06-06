@@ -1,4 +1,5 @@
 import React from 'react'
+import '@/styles/_blog.scss'
 
 interface BlogContentProps {
   contentHtml: string
